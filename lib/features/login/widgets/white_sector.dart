@@ -1,3 +1,4 @@
+import 'package:fluency/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class SecondWhiteStack extends StatelessWidget
@@ -11,6 +12,11 @@ class SecondWhiteStack extends StatelessWidget
       children:
       [
         //Positioned or Positioned.fill
+        Container(
+          decoration: BoxDecoration(
+            color: AppColors.kAlmostWhite,
+          ),
+        ),
       ],
     );
   }
