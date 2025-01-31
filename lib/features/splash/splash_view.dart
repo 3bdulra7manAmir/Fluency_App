@@ -10,27 +10,26 @@ class SplashView extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return SafeArea(
-      child: Scaffold(
-        //backgroundColor: Colors.blueGrey,
-        //backgroundColor: Color(0xff905EB6),
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage(AppAssetsPaths().kFluencyBooks)),
-            borderRadius: BorderRadius.circular(32.r),
-            gradient: LinearGradient(colors: [AppColors.kFirstGradient, AppColors.kSecondGradient])
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:
-            [
-              SvgPicture.asset(AppAssetsPaths().kFluencyLogo, fit: BoxFit.cover,),
-            ],
-          ),
-        )
-      ),
+    return Scaffold(
+      //backgroundColor: Colors.blueGrey,
+      //backgroundColor: Color(0xff905EB6),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(AppAssetsPaths().kFluencyBooks)),
+          borderRadius: BorderRadius.circular(32.r),
+          gradient: LinearGradient(colors: [AppColors.kFirstGradient, AppColors.kSecondGradient])
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:
+          [
+            
+            SvgPicture.asset(AppAssetsPaths().kFluencyLogo, fit: BoxFit.cover,),
+          ],
+        ),
+      )
     );
   }
 }
