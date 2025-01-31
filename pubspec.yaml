@@ -25,3 +25,4 @@ flutter:
   assets:
     - assets/images/svg/
     - assets/images/png/
+    - assets/fonts/nunito/
