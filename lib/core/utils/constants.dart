@@ -14,6 +14,7 @@ class AppColors
 {
   static const Color kFirstGradient = Color(0xff662D91);
   static const Color kSecondGradient = Color(0xff905EB6);
+  static const Color kAlmostWhite = Color(0xfff3f5fc);
 }
 
 class AppAssetsPaths
