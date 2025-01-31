@@ -1,3 +1,4 @@
+import 'package:fluency/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,15 +18,15 @@ class SplashView extends StatelessWidget
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage('assets/images/png/Splash_View_Bg.png')),
+            image: DecorationImage(image: AssetImage(AppAssetsPaths().kFluencyBooks)),
             borderRadius: BorderRadius.circular(32.r),
-            gradient: LinearGradient(colors: [Color(0xff662D91), Color(0xff905EB6)])
+            gradient: LinearGradient(colors: [AppColors.kFirstGradient, AppColors.kSecondGradient])
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children:
             [
-              SvgPicture.asset('assets/images/svg/Fluency_Logo.svg')
+              SvgPicture.asset(AppAssetsPaths().kFluencyLogo, fit: BoxFit.cover,),
             ],
           ),
         )

@@ -1,4 +1,3 @@
-// ignore_for_file: unused_local_variable
 import 'package:flutter/material.dart';
 
 
@@ -11,28 +10,14 @@ class KMediaQuery
   double get width => MediaQuery.of(context).size.width;
 }
 
-const String kGtSectraFine = 'GT Sectra Fine';
-
 class AppColors
 {
-  static const Color kCardColorPinkCardContainer = Color(0xffFFE7EE);
-  static const Color kCardColorPinkLinearLine = Color(0xffEC7B9C);
-
-  static const Color kCardColorBlueCardContainer = Color(0xffBAD6FF);
-  static const Color kCardColorBlueLinearLine = Color(0xff3D5CFF);
-
-  static const Color kCardColorGreenCardContainer = Color(0xffBAE0DB);
-  static const Color kCardColorGreenLinearLine = Color(0xff398A80);
-
-  Color kButtonsBlueColor = Color.fromRGBO(61, 93, 255, 1);
-
-  static const Color kScaffoldBackgoundColorWhite = Colors.white;
-  static const Color kTest = Colors.red;
+  static const Color kFirstGradient = Color(0xff662D91);
+  static const Color kSecondGradient = Color(0xff905EB6);
 }
 
 class AppAssetsPaths
 {
-  String kBBIMGPath = 'assets/images/svg/Eye.svg';
-  String kFlippedBBIMGPath = 'assets/images/svg/EyeFlipped.svg';
-  String kProfileAvatarWithoutCameraPath = 'assets/images/svg/Profile_Avatar_Without_Camera.svg';
+  String kFluencyBooks = 'assets/images/png/Splash_View_Bg.png';
+  String kFluencyLogo = 'assets/images/svg/Fluency_Logo.svg';
 }
