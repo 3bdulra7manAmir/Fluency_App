@@ -16,17 +16,17 @@ class _LoginViewState extends State<LoginView>
   @override
   Widget build(BuildContext context)
   {
-    return Stack(
-      children:
-      [
-        //Positioned //Called First not in the End To Overlay or Overlap Both Stack... become above the 2.
-        LoginColumn(),
-
-
-
-        //Positioned
-        TwoStacksColumn()
-      ],
+    return Scaffold(
+      body: const Stack(
+        children:
+        [
+          //Positioned
+          TwoStacksColumn(),
+      
+          //Positioned //Called First not in the End To Overlay or Overlap Both Stack... become above the 2.
+          LoginColumn(),
+        ],
+      ),
     );
   }
 }
@@ -41,7 +41,7 @@ class TwoStacksColumn extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return Column(
+    return const Column(
       children:
       [
         //Expanded 
