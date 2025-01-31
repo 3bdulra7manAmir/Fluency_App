@@ -1,10 +1,10 @@
+import 'package:fluency/core/shared/custom_button.dart';
 import 'package:fluency/core/shared/custom_text_form_field.dart';
 import 'package:fluency/core/utils/constants.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/core/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginColumn extends StatefulWidget
 {
@@ -42,7 +42,7 @@ class _LoginColumnState extends State<LoginColumn>
             [
               Container(
                 width: KMediaQuery(context).width * 0.87,
-                height: 330.h,
+                height: 340.h,
                 decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(24.r)),
                 child: Form(
                   key: loginFormKey,
@@ -54,7 +54,8 @@ class _LoginColumnState extends State<LoginColumn>
                   
                       Align(
                         alignment: Alignment.center,
-                        child: Text('Welcome back!', style: Styles.textStyle24,)),
+                        child: Text('Welcome back!', style: Styles.textStyle24,)
+                      ),
                   
                       const SizedBox(height: 24,),
 
@@ -77,7 +78,7 @@ class _LoginColumnState extends State<LoginColumn>
 
                             ),
 
-                            const SizedBox(height: 8,),
+                            const SizedBox(height: 15,),
 
                             Text('Password', style: Styles.textStyle14,),
 
@@ -89,16 +90,45 @@ class _LoginColumnState extends State<LoginColumn>
                               fieldKeyboardType: TextInputType.text,
                               fieldObscureText: true,
                               fieldSuffixIcon: Image.asset('assets/images/png/Login_View_Eye.png',),
-                              fieldHintText: "*****************",
+                              fieldHintText: "************",
                             ),
 
-                            Text('Forget Password',),
+                            Padding(
+                              padding: EdgeInsets.only(right: KMediaQuery(context).width * 0.06, top: 10.h),
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text('Forget Password?', style: Styles.textStyle14.copyWith(
+                                  decoration: TextDecoration.underline,
+                                  color: Color(0xff4F1993),
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                            const SizedBox(height: 20,),
+
+                            CustomBlueButton(
+                              buttonOnPressed: () {},
+                              buttonText: "Login",
+                              buttonWidth: 0.75,
+                            ),
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
+              ),
+
+              const SizedBox(height: 24,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:
+                [
+                  Text('Don`t have account?', style: TextStyle(color: Color(0xff777777), fontSize: 12.sp, fontWeight: FontWeight.bold),),
+                  SizedBox(width: 3,),
+                  Text('Sign up', style: TextStyle(color: Color(0xff662D91), fontWeight: FontWeight.bold, fontSize: 14.sp),),
+                ],
               )
             ],
           )

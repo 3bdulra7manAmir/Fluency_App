@@ -7,43 +7,69 @@ class CustomTextFormField extends StatelessWidget
   const CustomTextFormField({
   super.key,
   required this.fieldController,
+  required this.fieldObscureText,
+  required this.fieldValidator,
   this.fieldWidth,
   this.fieldKeyboardType,
-  required this.fieldValidator,
   this.fieldSuffixIcon,
   this.fieldSuffixIconColor,
-  required this.fieldObscureText,
-  this.fieldHintText
+  this.fieldHintText,
+  this.fieldContentPadding,
+  this.fieldHeight,
   });
 
   final TextEditingController fieldController;
-  final double? fieldWidth;
-  final TextInputType? fieldKeyboardType;
+  final bool fieldObscureText;
   final String? Function(String?) fieldValidator;
+
+  final double? fieldWidth;
+  final double? fieldHeight;
+  final TextInputType? fieldKeyboardType;
   final Widget? fieldSuffixIcon;
   final Color? fieldSuffixIconColor;
-  final bool fieldObscureText;
   final String? fieldHintText;
+  final EdgeInsetsGeometry? fieldContentPadding;
    
-
   @override
   Widget build(BuildContext context)
   {
     return SizedBox(
-      width: fieldWidth ?? KMediaQuery(context).width * 0.7,
+      width: fieldWidth ?? KMediaQuery(context).width * 0.75,
       child: TextFormField(
         controller: fieldController,
         obscureText: fieldObscureText,
         keyboardType: fieldKeyboardType ?? TextInputType.name,
         maxLines: 1,
         validator: fieldValidator,
+        style: TextStyle(fontSize: 12.sp, color: Color(0xff777777),),
 
         decoration: InputDecoration(
+          filled: true,
+          fillColor: Color(0xffFCFCFC),
           hintText: fieldHintText,
-          contentPadding: EdgeInsets.only(left: KMediaQuery(context).width * 0.04),
+          contentPadding: fieldContentPadding ?? EdgeInsets.only(left: KMediaQuery(context).width * 0.05),
           suffixIcon: fieldSuffixIcon,
           suffixIconColor: fieldSuffixIconColor,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.r),),
+
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.r),
+            borderSide: BorderSide(color: Color(0xffF0F0F0)),
+          ),
+
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xffF0F0F0)),
+            borderRadius: BorderRadius.circular(25.r),
+          ),
+
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xffF0F0F0)),
+            borderRadius: BorderRadius.circular(25.r),
+          ),
+
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xffF0F0F0)),
+            borderRadius: BorderRadius.circular(25.r),
+          ),
         ),
 
       ),
