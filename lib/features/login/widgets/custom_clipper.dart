@@ -6,15 +6,14 @@ class BottomCircularClipper extends CustomClipper<Path>
   Path getClip(Size size)
   {
     Path path = Path();
-    path.lineTo(0, size.height - 50); // بداية القطع قبل الدائرة
+    path.lineTo(0, size.height - 50);
 
-    // إنشاء منحنى دائري أسفل الصورة
     path.quadraticBezierTo(
-      size.width / 2, size.height + 50, // نقطة التحكم في المنحنى
-      size.width, size.height - 50, // نهاية المنحنى
+      size.width / 2, size.height + 50,
+      size.width, size.height - 50,
     );
 
-    path.lineTo(size.width, 0); // إغلاق المسار
+    path.lineTo(size.width, 0);
     path.close();
     return path;
   }

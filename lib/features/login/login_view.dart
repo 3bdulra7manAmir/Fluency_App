@@ -20,10 +20,8 @@ class _LoginViewState extends State<LoginView>
       body: const Stack(
         children:
         [
-          //Positioned
           TwoStacksColumn(),
       
-          //Positioned //Called First not in the End To Overlay or Overlap Both Stack... become above the 2.
           LoginColumn(),
         ],
       ),
@@ -44,10 +42,8 @@ class TwoStacksColumn extends StatelessWidget
     return const Column(
       children:
       [
-        //Expanded 
         Expanded(child: FirstPurpleStack()),
 
-        //Expanded
         Expanded(child: SecondWhiteStack()),
       ],
     );

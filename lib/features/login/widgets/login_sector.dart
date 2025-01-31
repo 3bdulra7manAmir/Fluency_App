@@ -99,7 +99,7 @@ class _LoginColumnState extends State<LoginColumn>
                                 alignment: Alignment.centerRight,
                                 child: Text('Forget Password?', style: Styles.textStyle14.copyWith(
                                   decoration: TextDecoration.underline,
-                                  color: Color(0xff4F1993),
+                                  color: AppColors.kForgetPassword,
                                   ),
                                 ),
                               ),
@@ -121,13 +121,14 @@ class _LoginColumnState extends State<LoginColumn>
               ),
 
               const SizedBox(height: 24,),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:
                 [
-                  Text('Don`t have account?', style: TextStyle(color: Color(0xff777777), fontSize: 12.sp, fontWeight: FontWeight.bold),),
-                  SizedBox(width: 3,),
-                  Text('Sign up', style: TextStyle(color: Color(0xff662D91), fontWeight: FontWeight.bold, fontSize: 14.sp),),
+                  Text('Don`t have account?', style: TextStyle(color: AppColors.kDontHaveAccount, fontSize: 12.sp, fontWeight: FontWeight.bold),),
+                  const SizedBox(width: 3,),
+                  Text('Sign up', style: TextStyle(color: AppColors.kFirstGradient, fontWeight: FontWeight.bold, fontSize: 14.sp),),
                 ],
               )
             ],

@@ -21,7 +21,7 @@ abstract class Styles
     fontSize: 24.sp,
     fontWeight: FontWeight.bold,
     color: Colors.black,
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'Nunito',
   );
 
   static TextStyle textStyle18 = TextStyle(

@@ -17,7 +17,7 @@ class SplashView extends StatelessWidget
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(AppAssetsPaths().kFluencyBooks)),
+          image: DecorationImage(image: AssetImage(AppIMGs().kFluencyBooks)),
           borderRadius: BorderRadius.circular(32.r),
           gradient: LinearGradient(colors: [AppColors.kFirstGradient, AppColors.kSecondGradient])
         ),
@@ -26,7 +26,7 @@ class SplashView extends StatelessWidget
           children:
           [
             
-            SvgPicture.asset(AppAssetsPaths().kFluencyLogo, fit: BoxFit.cover,),
+            SvgPicture.asset(AppIMGs().kFluencyLogo, fit: BoxFit.cover,),
           ],
         ),
       )

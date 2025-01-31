@@ -11,7 +11,6 @@ class SecondWhiteStack extends StatelessWidget
     return Stack(
       children:
       [
-        //Positioned or Positioned.fill
         Container(
           decoration: BoxDecoration(
             color: AppColors.kAlmostWhite,

@@ -12,13 +12,12 @@ class FirstPurpleStack extends StatelessWidget
     return Stack(
       children:
       [
-        //Positioned or Positioned.fill
         ClipPath(
           clipper: BottomCircularClipper(),
           child: Container(
             decoration: BoxDecoration(
               color: AppColors.kSecondGradient,
-              image: DecorationImage(image: AssetImage('assets/images/png/Login_View_Bg.png'), fit: BoxFit.cover),
+              image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHat), fit: BoxFit.cover),
             ),
           ),
         ),
