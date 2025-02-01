@@ -17,7 +17,7 @@ class FirstPurpleStack extends StatelessWidget
           child: Container(
             decoration: BoxDecoration(
               color: AppColors.kSecondGradient,
-              image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHat), fit: BoxFit.cover),
+              image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHatPNG), fit: BoxFit.cover),
             ),
           ),
         ),

@@ -44,4 +44,11 @@ abstract class Styles
     color: Colors.black,
     fontFamily: 'Nunito',
   );
+
+  static TextStyle textStyle12 = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontFamily: 'Nunito',
+  );
 }
