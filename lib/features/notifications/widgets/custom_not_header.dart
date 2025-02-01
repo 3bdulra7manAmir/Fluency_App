@@ -1,7 +1,9 @@
+import 'package:fluency/app/app_router.dart';
 import 'package:fluency/core/utils/constants.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomNotificationsHeader extends StatelessWidget
 {
@@ -18,7 +20,9 @@ class CustomNotificationsHeader extends StatelessWidget
         children:
         [
           //SvgPicture.asset(AppIMGs().kFluencyBackArrowSVG, width: 80,),
-          Image.asset(AppIMGs().kFluencyBackArrowPNG,),
+          GestureDetector(
+            onTap: (){GoRouter.of(context).pop();},
+            child: Image.asset(AppIMGs().kFluencyBackArrowPNG,)),
       
           const SizedBox(width: 50),
       
@@ -26,11 +30,14 @@ class CustomNotificationsHeader extends StatelessWidget
       
           const SizedBox(width: 50),
       
-          Container(
-            width: KMediaQuery(context).width * 0.17,
-            height: 30.h,
-            decoration: BoxDecoration(color: AppColors.kFirstGradient, borderRadius: BorderRadius.circular(25.r)),
-            child: Center(child: Text("2 New", style: Styles.textStyle12.copyWith(color: Colors.white)),),
+          GestureDetector(
+            onTap: (){GoRouter.of(context).push(AppRouter.kNoNotificationsView);},
+            child: Container(
+              width: KMediaQuery(context).width * 0.17,
+              height: 30.h,
+              decoration: BoxDecoration(color: AppColors.kFirstGradient, borderRadius: BorderRadius.circular(25.r)),
+              child: Center(child: Text("2 New", style: Styles.textStyle12.copyWith(color: Colors.white)),),
+            ),
           )
         ],
       ),

@@ -12,28 +12,32 @@ class NotificationsView extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return Scaffold(
-      backgroundColor: AppColors.kScaffoldBG,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:
-        [
-          Padding(
-            padding: EdgeInsets.only(left: KMediaQuery(context).width * 0.03, right: KMediaQuery(context).width * 0.03, top: 25.h),
-            child: const CustomNotificationsHeader(),
-          ),
-      
-          Expanded(
-            child: CustomListViewSeparatedBuilder(
-              listItemCount: 25,
-              listReturnedWidget: CustomNotificationsCard(),
-              listSeparatorWidget: Padding(
-                padding: EdgeInsets.only(top: 5.h, bottom: 5.h),
-                child: Divider(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.kScaffoldBG,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children:
+          [
+            Padding(
+              padding: EdgeInsets.only(left: KMediaQuery(context).width * 0.03, right: KMediaQuery(context).width * 0.03, top: 25.h),
+              child: const CustomNotificationsHeader(),
+            ),
+
+            SizedBox(height: 20,),
+        
+            Expanded(
+              child: CustomListViewSeparatedBuilder(
+                listItemCount: 25,
+                listReturnedWidget: CustomNotificationsCard(),
+                listSeparatorWidget: Padding(
+                  padding: EdgeInsets.only(top: 5.h, bottom: 5.h),
+                  child: Divider(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

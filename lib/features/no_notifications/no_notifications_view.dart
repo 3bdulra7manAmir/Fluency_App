@@ -1,7 +1,9 @@
 import 'package:fluency/core/utils/constants.dart';
+import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/features/notifications/widgets/custom_not_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NoNotificationsView extends StatelessWidget
 {
@@ -10,18 +12,33 @@ class NoNotificationsView extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children:
-        [
-          Padding(
-            padding: EdgeInsets.only(left: KMediaQuery(context).width * 0.03, right: KMediaQuery(context).width * 0.03, top: 25.h),
-            child: const CustomNotificationsHeader(),
-          ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.kScaffoldBG,
+        body: Padding(
+          padding: EdgeInsets.only(left: KMediaQuery(context).width * 0.03, right: KMediaQuery(context).width * 0.03, top: 25.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:
+            [
+              const CustomNotificationsHeader(),
 
-          
-        ],
+              const SizedBox(height: 60,),
+
+              Center(
+                child: Column(
+                children:
+                [
+                  SvgPicture.asset('assets/images/svg/Not_View_no_Notifications.svg'),
+                  SizedBox(height: 30,),
+                  Text('No Notifications', style: Styles.textStyle16,),
+                  SizedBox(height: 5,),
+                  Text('Notification Inbox Empty', style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal),),
+                ],
+              ))
+            ],
+          ),
+        ),
       ),
     );
   }

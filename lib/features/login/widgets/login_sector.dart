@@ -1,3 +1,4 @@
+import 'package:fluency/app/app_router.dart';
 import 'package:fluency/core/shared/custom_button.dart';
 import 'package:fluency/core/shared/custom_text_form_field.dart';
 import 'package:fluency/core/utils/constants.dart';
@@ -5,6 +6,7 @@ import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/core/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginColumn extends StatefulWidget
 {
@@ -128,7 +130,9 @@ class _LoginColumnState extends State<LoginColumn>
                 [
                   Text('Don`t have account?', style: TextStyle(color: AppColors.kDontHaveAccount, fontSize: 12.sp, fontWeight: FontWeight.bold),),
                   const SizedBox(width: 3,),
-                  Text('Sign up', style: TextStyle(color: AppColors.kFirstGradient, fontWeight: FontWeight.bold, fontSize: 14.sp),),
+                  GestureDetector(
+                    onTap: (){GoRouter.of(context).push(AppRouter.kNotificationsView);},
+                    child: Text('Sign up', style: TextStyle(color: AppColors.kFirstGradient, fontWeight: FontWeight.bold, fontSize: 14.sp),)),
                 ],
               )
             ],

@@ -43,7 +43,7 @@ abstract class AppRouter
       // MOVER //
       GoRoute(
         path: '/',
-        builder: (context, state) => const NoNotificationsView(),
+        builder: (context, state) => const SplashView(),
       ),
       // MOVER //
     ],
