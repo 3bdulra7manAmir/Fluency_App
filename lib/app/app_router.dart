@@ -38,8 +38,6 @@ abstract class AppRouter
       ),
 
 
-
-
       // MOVER //
       GoRoute(
         path: '/',
