@@ -22,7 +22,7 @@ class _SplashViewState extends State<SplashView>
   void initState()
   {
     super.initState();
-    Future.delayed(Duration(seconds: 10), () => GoRouter.of(context).push(AppRouter.kLoginView));
+    Future.delayed(Duration(seconds: 3), () => GoRouter.of(context).push(AppRouter.kLoginView));
   }
 
   @override
@@ -42,6 +42,7 @@ class _SplashViewState extends State<SplashView>
           mainAxisAlignment: MainAxisAlignment.center,
           children:
           [
+            
             SvgPicture.asset(AppIMGs().kFluencyLogoSVG, fit: BoxFit.cover,),
           ],
         ),
