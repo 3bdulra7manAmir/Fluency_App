@@ -1,9 +1,9 @@
 // ignore_for_file: unused_import
 
-import 'package:fluency/features/login/login_view.dart';
-import 'package:fluency/features/no_notifications/no_notifications_view.dart';
-import 'package:fluency/features/notifications/notifications_view.dart';
-import 'package:fluency/features/splash/splash_view.dart';
+import 'package:fluency/features/login/presentation/pages/login_view.dart';
+import 'package:fluency/features/no_notifications/presentation/pages/no_notifications_view.dart';
+import 'package:fluency/features/notifications/presentation/pages/notifications_view.dart';
+import 'package:fluency/features/splash/presentation/pages/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter

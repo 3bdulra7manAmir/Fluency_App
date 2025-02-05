@@ -1,9 +1,9 @@
 import 'package:fluency/app/app_router.dart';
-import 'package:fluency/core/shared/custom_button.dart';
-import 'package:fluency/core/shared/custom_text_form_field.dart';
 import 'package:fluency/core/utils/constants.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/core/utils/validators.dart';
+import 'package:fluency/shared/widgets/custom_button.dart';
+import 'package:fluency/shared/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
