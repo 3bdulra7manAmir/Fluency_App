@@ -1,6 +1,6 @@
-import 'package:fluency/features/login/presentation/widgets/login_sector.dart';
-import 'package:fluency/features/login/presentation/widgets/purple_sector.dart';
-import 'package:fluency/features/login/presentation/widgets/white_sector.dart';
+import 'package:fluency/features/auth/login/presentation/widgets/login_sector.dart';
+import 'package:fluency/features/auth/login/presentation/widgets/purple_sector.dart';
+import 'package:fluency/features/auth/login/presentation/widgets/white_sector.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget

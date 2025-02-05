@@ -1,8 +1,8 @@
 // ignore_for_file: unused_import
 
-import 'package:fluency/features/login/presentation/pages/login_view.dart';
-import 'package:fluency/features/no_notifications/presentation/pages/no_notifications_view.dart';
-import 'package:fluency/features/notifications/presentation/pages/notifications_view.dart';
+import 'package:fluency/features/auth/login/presentation/pages/login_view.dart';
+import 'package:fluency/features/notifications/no_notifications/presentation/pages/no_notifications_view.dart';
+import 'package:fluency/features/notifications/notifications/presentation/pages/notifications_view.dart';
 import 'package:fluency/features/splash/presentation/pages/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
