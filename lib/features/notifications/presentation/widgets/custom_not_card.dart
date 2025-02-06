@@ -6,41 +6,50 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNotificationsCard extends StatelessWidget
 {
-  const CustomNotificationsCard({super.key});
+  const CustomNotificationsCard({super.key, required this.title, required this.description, required this.time, required this.image,});
+
+  final String title;
+  final String description;
+  final String time;
+  final String image;
 
   @override
   Widget build(BuildContext context)
   {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Padding(
-        padding: EdgeInsets.only(left: KMediaQuery(context).width * 0.03, right: KMediaQuery(context).width * 0.03,),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start, // Ensures proper alignment
-          children:
-          [
-            SvgPicture.asset('assets/images/svg/Not_View_Cup.svg'),
-        
-            const SizedBox(width: 10,),
-        
-            Column(
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: KMediaQuery(context).width * 0.03,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children:
+        [
+          SvgPicture.asset(image),
+
+          const SizedBox(width: 10),
+
+          Expanded(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:
               [
-                Text("New course arrival", style: Styles.textStyle14.copyWith(color: AppColors.kText)),
-        
-                const SizedBox(height: 2,),
-        
-                Text("Dorem ipsum dolor sit amet, consectetur\nadipiscing et velit interdum, ac aliquet odio mattis.",
-                style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal, color: AppColors.kDontHaveAccount),
+                Text(title, style: Styles.textStyle14.copyWith(color: AppColors.kText), overflow: TextOverflow.ellipsis,),
+
+                const SizedBox(height: 2),
+
+                Text(description, style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal, color: AppColors.kDontHaveAccount,),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
-        
-        
-            Text("1h", style: Styles.textStyle12.copyWith(color: AppColors.kDontHaveAccount)),
-          ],
-        ),
+          ),
+
+          const SizedBox(width: 10),
+
+          Text(time, style: Styles.textStyle12.copyWith(color: AppColors.kDontHaveAccount),),
+        ],
       ),
     );
   }

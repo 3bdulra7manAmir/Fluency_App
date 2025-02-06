@@ -1,0 +1,29 @@
+[
+    {
+      "title": "New course arrival",
+      "description": "Dorem ipsum dolor sit amet, consectetur adipiscing et velit interdum, ac aliquet odio mattis.",
+      "time": "1h",
+      "image": "assets/images/svg/Not_View_VideoScreen.svg"
+    },
+    
+    {
+      "title": "Course update",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "time": "2h",
+      "image": "assets/images/svg/Not_View_Cup.svg"
+    },
+
+    {
+      "title": "Course update",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "time": "2h",
+      "image": "assets/images/svg/Not_View_Cup.svg"
+    },
+
+    {
+      "title": "New course arrival",
+      "description": "Dorem ipsum dolor sit amet, consectetur adipiscing et velit interdum, ac aliquet odio mattis.",
+      "time": "1h",
+      "image": "assets/images/svg/Not_View_VideoScreen.svg"
+    }
+  ]
