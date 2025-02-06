@@ -1,3 +1,7 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously
+
+import 'package:fluency/Features/auth/login/data/repository/auth_repository.dart';
+import 'package:fluency/Features/auth/login/domain/entites/auth_entity.dart';
 import 'package:fluency/config/router/app_router.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_responsive.dart';
@@ -8,6 +12,7 @@ import 'package:fluency/core/widgets/text_fields/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+
 
 class LoginColumn extends StatefulWidget
 {
@@ -22,14 +27,47 @@ class _LoginColumnState extends State<LoginColumn>
   final loginFormKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final AuthRepository _authRepository = AuthRepository();
 
-  //TO PREVENT Memory leak //Tharwat Samy...
+  bool isLoading = false;
+
   @override
   void dispose()
   {
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> login() async
+  {
+    if (loginFormKey.currentState!.validate())
+    {
+      setState(() {isLoading = true;});
+
+      try
+      {
+        final email = emailController.text;
+        final password = passwordController.text;
+
+        final AuthEntity authEntity = await _authRepository.login(email, password);
+
+        print('Logged in successfully: ${authEntity.email}');
+
+        GoRouter.of(context).push(AppRouter.kNotificationsView); 
+      }
+      catch (e)
+      {
+        print('Login failed: $e');
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login failed: $e'), backgroundColor: Colors.red,),
+        );
+      }
+
+      finally
+      {
+        setState(() {isLoading = false;});
+      }
+    }
   }
 
   @override
@@ -46,21 +84,22 @@ class _LoginColumnState extends State<LoginColumn>
               Container(
                 width: KMediaQuery(context).width * 0.87,
                 height: 340.h,
-                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(24.r)),
+                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(24.r),),
+
                 child: Form(
                   key: loginFormKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children:
                     [
-                      const SizedBox(height: 24,),
-                  
+                      const SizedBox(height: 24),
+
                       Align(
                         alignment: Alignment.center,
-                        child: Text('Welcome back!', style: Styles.textStyle24,)
+                        child: Text('Welcome back!', style: Styles.textStyle24,),
                       ),
-                  
-                      const SizedBox(height: 24,),
+
+                      const SizedBox(height: 24),
 
                       Padding(
                         padding: EdgeInsets.only(left: KMediaQuery(context).width * 0.06),
@@ -70,7 +109,7 @@ class _LoginColumnState extends State<LoginColumn>
                           [
                             Text('Mobile or Email', style: Styles.textStyle14,),
 
-                            const SizedBox(height: 8,),
+                            const SizedBox(height: 8),
 
                             CustomTextFormField(
                               fieldController: emailController,
@@ -78,14 +117,13 @@ class _LoginColumnState extends State<LoginColumn>
                               fieldKeyboardType: TextInputType.emailAddress,
                               fieldObscureText: false,
                               fieldHintText: "Enter your mobile or email",
-
                             ),
 
-                            const SizedBox(height: 15,),
+                            const SizedBox(height: 15),
 
                             Text('Password', style: Styles.textStyle14,),
 
-                            const SizedBox(height: 8,),
+                            const SizedBox(height: 8),
 
                             CustomTextFormField(
                               fieldController: passwordController,
@@ -96,23 +134,19 @@ class _LoginColumnState extends State<LoginColumn>
                               fieldHintText: "************",
                             ),
 
-                            Padding(
-                              padding: EdgeInsets.only(right: KMediaQuery(context).width * 0.06, top: 10.h),
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Text('Forget Password?', style: Styles.textStyle14.copyWith(
-                                  decoration: TextDecoration.underline,
-                                  color: AppColors.kForgetPassword,
-                                  ),
+                            Padding(padding: EdgeInsets.only(right: KMediaQuery(context).width * 0.06, top: 10.h,),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                                child: Text('Forget Password?', style: Styles.textStyle14.copyWith(decoration: TextDecoration.underline, color: AppColors.kForgetPassword,),
                                 ),
                               ),
                             ),
 
-                            const SizedBox(height: 20,),
+                            const SizedBox(height: 20),
 
                             CustomPurpleButton(
-                              buttonOnPressed: () {},
-                              buttonText: "Login",
+                              buttonOnPressed: login,
+                              buttonText: 'Login', 
                               buttonWidth: 0.75,
                             ),
                           ],
@@ -123,24 +157,30 @@ class _LoginColumnState extends State<LoginColumn>
                 ),
               ),
 
-              const SizedBox(height: 24,),
+              const SizedBox(height: 24),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:
                 [
-                  Text('Don`t have account?', style: TextStyle(color: AppColors.kDontHaveAccount, fontSize: 12.sp, fontWeight: FontWeight.bold),),
-                  const SizedBox(width: 3,),
+                  Text('Don`t have an account?', style: TextStyle(color: AppColors.kDontHaveAccount, fontSize: 12.sp, fontWeight: FontWeight.bold,),),
+
+                  const SizedBox(width: 3),
+
                   GestureDetector(
-                    onTap: (){GoRouter.of(context).push(AppRouter.kNotificationsView);},
-                    child: Text('Sign up', style: TextStyle(color: AppColors.kFirstGradient, fontWeight: FontWeight.bold, fontSize: 14.sp),)),
+                    onTap: () {GoRouter.of(context).push(AppRouter.kNotificationsView);},
+                    child: Text('Sign up', style: TextStyle(color: AppColors.kFirstGradient, fontWeight: FontWeight.bold, fontSize: 14.sp,),
+                    ),
+                  ),
                 ],
-              )
+              ),
             ],
-          )
+          ),
+
+          if (isLoading)
+            const Center(child: CircularProgressIndicator(),),
         ],
       ),
     );
   }
 }
-
