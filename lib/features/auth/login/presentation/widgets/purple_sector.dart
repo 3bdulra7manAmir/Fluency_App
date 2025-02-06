@@ -1,5 +1,6 @@
-import 'package:fluency/core/utils/constants.dart';
-import 'package:fluency/features/auth/login/presentation/widgets/custom_clipper.dart';
+import 'package:fluency/core/constants/app_colors.dart';
+import 'package:fluency/core/constants/app_images.dart';
+import 'package:fluency/Features/auth/login/presentation/widgets/custom_clipper.dart';
 import 'package:flutter/material.dart';
 
 class FirstPurpleStack extends StatelessWidget

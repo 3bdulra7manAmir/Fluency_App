@@ -1,9 +1,10 @@
-import 'package:fluency/app/app_router.dart';
-import 'package:fluency/core/utils/constants.dart';
+import 'package:fluency/config/router/app_router.dart';
+import 'package:fluency/core/constants/app_colors.dart';
+import 'package:fluency/core/constants/app_responsive.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/core/utils/validators.dart';
-import 'package:fluency/shared/widgets/custom_button.dart';
-import 'package:fluency/shared/widgets/custom_text_form_field.dart';
+import 'package:fluency/core/widgets/buttons/custom_button.dart';
+import 'package:fluency/core/widgets/text_fields/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -109,7 +110,7 @@ class _LoginColumnState extends State<LoginColumn>
 
                             const SizedBox(height: 20,),
 
-                            CustomBlueButton(
+                            CustomPurpleButton(
                               buttonOnPressed: () {},
                               buttonText: "Login",
                               buttonWidth: 0.75,

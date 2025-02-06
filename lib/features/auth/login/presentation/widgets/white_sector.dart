@@ -1,4 +1,4 @@
-import 'package:fluency/core/utils/constants.dart';
+import 'package:fluency/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class SecondWhiteStack extends StatelessWidget
@@ -12,7 +12,7 @@ class SecondWhiteStack extends StatelessWidget
       children:
       [
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: AppColors.kAlmostWhite,
           ),
         ),

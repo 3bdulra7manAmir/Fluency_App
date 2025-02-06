@@ -39,22 +39,13 @@ class SignUpValidator
     return null;
   }
 
-  void submitForm(GlobalKey<FormState> formKey, bool isChecked, context)
+  void submitForm(GlobalKey<FormState> formKey, context)
   {
-    if (formKey.currentState!.validate() && !isChecked)
-    {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('You Must Accept The Terms & Conditions', style: Styles.textStyle16,)),);
-    }
-    else if (!(formKey.currentState!.validate()) && isChecked)
+    if (!formKey.currentState!.validate())
     {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Wrong Email Or Password!', style: Styles.textStyle16,)),);
     }
-    else if (!(formKey.currentState!.validate()) && !isChecked)
-    {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fill The Fields Correctly Please!', style: Styles.textStyle16,)),);
-    }
   }
-
 }
 
 
