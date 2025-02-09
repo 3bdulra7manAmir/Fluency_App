@@ -14,20 +14,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 
-class LoginColumn extends StatefulWidget
+class LoginForm extends StatefulWidget
 {
-  const LoginColumn({super.key});
+  const LoginForm({super.key});
 
   @override
-  State<LoginColumn> createState() => _LoginColumnState();
+  State<LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginColumnState extends State<LoginColumn>
+class _LoginFormState extends State<LoginForm>
 {
   final loginFormKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final AuthRepository _authRepository = AuthRepository();
+  final AuthRepository authRepository = AuthRepository();
 
   bool isLoading = false;
 
@@ -50,7 +50,7 @@ class _LoginColumnState extends State<LoginColumn>
         final email = emailController.text;
         final password = passwordController.text;
 
-        final AuthEntity authEntity = await _authRepository.login(email, password);
+        final AuthEntity authEntity = await authRepository.login(email, password);
 
         print('Logged in successfully: ${authEntity.email}');
 
@@ -81,6 +81,7 @@ class _LoginColumnState extends State<LoginColumn>
             mainAxisAlignment: MainAxisAlignment.center,
             children:
             [
+              //Padding instead of Width
               Container(
                 width: KMediaQuery(context).width * 0.87,
                 height: 340.h,
@@ -89,15 +90,13 @@ class _LoginColumnState extends State<LoginColumn>
                 child: Form(
                   key: loginFormKey,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children:
                     [
-                      const SizedBox(height: 24),
+                      //const SizedBox(height: 24),
+                      24.verticalSpace,
 
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text('Welcome back!', style: Styles.textStyle24,),
-                      ),
+                      Text('Welcome back!', style: Styles.textStyle24, textAlign: TextAlign.center,),
 
                       const SizedBox(height: 24),
 

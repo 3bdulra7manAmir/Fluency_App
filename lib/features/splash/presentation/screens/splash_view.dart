@@ -4,7 +4,6 @@ import 'package:fluency/config/router/app_router.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,34 +17,28 @@ class SplashView extends StatefulWidget
 
 class _SplashViewState extends State<SplashView>
 {
-
   @override
-  void initState()
+  void didChangeDependencies()
   {
-    super.initState();
-    Future.delayed(const Duration(seconds: 3), () => GoRouter.of(context).push(AppRouter.kLoginView));
+    super.didChangeDependencies();
+
+    precacheImage(AssetImage(AppIMGs().kFluencyBooksPNG), context);
+    Future.delayed(const Duration(seconds: 3), () {GoRouter.of(context).push(AppRouter.kLoginView);});
   }
 
   @override
   Widget build(BuildContext context)
   {
     return Scaffold(
-      backgroundColor: AppColors.kFirstGradient,
       body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyBooksPNG), fit: BoxFit.cover),
-          borderRadius: BorderRadius.circular(32.r),
           gradient: const LinearGradient(colors: [AppColors.kFirstGradient, AppColors.kSecondGradient])
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:
-          [
-            
-            SvgPicture.asset(AppIMGs().kFluencyLogoSVG, fit: BoxFit.cover,),
-          ],
+        child: Center(
+          child: SvgPicture.asset(AppIMGs().kFluencyLogoSVG, fit: BoxFit.cover,)
         ),
       )
     );

@@ -3,7 +3,7 @@
 import 'package:fluency/Features/auth/login/presentation/screens/login_view.dart';
 import 'package:fluency/Features/notifications/presentation/screens/no_notifications/no_notifications_view.dart';
 import 'package:fluency/Features/notifications/presentation/screens/notifications/notifications_view.dart';
-import 'package:fluency/Features/splash/splash_view.dart';
+import 'package:fluency/Features/splash/presentation/screens/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter

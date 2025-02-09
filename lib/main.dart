@@ -27,7 +27,7 @@ class FluencyApp extends StatelessWidget
       enabled: true,
       builder: (context) => MaterialApp.router(
         useInheritedMediaQuery: true,
-
+        
         builder: DevicePreview.appBuilder,
         locale: DevicePreview.locale(context),
         routerConfig: AppRouter.router,
