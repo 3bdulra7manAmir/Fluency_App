@@ -19,7 +19,7 @@ abstract class Styles
 
   static TextStyle textStyle24 = TextStyle(
     fontSize: 24.sp,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w800,
     color: Colors.black,
     fontFamily: 'Nunito',
   );
@@ -40,7 +40,7 @@ abstract class Styles
 
   static TextStyle textStyle14 = TextStyle(
     fontSize: 14.sp,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: Colors.black,
     fontFamily: 'Nunito',
   );
