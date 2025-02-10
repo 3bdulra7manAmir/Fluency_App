@@ -37,8 +37,7 @@ class CustomNotificationsCard extends StatelessWidget
 
                 4.verticalSpace,
 
-                Text(description,
-                  style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal, color: AppColors.kDontHaveAccountColor,),
+                Text(description, style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal, color: AppColors.kDontHaveAccountColor,),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -46,7 +45,9 @@ class CustomNotificationsCard extends StatelessWidget
             ),
           ),
 
-          Text(time, style: Styles.textStyle12.copyWith(color: AppColors.kDontHaveAccountColor),),
+          //HERE
+          
+          Text(time, style: Styles.textStyle10.copyWith(color: AppColors.kDontHaveAccountColor),),
         ],
       ),
     );

@@ -16,33 +16,30 @@ class NoNotificationsView extends StatelessWidget
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.kScaffoldBGColor,
-        body: Padding(
-          padding: EdgeInsets.only(left: 0 * 0.03, right: 0 * 0.03, top: 25.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children:
-            [
-              const CustomNotificationsAppBar(),
-
-              const SizedBox(height: 60,),
-
-              Center(
-                child: Column(
-                children:
-                [
-                  SvgPicture.asset(AppIMGs().kFluencyNoNotificationsSVG),
-                  
-                  const SizedBox(height: 30,),
-
-                  Text('No Notifications', style: Styles.textStyle16,),
-
-                  const SizedBox(height: 5,),
-                  
-                  Text('Notification Inbox Empty', style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal),),
-                ],
-              ))
-            ],
-          ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children:
+          [
+            const CustomNotificationsAppBar(),
+        
+            52.verticalSpace,
+        
+            Center(
+              child: Column(
+              children:
+              [
+                SvgPicture.asset(AppIMGs().kFluencyNoNotificationsSVG),
+                
+                24.verticalSpace,
+        
+                Text('No Notifications', style: Styles.textStyle16,),
+        
+                4.verticalSpace,
+                
+                Text('Notification Inbox Empty', style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal),),
+              ],
+            ))
+          ],
         ),
       ),
     );

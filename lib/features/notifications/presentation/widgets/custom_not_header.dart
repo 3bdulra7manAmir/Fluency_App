@@ -31,7 +31,7 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
             margin: AppPadding().kNotNewNotificationsMarginD,
             padding: AppPadding().kNotNewNotificationsPadding,
             decoration: BoxDecoration(color: AppColors.kFirstGradientColor, borderRadius: AppBorders().radiusCircular50),
-            child: Text("2 New", style: Styles.textStyle12.copyWith(color: Colors.white)
+            child: Text("2 New", style: Styles.textStyle10.copyWith(color: Colors.white)
             ),
           ),
         ),
@@ -41,7 +41,7 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
         margin: AppPadding().kNotBackButtonMargin,
         child: GestureDetector(
             onTap: () {print('Pressed');GoRouter.of(context).pop();},
-            child: Image.asset(AppIMGs().kFluencyBackArrowPNG, width: 48.w,height: 48.h,
+            child: Image.asset(AppIMGs().kFluencyBackArrowPNG, width: 48.w, height: 48.h, //HERE
           ),
         ),
       ),

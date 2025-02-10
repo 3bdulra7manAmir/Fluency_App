@@ -13,7 +13,7 @@ class LoginView extends StatelessWidget
       body: Stack(
         children:
         [
-          PurpleStack(),
+          PurpleSector(),
       
           LoginForm(),
         ],

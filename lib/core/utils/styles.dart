@@ -3,20 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class Styles
 {
-  static TextStyle textStyle30 = TextStyle(
-    fontSize: 30.sp,
-    fontWeight: FontWeight.bold,
-    color: Colors.black,
-    fontFamily: 'Nunito',
-  );
-
-  static TextStyle textStyle20 = TextStyle(
-    fontSize: 20.sp,
-    fontWeight: FontWeight.bold,
-    color: Colors.black,
-    fontFamily: 'Nunito',
-  );
-
   static TextStyle textStyle24 = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w800,
@@ -24,8 +10,8 @@ abstract class Styles
     fontFamily: 'Nunito',
   );
 
-  static TextStyle textStyle18 = TextStyle(
-    fontSize: 18.sp,
+  static TextStyle textStyle20 = TextStyle(
+    fontSize: 20.sp,
     fontWeight: FontWeight.bold,
     color: Colors.black,
     fontFamily: 'Nunito',
@@ -47,6 +33,13 @@ abstract class Styles
 
   static TextStyle textStyle12 = TextStyle(
     fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontFamily: 'Nunito',
+  );
+
+  static TextStyle textStyle10 = TextStyle(
+    fontSize: 10.sp,
     fontWeight: FontWeight.bold,
     color: Colors.black,
     fontFamily: 'Nunito',

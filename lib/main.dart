@@ -1,5 +1,4 @@
 // ignore_for_file: deprecated_member_use
-
 import 'package:device_preview/device_preview.dart';
 import 'package:fluency/Config/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +26,6 @@ class FluencyApp extends StatelessWidget
       enabled: true,
       builder: (context) => MaterialApp.router(
         useInheritedMediaQuery: true,
-        
         builder: DevicePreview.appBuilder,
         locale: DevicePreview.locale(context),
         routerConfig: AppRouter.router,

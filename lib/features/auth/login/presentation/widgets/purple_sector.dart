@@ -4,9 +4,9 @@ import 'package:fluency/Features/auth/login/presentation/widgets/custom_clipper.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PurpleStack extends StatelessWidget
+class PurpleSector extends StatelessWidget
 {
-  const PurpleStack({super.key});
+  const PurpleSector({super.key});
 
   @override
   Widget build(BuildContext context)

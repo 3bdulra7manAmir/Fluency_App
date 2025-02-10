@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously
-
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
@@ -133,7 +132,8 @@ class _LoginFormState extends State<LoginForm>
                             fieldKeyboardType: TextInputType.text,
                             fieldSuffixIcon: GestureDetector(
                               onTap: (){setState(() {obscureText = !obscureText;});},
-                              child: Image.asset(AppIMGs().kFluencyObsecureTextIconPNG)),
+                              child: Image.asset(AppIMGs().kFluencyObsecureTextIconPNG)
+                            ),
                             fieldHintText: "************",
                           ),
                       
@@ -146,7 +146,7 @@ class _LoginFormState extends State<LoginForm>
                       
                           24.verticalSpace,
                       
-                          CustomPurpleButton(buttonOnPressed: login, buttonText: 'Login',),
+                          CustomPurpleButton(buttonOnPressed: login, buttonText: 'Login',), //HERE
                         ],
                       ),
                     ],
