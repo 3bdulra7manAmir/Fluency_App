@@ -54,6 +54,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField>
         style: TextStyle(fontSize: 12.sp, color: AppColors.kTextInsideFormFieldColor,),
 
         decoration: InputDecoration(
+          //isDense: true,
           filled: true,
           fillColor: AppColors.kTextFormFieldFillColor,
           hintText: widget.fieldHintText,

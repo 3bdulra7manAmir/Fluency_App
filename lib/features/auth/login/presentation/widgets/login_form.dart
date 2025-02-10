@@ -128,6 +128,7 @@ class _LoginFormState extends State<LoginForm>
                       
                           CustomTextFormField(
                             fieldObscureText: obscureText,
+                            fieldContentPadding: AppPadding().kPasswordFieldContentPadding,
                             fieldController: passwordController,
                             fieldValidator: LoginValidator().validatePassword,
                             fieldKeyboardType: TextInputType.text,

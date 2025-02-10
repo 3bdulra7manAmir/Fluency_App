@@ -14,6 +14,8 @@ abstract class AppRouter
   static const kNotificationsView = '/NotificationsView';
   static const kNoNotificationsView = '/NoNotificationsView';
 
+  static const kMineView = '/MineView';
+
   static final router = GoRouter(
     routes:
     [

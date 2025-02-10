@@ -5,7 +5,10 @@ class AppPadding
 {
   EdgeInsets kLoginFormMargin = EdgeInsets.symmetric(horizontal: 24.w,);
   EdgeInsets kLoginFormPadding = EdgeInsets.symmetric(horizontal: 16.w);
-  EdgeInsets kTextFieldContentPadding = EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w);
+  EdgeInsets kTextFieldContentPadding = EdgeInsets.symmetric(horizontal: 16.w);
+
+  EdgeInsetsDirectional kPasswordFieldContentPadding = EdgeInsetsDirectional.only(start: 16.w,);
+  
   EdgeInsetsDirectional kForgetPasswordPaddingD = EdgeInsetsDirectional.only(end: 16.w, top: 8.h,);
 
 
