@@ -35,7 +35,7 @@ class _SplashViewState extends State<SplashView>
         height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyBooksPNG), fit: BoxFit.cover),
-          gradient: const LinearGradient(colors: [AppColors.kFirstGradient, AppColors.kSecondGradient])
+          gradient: const LinearGradient(colors: [AppColors.kFirstGradientColor, AppColors.kSecondGradientColor])
         ),
         child: Center(
           child: SvgPicture.asset(AppIMGs().kFluencyLogoSVG, fit: BoxFit.cover,)

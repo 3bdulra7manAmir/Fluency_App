@@ -1,15 +1,15 @@
 
+import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/core/constants/app_colors.dart';
-import 'package:fluency/core/constants/app_responsive.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomPurpleButton extends StatelessWidget
 {
-  const CustomPurpleButton({super.key, required this.buttonWidth, this.buttonHeight, required this.buttonText, required this.buttonOnPressed,});
+  const CustomPurpleButton({super.key, this.buttonWidth, this.buttonHeight, required this.buttonText, required this.buttonOnPressed,});
 
-  final double buttonWidth;
+  final double? buttonWidth;
   final String buttonText;
   final void Function() buttonOnPressed;
   final double? buttonHeight;
@@ -18,16 +18,16 @@ class CustomPurpleButton extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Container(
-      width: KMediaQuery(context).width * buttonWidth,
-      height: 45.h,
+      width: buttonWidth ?? 295,
+      height: buttonHeight ?? 48.h,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(colors: [AppColors.kFirstGradient, AppColors.kSecondGradient]),
-        borderRadius: BorderRadius.circular(25.r)
+        gradient: const LinearGradient(colors: [AppColors.kFirstGradientColor, AppColors.kSecondGradientColor]),
+        borderRadius: AppBorders().radiusCircular80,
       ),
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, shadowColor: Colors.transparent,),
+        style: ElevatedButton.styleFrom(backgroundColor: AppColors.kPurpleButtonColor, shadowColor: AppColors.kPurpleButtonColor,),
         onPressed: buttonOnPressed,
-        child: Center(child: Text(buttonText, style: Styles.textStyle16.copyWith(color: Colors.white, fontWeight: FontWeight.bold),)),
+        child: Center(child: Text(buttonText, style: Styles.textStyle16.copyWith(color: Colors.white,),)),
       ),
     );
   }

@@ -1,5 +1,5 @@
+import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomListViewSeparatedBuilder extends StatelessWidget
 {
@@ -18,7 +18,7 @@ class CustomListViewSeparatedBuilder extends StatelessWidget
   Widget build(BuildContext context)
   {
     return ListView.separated(
-      padding: EdgeInsets.symmetric(vertical: 24.h),
+      padding: AppPadding().kPaddingInsideTheListViewBuilder,
       itemBuilder: listReturnedWidget,
       itemCount: listItemCount,
       shrinkWrap: true,

@@ -1,7 +1,8 @@
+import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/core/constants/app_colors.dart';
-import 'package:fluency/core/constants/app_responsive.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNotificationsCard extends StatelessWidget
@@ -17,9 +18,7 @@ class CustomNotificationsCard extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: KMediaQuery(context).width * 0.03,
-      ),
+      padding: AppPadding().kNotificationsCardPadding,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -27,18 +26,19 @@ class CustomNotificationsCard extends StatelessWidget
         [
           SvgPicture.asset(image),
 
-          const SizedBox(width: 10),
+          8.horizontalSpace,
 
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:
               [
-                Text(title, style: Styles.textStyle14.copyWith(color: AppColors.kText), overflow: TextOverflow.ellipsis,),
+                Text(title, style: Styles.textStyle14.copyWith(color: AppColors.kTextInsideFormFieldColor), overflow: TextOverflow.ellipsis,),
 
-                const SizedBox(height: 2),
+                4.verticalSpace,
 
-                Text(description, style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal, color: AppColors.kDontHaveAccount,),
+                Text(description,
+                  style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal, color: AppColors.kDontHaveAccountColor,),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -46,9 +46,7 @@ class CustomNotificationsCard extends StatelessWidget
             ),
           ),
 
-          const SizedBox(width: 10),
-
-          Text(time, style: Styles.textStyle12.copyWith(color: AppColors.kDontHaveAccount),),
+          Text(time, style: Styles.textStyle12.copyWith(color: AppColors.kDontHaveAccountColor),),
         ],
       ),
     );

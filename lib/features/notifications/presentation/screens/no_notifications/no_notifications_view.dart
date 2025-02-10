@@ -1,5 +1,5 @@
+import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/core/constants/app_colors.dart';
-import 'package:fluency/core/constants/app_responsive.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/Features/notifications/presentation/widgets/custom_not_header.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +15,14 @@ class NoNotificationsView extends StatelessWidget
   {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.kScaffoldBG,
+        backgroundColor: AppColors.kScaffoldBGColor,
         body: Padding(
-          padding: EdgeInsets.only(left: KMediaQuery(context).width * 0.03, right: KMediaQuery(context).width * 0.03, top: 25.h),
+          padding: EdgeInsets.only(left: 0 * 0.03, right: 0 * 0.03, top: 25.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:
             [
-              const CustomNotificationsHeader(),
+              const CustomNotificationsAppBar(),
 
               const SizedBox(height: 60,),
 
@@ -30,10 +30,14 @@ class NoNotificationsView extends StatelessWidget
                 child: Column(
                 children:
                 [
-                  SvgPicture.asset('assets/images/svg/Not_View_no_Notifications.svg'),
+                  SvgPicture.asset(AppIMGs().kFluencyNoNotificationsSVG),
+                  
                   const SizedBox(height: 30,),
+
                   Text('No Notifications', style: Styles.textStyle16,),
+
                   const SizedBox(height: 5,),
+                  
                   Text('Notification Inbox Empty', style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal),),
                 ],
               ))

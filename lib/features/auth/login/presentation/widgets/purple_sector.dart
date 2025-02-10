@@ -16,7 +16,7 @@ class PurpleStack extends StatelessWidget
       child: Container(
         height: ScreenUtil().screenHeight * 0.5,
         decoration: BoxDecoration(
-          color: AppColors.kSecondGradient,
+          color: AppColors.kSecondGradientColor,
           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHatPNG), fit: BoxFit.cover),
         ),
       ),
