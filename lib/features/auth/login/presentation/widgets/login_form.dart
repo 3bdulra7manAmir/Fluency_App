@@ -1,12 +1,12 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously
 import 'package:fluency/Core/constants/app_borders.dart';
+import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/widgets/containers/custom_container.dart';
 import 'package:fluency/Features/auth/login/data/repository/auth_repository.dart';
 import 'package:fluency/Features/auth/login/domain/entites/auth_entity.dart';
 import 'package:fluency/config/router/app_router.dart';
-import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/core/utils/validators.dart';
 import 'package:fluency/core/widgets/buttons/custom_button.dart';
@@ -86,6 +86,7 @@ class _LoginFormState extends State<LoginForm>
             children:
             [
               CustomContainer(
+                containerDecorationColor: AppColors.kLoginFormContainerBGColor,
                 containerMargin: AppPadding().kLoginFormMargin,
                 containerPadding: AppPadding().kLoginFormPadding,
                 containerWidth: 327.w,
@@ -146,7 +147,7 @@ class _LoginFormState extends State<LoginForm>
                       
                           24.verticalSpace,
                       
-                          CustomPurpleButton(buttonOnPressed: login, buttonText: 'Login',), //HERE
+                          Center(child: CustomPurpleButton(buttonOnPressed: login, buttonText: 'Login',)), //HERE
                         ],
                       ),
                     ],

@@ -16,6 +16,7 @@ class PurpleSector extends StatelessWidget
       clipper: BottomCircularClipper(),
       child: CustomContainer(
         containerHeight: ScreenUtil().screenHeight * 0.5,
+        containerWidth: double.infinity,
         containerDecoration: BoxDecoration(
           color: AppColors.kSecondGradientColor,
           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHatPNG), fit: BoxFit.cover),

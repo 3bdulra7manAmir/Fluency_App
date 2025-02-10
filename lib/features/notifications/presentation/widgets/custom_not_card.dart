@@ -24,7 +24,10 @@ class CustomNotificationsCard extends StatelessWidget
         mainAxisSize: MainAxisSize.min,
         children:
         [
-          SvgPicture.asset(image),
+          Padding(
+            padding: EdgeInsets.only(top: 7.h),
+            child: SvgPicture.asset(image,),
+          ),
 
           8.horizontalSpace,
 

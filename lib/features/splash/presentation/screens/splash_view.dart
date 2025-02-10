@@ -18,13 +18,21 @@ class SplashView extends StatefulWidget
 
 class _SplashViewState extends State<SplashView>
 {
+  bool isNavigating = false;
+
   @override
   void didChangeDependencies()
   {
     super.didChangeDependencies();
 
     precacheImage(AssetImage(AppIMGs().kFluencyBooksPNG), context);
-    Future.delayed(const Duration(seconds: 3), () {GoRouter.of(context).push(AppRouter.kLoginView);});
+
+    if (!isNavigating)
+    { 
+      isNavigating = true;
+      Future.delayed(const Duration(seconds: 3), ()
+      {GoRouter.of(context).pushReplacement(AppRouter.kLoginView);});
+    }
   }
 
   @override
