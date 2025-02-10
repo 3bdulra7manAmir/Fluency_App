@@ -7,4 +7,8 @@ class AppIMGs
 
   String kFluencyBackArrowSVG = 'assets/images/svg/Not_View_BackArrow.svg';
   String kFluencyBackArrowPNG = 'assets/images/png/Not_View_BackArrow.png';
+
+  String kFluencyObsecureTextIconPNG = 'assets/images/png/Login_View_Eye.png';
+
+  String kFluencyNoNotificationsSVG = 'assets/images/svg/Not_View_no_Notifications.svg';
 }
