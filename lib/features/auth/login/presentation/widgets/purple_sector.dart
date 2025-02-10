@@ -1,3 +1,4 @@
+import 'package:fluency/Core/widgets/containers/custom_container.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_images.dart';
 import 'package:fluency/Features/auth/login/presentation/widgets/custom_clipper.dart';
@@ -13,9 +14,9 @@ class PurpleSector extends StatelessWidget
   {
     return ClipPath(
       clipper: BottomCircularClipper(),
-      child: Container(
-        height: ScreenUtil().screenHeight * 0.5,
-        decoration: BoxDecoration(
+      child: CustomContainer(
+        containerHeight: ScreenUtil().screenHeight * 0.5,
+        containerDecoration: BoxDecoration(
           color: AppColors.kSecondGradientColor,
           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHatPNG), fit: BoxFit.cover),
         ),
@@ -25,3 +26,10 @@ class PurpleSector extends StatelessWidget
 }
 
 
+// Container(
+//         height: ScreenUtil().screenHeight * 0.5,
+//         decoration: BoxDecoration(
+//           color: AppColors.kSecondGradientColor,
+//           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHatPNG), fit: BoxFit.cover),
+//         ),
+//       ),

@@ -2,6 +2,7 @@
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
+import 'package:fluency/Core/widgets/containers/custom_container.dart';
 import 'package:fluency/Features/auth/login/data/repository/auth_repository.dart';
 import 'package:fluency/Features/auth/login/domain/entites/auth_entity.dart';
 import 'package:fluency/config/router/app_router.dart';
@@ -84,14 +85,13 @@ class _LoginFormState extends State<LoginForm>
             mainAxisAlignment: MainAxisAlignment.center,
             children:
             [
-              Container(
-                margin: AppPadding().kLoginFormMargin,
-                padding: AppPadding().kLoginFormPadding,
-                width: 327.w,
-                height: 367.h,
-                decoration: BoxDecoration(color: AppColors.kLoginFormBoxDecorationColor, borderRadius: AppBorders().radiusCircular24,),
-
-                child: Form(
+              CustomContainer(
+                containerMargin: AppPadding().kLoginFormMargin,
+                containerPadding: AppPadding().kLoginFormPadding,
+                containerWidth: 327.w,
+                containerHeight: 367.h,
+                containerDecoration: BoxDecoration(color: AppColors.kLoginFormBoxDecorationColor, borderRadius: AppBorders().radiusCircular24,),
+                containerChild: Form(
                   key: loginFormKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -181,3 +181,74 @@ class _LoginFormState extends State<LoginForm>
     );
   }
 }
+
+
+// Container(
+//                 margin: AppPadding().kLoginFormMargin,
+//                 padding: AppPadding().kLoginFormPadding,
+//                 width: 327.w,
+//                 height: 367.h,
+//                 decoration: BoxDecoration(color: AppColors.kLoginFormBoxDecorationColor, borderRadius: AppBorders().radiusCircular24,),
+
+//                 child: Form(
+//                   key: loginFormKey,
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.center,
+//                     children:
+//                     [
+//                       24.verticalSpace,
+
+//                       Text('Welcome back!', style: Styles.textStyle24, textAlign: TextAlign.center,),
+
+//                       24.verticalSpace,
+
+//                       Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children:
+//                         [
+//                           Text('Mobile or Email', style: Styles.textStyle14,),
+                      
+//                           8.verticalSpace,
+                      
+//                           CustomTextFormField(
+//                             fieldController: emailController,
+//                             fieldValidator: LoginValidator().validateEmail,
+//                             fieldKeyboardType: TextInputType.emailAddress,
+//                             fieldObscureText: false,
+//                             fieldHintText: "Enter your mobile or email",
+//                           ),
+                      
+//                           16.verticalSpace,
+                      
+//                           Text('Password', style: Styles.textStyle14,),
+                      
+//                           8.verticalSpace,
+                      
+//                           CustomTextFormField(
+//                             fieldObscureText: obscureText,
+//                             fieldController: passwordController,
+//                             fieldValidator: LoginValidator().validatePassword,
+//                             fieldKeyboardType: TextInputType.text,
+//                             fieldSuffixIcon: GestureDetector(
+//                               onTap: (){setState(() {obscureText = !obscureText;});},
+//                               child: Image.asset(AppIMGs().kFluencyObsecureTextIconPNG)
+//                             ),
+//                             fieldHintText: "************",
+//                           ),
+                      
+//                           Padding(padding: AppPadding().kForgetPasswordPaddingD,
+//                           child: Align(
+//                             alignment: Alignment.centerRight,
+//                               child: Text('Forget Password?', style: Styles.textStyle14.copyWith(decoration: TextDecoration.underline, color: AppColors.kForgetPasswordColor,),),
+//                             ),
+//                           ),
+                      
+//                           24.verticalSpace,
+                      
+//                           CustomPurpleButton(buttonOnPressed: login, buttonText: 'Login',), //HERE
+//                         ],
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),

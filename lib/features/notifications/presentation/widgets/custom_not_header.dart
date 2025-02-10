@@ -2,6 +2,7 @@
 
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
+import 'package:fluency/Core/widgets/containers/custom_container.dart';
 import 'package:fluency/config/router/app_router.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_images.dart';
@@ -27,19 +28,18 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
       [
         GestureDetector(
           onTap: () {GoRouter.of(context).push(AppRouter.kNoNotificationsView);},
-          child: Container(
-            margin: AppPadding().kNotNewNotificationsMarginD,
-            padding: AppPadding().kNotNewNotificationsPadding,
-            decoration: BoxDecoration(color: AppColors.kFirstGradientColor, borderRadius: AppBorders().radiusCircular50),
-            child: Text("2 New", style: Styles.textStyle10.copyWith(color: Colors.white)
-            ),
+          child: CustomContainer(
+            containerMargin: AppPadding().kNotNewNotificationsMarginD,
+            containerPadding: AppPadding().kNotNewNotificationsPadding,
+            containerDecoration: BoxDecoration(color: AppColors.kFirstGradientColor, borderRadius: AppBorders().radiusCircular50),
+            containerChild: Text("2 New", style: Styles.textStyle10.copyWith(color: Colors.white),),
           ),
         ),
       ],
 
-      leading: Container(
-        margin: AppPadding().kNotBackButtonMargin,
-        child: GestureDetector(
+      leading: CustomContainer(
+        containerMargin: AppPadding().kNotBackButtonMargin,
+        containerChild: GestureDetector(
             onTap: () {print('Pressed');GoRouter.of(context).pop();},
             child: Image.asset(AppIMGs().kFluencyBackArrowPNG, width: 48.w, height: 48.h, //HERE
           ),
@@ -51,3 +51,22 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
+
+
+// Container(
+//             margin: AppPadding().kNotNewNotificationsMarginD,
+//             padding: AppPadding().kNotNewNotificationsPadding,
+//             decoration: BoxDecoration(color: AppColors.kFirstGradientColor, borderRadius: AppBorders().radiusCircular50),
+//             child: Text("2 New", style: Styles.textStyle10.copyWith(color: Colors.white)
+//             ),
+//           ),
+
+
+// Container(
+//         margin: AppPadding().kNotBackButtonMargin,
+//         child: GestureDetector(
+//             onTap: () {print('Pressed');GoRouter.of(context).pop();},
+//             child: Image.asset(AppIMGs().kFluencyBackArrowPNG, width: 48.w, height: 48.h, //HERE
+//           ),
+//         ),
+//       ),

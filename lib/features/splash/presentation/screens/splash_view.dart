@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:fluency/Core/widgets/containers/custom_container.dart';
 import 'package:fluency/config/router/app_router.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_images.dart';
@@ -30,17 +31,30 @@ class _SplashViewState extends State<SplashView>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
+      body: CustomContainer(
+        containerWidth: double.infinity,
+        containerHeight: double.infinity,
+        containerDecoration: BoxDecoration(
           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyBooksPNG), fit: BoxFit.cover),
           gradient: const LinearGradient(colors: [AppColors.kFirstGradientColor, AppColors.kSecondGradientColor])
         ),
-        child: Center(
+        containerChild: Center(
           child: SvgPicture.asset(AppIMGs().kFluencyLogoSVG, fit: BoxFit.cover,)
         ),
-      )
+      ),
     );
   }
 }
+
+
+// Container(
+//         width: double.infinity,
+//         height: double.infinity,
+//         decoration: BoxDecoration(
+//           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyBooksPNG), fit: BoxFit.cover),
+//           gradient: const LinearGradient(colors: [AppColors.kFirstGradientColor, AppColors.kSecondGradientColor])
+//         ),
+//         child: Center(
+//           child: SvgPicture.asset(AppIMGs().kFluencyLogoSVG, fit: BoxFit.cover,)
+//         ),
+//       ),
