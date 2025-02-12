@@ -2,6 +2,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:fluency/Config/router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main()
@@ -9,7 +10,7 @@ void main()
   runApp(
     ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, child) => const FluencyApp()
+      builder: (context, child) => const ProviderScope(child: FluencyApp())
       ),
     );
 }
@@ -23,7 +24,7 @@ class FluencyApp extends StatelessWidget
   Widget build(BuildContext context)
   {
     return DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => MaterialApp.router(
         useInheritedMediaQuery: true,
         builder: DevicePreview.appBuilder,

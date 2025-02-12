@@ -10,8 +10,8 @@ class AppColors
   static const Color kForgetPasswordColor = Color(0xff4F1993);
   static const Color kDontHaveAccountColor = Color(0xff777777);
 
-  //static const Color kScaffoldBGColor = Color(0xfff7f6fc);
-  static const Color kScaffoldBGColor = Color.fromRGBO(255, 255, 255, 0.93);
+  static const Color kScaffoldBGColor = Color(0xfff7f6fc);
+  //static const Color kScaffoldBGColor = Color.fromRGBO(255, 255, 255, 0.93);
 
   static const Color kLoginFormContainerBGColor = Color.fromRGBO(255, 255, 255, 1);
 

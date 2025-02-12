@@ -19,6 +19,7 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
   Widget build(BuildContext context)
   {
     return AppBar(
+      backgroundColor: AppColors.kScaffoldBGColor,
       leadingWidth: 27.w,
       centerTitle: true,
 

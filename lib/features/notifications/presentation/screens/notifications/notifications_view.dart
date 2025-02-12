@@ -1,54 +1,32 @@
-import 'package:fluency/Core/constants/app_padding.dart';
-import 'package:fluency/Features/notifications/data/repository/notification_repository.dart';
-import 'package:fluency/Features/notifications/domain/entites/notification_entity.dart';
-import 'package:fluency/Features/notifications/presentation/widgets/custom_not_header.dart';
+import 'package:fluency/Features/notifications/presentation/controller/notification_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:fluency/core/constants/app_colors.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fluency/Core/constants/app_padding.dart';
+import 'package:fluency/Features/notifications/presentation/widgets/custom_not_header.dart';
 import 'package:fluency/Features/notifications/presentation/widgets/custom_listbuilder.dart';
 import 'package:fluency/Features/notifications/presentation/widgets/custom_not_card.dart';
+import 'package:fluency/core/constants/app_colors.dart';
 
-
-class NotificationsView extends StatefulWidget
+class NotificationsView extends ConsumerWidget
 {
   const NotificationsView({super.key});
 
   @override
-  State<NotificationsView> createState() => _NotificationsViewState();
-}
-
-class _NotificationsViewState extends State<NotificationsView>
-{
-  final NotificationRepository _notificationRepository = NotificationRepository();
-  List<NotificationEntity> _notifications = [];
-
-  @override
-  void initState()
+  Widget build(BuildContext context, WidgetRef ref)
   {
-    super.initState();
-    fetchNotifications();
-  }
+    final notificationController = ref.watch(notificationControllerProvider);
 
-  Future<void> fetchNotifications() async
-  {
-    final notifications = await _notificationRepository.getNotifications();
-    setState(() {_notifications = notifications;});
-  }
-
-  @override
-  Widget build(BuildContext context)
-  {
     return SafeArea(
       child: Scaffold(
         appBar: const CustomNotificationsAppBar(),
-
         backgroundColor: AppColors.kScaffoldBGColor,
-        body: _notifications.isEmpty
+        body: notificationController.isLoading
             ? const Center(child: CircularProgressIndicator())
             : CustomListViewSeparatedBuilder(
-                listItemCount: _notifications.length,
+                listItemCount: notificationController.notifications.length,
                 listReturnedWidget: (context, index)
                 {
-                  final notification = _notifications[index];
+                  final notification = notificationController.notifications[index];
                   return CustomNotificationsCard(
                     title: notification.title,
                     description: notification.description,
@@ -65,3 +43,4 @@ class _NotificationsViewState extends State<NotificationsView>
     );
   }
 }
+
