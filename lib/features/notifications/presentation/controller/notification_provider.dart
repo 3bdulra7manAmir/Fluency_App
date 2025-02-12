@@ -3,39 +3,37 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluency/Features/notifications/data/repository/notification_repository.dart';
 import 'package:fluency/Features/notifications/domain/entites/notification_entity.dart';
 
+final notificationControllerProvider = ChangeNotifierProvider((ref) => NotificationController(ref.read(notificationRepositoryProvider)),);
+final notificationRepositoryProvider = Provider((ref) => NotificationRepository());
+
 class NotificationController extends ChangeNotifier
 {
-  final NotificationRepository _notificationRepository;
-  
-  NotificationController(this._notificationRepository)
+  final NotificationRepository notificationRepository;
+
+  NotificationController(this.notificationRepository)
   {
     fetchNotifications();
   }
 
-  List<NotificationEntity> _notifications = [];
-  List<NotificationEntity> get notifications => _notifications;
-
-  bool _isLoading = true;
-  bool get isLoading => _isLoading;
+  List<NotificationEntity> notifications = [];
+  bool isLoading = true;
 
   Future<void> fetchNotifications() async
   {
-    _isLoading = true;
+    isLoading = true;
     notifyListeners();
 
     try
     {
-      _notifications = await _notificationRepository.getNotifications();
+      notifications = await notificationRepository.getNotifications();
     }
+
     catch (e)
     {
       debugPrint("Error fetching notifications: $e");
     }
 
-    _isLoading = false;
+    isLoading = false;
     notifyListeners();
   }
 }
-
-final notificationControllerProvider = ChangeNotifierProvider((ref) => NotificationController(ref.read(notificationRepositoryProvider)),);
-final notificationRepositoryProvider = Provider((ref) => NotificationRepository());
