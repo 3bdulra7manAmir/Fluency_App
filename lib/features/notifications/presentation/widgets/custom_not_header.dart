@@ -19,8 +19,9 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
   Widget build(BuildContext context)
   {
     return AppBar(
+
       backgroundColor: AppColors.kScaffoldBGColor,
-      leadingWidth: 27.w,
+      leadingWidth: 75.w,
       centerTitle: true,
 
       title: Text('Notifications', style: Styles.textStyle20,),
@@ -39,10 +40,11 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
       ],
 
       leading: CustomContainer(
-        containerMargin: AppPadding().kNotBackButtonMargin,
+        //containerMargin: AppPadding().kNotBackButtonMargin,
         containerChild: GestureDetector(
             onTap: () {print('Pressed');GoRouter.of(context).pop();},
-            child: Image.asset(AppIMGs().kFluencyBackArrowPNG, width: 48.w, height: 48.h, //HERE
+            //child: Image.asset(AppIMGs().kFluencyBackArrowPNG, //HERE
+            child: Image.asset(AppIMGs().kFluencyBackArrowPNGEdit, //HERE
           ),
         ),
       ),

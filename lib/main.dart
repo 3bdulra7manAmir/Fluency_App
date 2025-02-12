@@ -11,8 +11,8 @@ void main()
     ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => const ProviderScope(child: FluencyApp())
-      ),
-    );
+    ),
+  );
 }
 
 
@@ -24,7 +24,7 @@ class FluencyApp extends StatelessWidget
   Widget build(BuildContext context)
   {
     return DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) => MaterialApp.router(
         useInheritedMediaQuery: true,
         builder: DevicePreview.appBuilder,

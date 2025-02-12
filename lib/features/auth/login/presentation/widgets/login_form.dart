@@ -81,6 +81,7 @@ class LoginForm extends ConsumerWidget
                           8.verticalSpace,
 
                           CustomTextFormField(
+                            fieldContentPadding: AppPadding().kPasswordFieldContentPadding,
                             fieldObscureText: authController.isLoading,
                             fieldController: passwordController,
                             fieldValidator: LoginValidator().validatePassword,
