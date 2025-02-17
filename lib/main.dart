@@ -8,9 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main()
 {
   runApp(
-    ScreenUtilInit(
-      designSize: const Size(375, 812),
-      builder: (context, child) => const ProviderScope(child: FluencyApp())
+    ProviderScope(
+      child: ScreenUtilInit(
+        designSize: const Size(375, 812),
+        builder: (context, child) => const FluencyApp()
+      ),
     ),
   );
 }

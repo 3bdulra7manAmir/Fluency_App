@@ -1,0 +1,2 @@
+D:/Projects/Vs Code/Training/6. Fluency_App/fluency/android/app/.cxx/Debug/4o5s4v73/x86/CMakeFiles/edit_cache.dir
+D:/Projects/Vs Code/Training/6. Fluency_App/fluency/android/app/.cxx/Debug/4o5s4v73/x86/CMakeFiles/rebuild_cache.dir
