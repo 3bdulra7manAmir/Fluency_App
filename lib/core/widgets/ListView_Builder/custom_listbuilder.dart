@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomListBuilder extends StatelessWidget
 {
-  const CustomListBuilder({super.key,
-  required this.listItemBuilder,
-  required this.listseparatorBuilder,
-  required this.listItemCount,
-  this.listPadding});
+  const CustomListBuilder(
+      {super.key,
+      required this.listItemBuilder,
+      required this.listseparatorBuilder,
+      required this.listItemCount,
+      this.listPadding});
 
   final Widget? Function(BuildContext, int) listItemBuilder;
   final Widget Function(BuildContext, int) listseparatorBuilder;
@@ -17,12 +18,11 @@ class CustomListBuilder extends StatelessWidget
   Widget build(BuildContext context)
   {
     return ListView.separated(
-      itemBuilder: listItemBuilder ,
-      separatorBuilder: listseparatorBuilder ,
+      itemBuilder: listItemBuilder,
+      separatorBuilder: listseparatorBuilder,
       itemCount: listItemCount,
       padding: EdgeInsets.zero,
       shrinkWrap: true,
-
     );
   }
 }

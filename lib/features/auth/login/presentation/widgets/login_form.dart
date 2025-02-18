@@ -1,4 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
 
 import 'package:fluency/Features/auth/login/presentation/controller/auth_provider.dart';
 import 'package:flutter/material.dart';
@@ -53,19 +52,14 @@ class LoginForm extends ConsumerWidget
                     children:
                     [
                       24.verticalSpace,
-                      
                       Text('Welcome back!', style: Styles.textStyle24, textAlign: TextAlign.center,),
-
                       24.verticalSpace,
-
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children:
                         [
                           Text('Mobile or Email', style: Styles.textStyle14),
-
                           8.verticalSpace,
-
                           CustomTextFormField(
                             fieldController: emailController,
                             fieldValidator: LoginValidator().validateEmail,
@@ -73,13 +67,9 @@ class LoginForm extends ConsumerWidget
                             fieldObscureText: false,
                             fieldHintText: "Enter your mobile or email",
                           ),
-
                           16.verticalSpace,
-
                           Text('Password', style: Styles.textStyle14),
-
                           8.verticalSpace,
-
                           CustomTextFormField(
                             fieldContentPadding: AppPadding().k16Start,
                             fieldObscureText: authController.isLoading,
@@ -88,23 +78,18 @@ class LoginForm extends ConsumerWidget
                             fieldKeyboardType: TextInputType.text,
                             fieldHintText: "************",
                           ),
-
                           Padding(
                             padding: AppPadding().k16Start8Top,
                             child: Align(
                               alignment: Alignment.centerRight,
-                              child: Text(
-                                'Forget Password?',
-                                style: Styles.textStyle14.copyWith(
-                                  decoration: TextDecoration.underline,
-                                  color: AppColors.kForgetPasswordColor,
+                              child: Text('Forget Password?', style: Styles.textStyle14.copyWith(
+                                decoration: TextDecoration.underline,
+                                color: AppColors.kForgetPasswordColor,
                                 ),
                               ),
                             ),
                           ),
-
                           24.verticalSpace,
-
                           Center(
                             child: CustomPurpleButton(
                               buttonOnPressed: () async
@@ -112,8 +97,10 @@ class LoginForm extends ConsumerWidget
                                 if (loginFormKey.currentState!.validate())
                                 {
                                   await ref.read(authControllerProvider.notifier).login(emailController.text, passwordController.text,);
-
-                                  if (authController.authEntity != null) {GoRouter.of(context).push(AppRouter.kNotificationsView);}
+                                  if (authController.authEntity != null)
+                                  {
+                                    GoRouter.of(context).push(AppRouter.kNotificationsView);
+                                  }
                                 }
                               },
                               buttonText: 'Login',
@@ -125,27 +112,26 @@ class LoginForm extends ConsumerWidget
                   ),
                 ),
               ),
-
               24.verticalSpace,
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:
                 [
                   Text('Don`t have an account?', style: TextStyle(color: AppColors.kDontHaveAccountColor, fontSize: 12.sp, fontWeight: FontWeight.bold,),),
-
                   3.horizontalSpace,
-
-                  GestureDetector(onTap: () {GoRouter.of(context).push(AppRouter.kNotificationsView);},
-                    child: Text('Sign up', style: TextStyle(color: AppColors.kFirstGradientColor, fontWeight: FontWeight.bold, fontSize: 14.sp,),
-                    ),
+                  GestureDetector(
+                    onTap: ()
+                    {
+                      GoRouter.of(context).push(AppRouter.kNotificationsView);
+                    },
+                    child: Text('Sign up', style: TextStyle(color: AppColors.kFirstGradientColor, fontWeight: FontWeight.bold, fontSize: 14.sp,),),
                   ),
                 ],
               ),
             ],
           ),
-          
-          if (authController.isLoading) const Center(child: CircularProgressIndicator()),
+          if (authController.isLoading)
+            const Center(child: CircularProgressIndicator()),
         ],
       ),
     );

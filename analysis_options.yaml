@@ -6,5 +6,9 @@ linter:
     prefer_const_declarations: true
 
 analyzer:
+  errors:
+    use_build_context_synchronously: ignore
+    avoid_print: ignore
+    deprecated_member_use: ignore
   plugins:
     - custom_lint

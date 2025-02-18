@@ -5,13 +5,11 @@ import 'package:fluency/Features/auth/login/presentation/widgets/custom_clipper.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PurpleSector extends StatelessWidget
-{
+class PurpleSector extends StatelessWidget {
   const PurpleSector({super.key});
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return ClipPath(
       clipper: BottomCircularClipper(),
       child: CustomContainer(
@@ -19,13 +17,14 @@ class PurpleSector extends StatelessWidget
         containerWidth: double.infinity,
         containerDecoration: BoxDecoration(
           color: AppColors.kSecondGradientColor,
-          image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHatPNG), fit: BoxFit.cover),
+          image: DecorationImage(
+              image: AssetImage(AppIMGs().kFluencyLoginHatPNG),
+              fit: BoxFit.cover),
         ),
       ),
     );
   }
 }
-
 
 // Container(
 //         height: ScreenUtil().screenHeight * 0.5,

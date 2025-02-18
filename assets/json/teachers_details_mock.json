@@ -1,0 +1,21 @@
+{
+    "id": "98247969240911872",
+    "photo": "https:\/\/api.fluency.live\/storage\/teachers\/98247969240911872\/photo\/Byk6MRaAPEevby4Q9kqRc6wUB4UBnX2nVZLav0Z6.webp",
+    "name": "Sheila Mazza",
+    "accent":
+    {
+        "id": 8,
+        "name": "\u0623\u062e\u0631\u0649"
+    },
+
+    "nationality":
+    {
+        "id": 27,
+        "code": "BR",
+        "name": "\u0628\u0631\u0627\u0632\u064a\u0644\u064a",
+        "flag": "https:\/\/api.fluency.live\/app\/flags\/br.svg"
+    },
+    "headline": "Experienced, patient teacher",
+    "bio": "I am a qualified TEFL teacher with a degree in teaching English. I\"m very patient and committed to helping students make progress.",
+    "video": "storage\/teachers\/98247969240911872\/video\/ukBybSqyKP8ql8GXD3OZgN9FIRoEK5wa0YdHypqy.mp4"
+}

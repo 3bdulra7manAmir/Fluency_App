@@ -7,54 +7,60 @@ import 'package:fluency/Core/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTeachersContainer extends StatelessWidget
-{
-  const CustomTeachersContainer({super.key,});
+class CustomTeachersContainer extends StatelessWidget {
+  const CustomTeachersContainer({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return CustomContainer(
       containerWidth: 128.w,
       containerHeight: 56.h,
       containerDecoration: BoxDecoration(
-        gradient: const LinearGradient(colors: [AppColors.kTeachersSmallContainerFirstGradientColor, AppColors.kTeachersSmallContainerSecondGradientColor]),
-        borderRadius: AppBorders().radiusCircular16,
-        border: Border.all(color: AppColors.kSecondGradientColor, width: 0.5.w,)
-      ),
-
+          gradient: const LinearGradient(colors: [
+            AppColors.kTeachersSmallContainerFirstGradientColor,
+            AppColors.kTeachersSmallContainerSecondGradientColor
+          ]),
+          borderRadius: AppBorders().radiusCircular16,
+          border: Border.all(
+            color: AppColors.kSecondGradientColor,
+            width: 0.5.w,
+          )),
       containerChild: Row(
-        children:
-        [
+        children: [
           CustomContainer(
             containerMargin: AppPadding().k8Start,
             containerHeight: 40.h,
             containerWidth: 40.w,
             containerDecoration: BoxDecoration(
-              image:  DecorationImage( image: AssetImage(AppIMGs().kFluencyTeacherViewTeacherPNG), ),
+              image: DecorationImage(
+                image: AssetImage(AppIMGs().kFluencyTeacherViewTeacherPNG),
+              ),
               color: AppColors.kTeachersSmallContainerBGColor,
               borderRadius: AppBorders().radiusCircular8,
             ),
           ),
-
           15.horizontalSpace,
-    
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:
-            [
+            children: [
               12.verticalSpace,
-          
-              Text("Mohamed ...", style: Styles.textStyle10.copyWith(color: AppColors.kLoginFormBoxDecorationColor),
-              overflow: TextOverflow.ellipsis,
+              Text(
+                "Mohamed ...",
+                style: Styles.textStyle10
+                    .copyWith(color: AppColors.kLoginFormBoxDecorationColor),
+                overflow: TextOverflow.ellipsis,
               ),
-          
               4.verticalSpace,
-          
-              Text("May 5 2024", style: Styles.textStyle8.copyWith(color: AppColors.kLoginFormBoxDecorationColor,),
-              overflow: TextOverflow.ellipsis,
+              Text(
+                "May 5 2024",
+                style: Styles.textStyle8.copyWith(
+                  color: AppColors.kLoginFormBoxDecorationColor,
+                ),
+                overflow: TextOverflow.ellipsis,
               )
-            ],                        
+            ],
           ),
         ],
       ),

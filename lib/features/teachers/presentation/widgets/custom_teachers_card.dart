@@ -10,13 +10,14 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomTeachersCard extends StatelessWidget
 {
-  const CustomTeachersCard({super.key,
-  required this.teacherIMGPath,
-  required this.teacherName,
-  required this.teacherNameSubtitle,
-  required this.flagIMGPath,
-  required this.countryText,
-  required this.accentText});
+  const CustomTeachersCard(
+    {super.key,
+      required this.teacherIMGPath,
+      required this.teacherName,
+      required this.teacherNameSubtitle,
+      required this.flagIMGPath,
+      required this.countryText,
+      required this.accentText});
 
   final String teacherIMGPath;
   final String teacherName;
@@ -24,7 +25,7 @@ class CustomTeachersCard extends StatelessWidget
 
   final String flagIMGPath;
   final String countryText;
-  
+
   final String accentText;
 
   @override
@@ -49,7 +50,8 @@ class CustomTeachersCard extends StatelessWidget
               color: AppColors.kTeachersSmallContainerBGColorWithOpacity,
               borderRadius: AppBorders().radiusCircular8,
             ),
-            containerChild: Row(  //OR IT COULD BE A STACK BUT STACK IS MORE LESS STABLE 
+            containerChild: Row(
+              //OR IT COULD BE A STACK BUT STACK IS MORE LESS STABLE
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:
               [
@@ -67,7 +69,8 @@ class CustomTeachersCard extends StatelessWidget
 
                 Align(
                   alignment: Alignment.topRight,
-                  child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
+                  child: SvgPicture.asset(
+                      AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
                 ),
               ],
             ),
@@ -78,7 +81,6 @@ class CustomTeachersCard extends StatelessWidget
           4.verticalSpace,
           //"ESL & IELTS instructor"
           Text(teacherNameSubtitle, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
-
           16.verticalSpace,
 
           Row(
@@ -106,9 +108,7 @@ class CustomTeachersCard extends StatelessWidget
                   ],
                 ),
               ),
-
               12.horizontalSpace,
-
               CustomContainer(
                 containerWidth: 117.w,
                 containerHeight: 32.h,
@@ -125,7 +125,7 @@ class CustomTeachersCard extends StatelessWidget
                     Text("Accent", style: Styles.textStyle10),
                     4.horizontalSpace,
                     //American
-                    Text(accentText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
+                    Text(accentText,style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
                   ],
                 ),
               ),
@@ -136,30 +136,3 @@ class CustomTeachersCard extends StatelessWidget
     );
   }
 }
-
-
-
-// Row(
-//               //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children:
-//               [
-//                 Align(
-//                   alignment: Alignment.topCenter,
-//                   child: SvgPicture.asset('assets/images/svg/Teacher_View_UFO.svg'),
-//                 ),
-
-//                 //Spacer(),
-
-//                 Padding(
-//                   padding: AppPadding().k62Start62End,
-//                   child: Image.asset('assets/images/png/Teacher_View_Teacher.png', height: 140.h,fit: BoxFit.cover,),
-//                 ),
-
-//                 //Spacer(),
-
-//                 Align(
-//                   alignment: Alignment.topRight,
-//                   child: SvgPicture.asset('assets/images/svg/Teacher_View_Save.svg'),
-//                 ),
-//               ],
-//             ),

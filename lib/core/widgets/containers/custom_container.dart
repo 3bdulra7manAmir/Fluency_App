@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
-class CustomContainer extends StatelessWidget
-{
-
-  const CustomContainer({super.key,
-  this.containerHeight,
-  this.containerWidth,
-  this.containerDecoration,
-  this.containerDecorationColor,
-  this.containerChild,
-  this.containerDecorationImage,
-  this.containerMargin,
-  this.containerPadding,
-  this.containerGradient,
-  this.clipBehavior,
-  this.containerAlignment});
+class CustomContainer extends StatelessWidget {
+  const CustomContainer(
+      {super.key,
+      this.containerHeight,
+      this.containerWidth,
+      this.containerDecoration,
+      this.containerDecorationColor,
+      this.containerChild,
+      this.containerDecorationImage,
+      this.containerMargin,
+      this.containerPadding,
+      this.containerGradient,
+      this.clipBehavior,
+      this.containerAlignment});
 
   final double? containerHeight;
   final double? containerWidth;
@@ -28,10 +27,8 @@ class CustomContainer extends StatelessWidget
   final Clip? clipBehavior;
   final AlignmentGeometry? containerAlignment;
 
-  
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Container(
       clipBehavior: clipBehavior ?? Clip.none,
       height: containerHeight,
@@ -39,7 +36,6 @@ class CustomContainer extends StatelessWidget
       margin: containerMargin ?? EdgeInsets.zero,
       padding: containerPadding ?? EdgeInsets.zero,
       alignment: containerAlignment,
-      
       decoration: containerDecoration ??
           (containerDecorationColor != null || containerGradient != null
               ? BoxDecoration(

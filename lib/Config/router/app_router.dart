@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import 'package:fluency/Features/auth/login/presentation/screens/login_view.dart';
 import 'package:fluency/Features/notifications/presentation/screens/no_notifications/no_notifications_view.dart';
 import 'package:fluency/Features/notifications/presentation/screens/notifications/notifications_view.dart';
@@ -9,17 +7,15 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter
 {
-
   static const kSplashView = '/SplashView';
   static const kLoginView = '/LoginView';
   static const kNotificationsView = '/NotificationsView';
   static const kNoNotificationsView = '/NoNotificationsView';
   static const kTeachersView = '/TeachersView';
-
+  //static const kCustomTeachersBMS = '/CustomTeachersBMS';
 
   static final router = GoRouter(
-    routes:
-    [
+    routes: [
       GoRoute(
         path: kSplashView,
         builder: (context, state) => const SplashView(),
@@ -45,6 +41,10 @@ abstract class AppRouter
         builder: (context, state) => const TeachersView(),
       ),
 
+      // GoRoute(
+      //   path: kCustomTeachersBMS,
+      //   builder: (context, state) => const CustomTeachersBMS(),
+      // ),
 
       // MOVER //
       GoRoute(

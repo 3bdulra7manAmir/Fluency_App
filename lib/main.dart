@@ -1,4 +1,3 @@
-// ignore_for_file: deprecated_member_use
 import 'package:device_preview/device_preview.dart';
 import 'package:fluency/Config/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +9,11 @@ void main()
   runApp(
     ProviderScope(
       child: ScreenUtilInit(
-        designSize: const Size(375, 812),
-        builder: (context, child) => const FluencyApp()
-      ),
+          designSize: const Size(375, 812),
+          builder: (context, child) => const FluencyApp()),
     ),
   );
 }
-
 
 class FluencyApp extends StatelessWidget
 {
