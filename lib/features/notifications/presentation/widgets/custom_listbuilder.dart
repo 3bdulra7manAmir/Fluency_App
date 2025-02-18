@@ -18,7 +18,7 @@ class CustomListViewSeparatedBuilder extends StatelessWidget
   Widget build(BuildContext context)
   {
     return ListView.separated(
-      padding: AppPadding().kPaddingInsideTheListViewBuilder,
+      padding: AppPadding().k12AndHalfVertical,
       itemBuilder: listReturnedWidget,
       itemCount: listItemCount,
       shrinkWrap: true,

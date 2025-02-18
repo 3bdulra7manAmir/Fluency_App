@@ -18,7 +18,7 @@ class CustomNotificationsCard extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Padding(
-      padding: AppPadding().kNotificationsCardPadding,
+      padding: AppPadding().k16Horizontal,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

@@ -1,0 +1,62 @@
+import 'package:fluency/Core/constants/app_borders.dart';
+import 'package:fluency/Core/constants/app_colors.dart';
+import 'package:fluency/Core/constants/app_padding.dart';
+import 'package:fluency/Core/utils/styles.dart';
+import 'package:fluency/Core/widgets/containers/custom_container.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class CustomTeachersContainer extends StatelessWidget
+{
+  const CustomTeachersContainer({super.key,});
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return CustomContainer(
+      containerWidth: 128.w,
+      containerHeight: 56.h,
+      containerDecoration: BoxDecoration(
+        gradient: const LinearGradient(colors: [AppColors.kTeachersSmallContainerFirstGradientColor, AppColors.kTeachersSmallContainerSecondGradientColor]),
+        borderRadius: AppBorders().radiusCircular16,
+        border: Border.all(color: AppColors.kSecondGradientColor, width: 0.5.w,)
+      ),
+
+      containerChild: Row(
+        children:
+        [
+          CustomContainer(
+            containerMargin: AppPadding().k8Start,
+            containerHeight: 40.h,
+            containerWidth: 40.w,
+            containerDecoration: BoxDecoration(
+              image: const DecorationImage( image: AssetImage('assets/images/png/Teacher_View_Teacher.png'), ),
+              color: AppColors.kTeachersSmallContainerBGColor,
+              borderRadius: AppBorders().radiusCircular8,
+            ),
+          ),
+
+          15.horizontalSpace,
+    
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:
+            [
+              12.verticalSpace,
+          
+              Text("Mohamed ...", style: Styles.textStyle10.copyWith(color: AppColors.kLoginFormBoxDecorationColor),
+              overflow: TextOverflow.ellipsis,
+              ),
+          
+              4.verticalSpace,
+          
+              Text("May 5 2024", style: Styles.textStyle8.copyWith(color: AppColors.kLoginFormBoxDecorationColor,),
+              overflow: TextOverflow.ellipsis,
+              )
+            ],                        
+          ),
+        ],
+      ),
+    );
+  }
+}

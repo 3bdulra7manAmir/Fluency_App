@@ -35,7 +35,7 @@ class NotificationsView extends ConsumerWidget
                   );
                 },
                 listSeparatorWidget: Padding(
-                  padding: AppPadding().kListSeparatorPadding,
+                  padding: AppPadding().k5Top5Bottom,
                   child: const Divider(),
                 ),
               ),

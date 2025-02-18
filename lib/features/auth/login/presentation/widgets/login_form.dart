@@ -38,8 +38,8 @@ class LoginForm extends ConsumerWidget
             [
               CustomContainer(
                 containerDecorationColor: AppColors.kLoginFormContainerBGColor,
-                containerMargin: AppPadding().kLoginFormMargin,
-                containerPadding: AppPadding().kLoginFormPadding,
+                containerMargin: AppPadding().k24Horizontal,
+                containerPadding: AppPadding().k16Horizontal,
                 containerWidth: 327.w,
                 containerHeight: 367.h,
                 containerDecoration: BoxDecoration(
@@ -81,7 +81,7 @@ class LoginForm extends ConsumerWidget
                           8.verticalSpace,
 
                           CustomTextFormField(
-                            fieldContentPadding: AppPadding().kPasswordFieldContentPadding,
+                            fieldContentPadding: AppPadding().k16Start,
                             fieldObscureText: authController.isLoading,
                             fieldController: passwordController,
                             fieldValidator: LoginValidator().validatePassword,
@@ -90,7 +90,7 @@ class LoginForm extends ConsumerWidget
                           ),
 
                           Padding(
-                            padding: AppPadding().kForgetPasswordPaddingD,
+                            padding: AppPadding().k16Start8Top,
                             child: Align(
                               alignment: Alignment.centerRight,
                               child: Text(

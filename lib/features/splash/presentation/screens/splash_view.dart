@@ -53,16 +53,3 @@ class _SplashViewState extends State<SplashView>
     );
   }
 }
-
-
-// Container(
-//         width: double.infinity,
-//         height: double.infinity,
-//         decoration: BoxDecoration(
-//           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyBooksPNG), fit: BoxFit.cover),
-//           gradient: const LinearGradient(colors: [AppColors.kFirstGradientColor, AppColors.kSecondGradientColor])
-//         ),
-//         child: Center(
-//           child: SvgPicture.asset(AppIMGs().kFluencyLogoSVG, fit: BoxFit.cover,)
-//         ),
-//       ),

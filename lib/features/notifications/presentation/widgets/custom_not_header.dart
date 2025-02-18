@@ -31,8 +31,8 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
         GestureDetector(
           onTap: () {GoRouter.of(context).push(AppRouter.kNoNotificationsView);},
           child: CustomContainer(
-            containerMargin: AppPadding().kNotNewNotificationsMarginD,
-            containerPadding: AppPadding().kNotNewNotificationsPadding,
+            containerMargin: AppPadding().k24End,
+            containerPadding: AppPadding().k16Horizontal6Vertical,
             containerDecoration: BoxDecoration(color: AppColors.kFirstGradientColor, borderRadius: AppBorders().radiusCircular50),
             containerChild: Text("2 New", style: Styles.textStyle10.copyWith(color: Colors.white),),
           ),
