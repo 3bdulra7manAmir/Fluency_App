@@ -36,7 +36,7 @@ class CustomNotificationsCard extends StatelessWidget
               crossAxisAlignment: CrossAxisAlignment.start,
               children:
               [
-                Text(title, style: Styles.textStyle14.copyWith(color: AppColors.kTextInsideFormFieldColor), overflow: TextOverflow.ellipsis,),
+                Text(title, style: Styles.textStyle14.copyWith(color: AppColors.kDontHaveAccountColor), overflow: TextOverflow.ellipsis,),
 
                 4.verticalSpace,
 

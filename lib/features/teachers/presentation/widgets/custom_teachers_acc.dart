@@ -1,8 +1,9 @@
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
+import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/utils/styles.dart';
-import 'package:fluency/Core/widgets/containers/custom_container.dart';
+import 'package:fluency/Core/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -43,7 +44,7 @@ class CustomFreeAccountContainer extends StatelessWidget
     
           10.horizontalSpace,
     
-          SvgPicture.asset('assets/images/svg/Teacher_View_Yellow_Arrow.svg'),
+          SvgPicture.asset(AppIMGs().kFluencyTeacherViewYellowArrowSVG),
         ],
       ),
     );

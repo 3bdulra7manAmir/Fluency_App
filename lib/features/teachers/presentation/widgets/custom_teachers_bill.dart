@@ -1,6 +1,7 @@
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
-import 'package:fluency/Core/widgets/containers/custom_container.dart';
+import 'package:fluency/Core/constants/app_images.dart';
+import 'package:fluency/Core/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +15,7 @@ class CustomTeachersBillContainer extends StatelessWidget
   {
     return CustomContainer(
       containerAlignment: Alignment.center,
-      containerChild: SvgPicture.asset('assets/images/svg/Teacher_View_Bill.svg'),
+      containerChild: SvgPicture.asset(AppIMGs().kFluencyTeacherViewBillSVG),
       containerWidth: 56.w,
       containerHeight: 56.h,
       containerDecoration: BoxDecoration(

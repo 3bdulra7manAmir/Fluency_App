@@ -2,7 +2,7 @@
 
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
-import 'package:fluency/Core/widgets/containers/custom_container.dart';
+import 'package:fluency/Core/widgets/Containers/custom_container.dart';
 import 'package:fluency/config/router/app_router.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_images.dart';

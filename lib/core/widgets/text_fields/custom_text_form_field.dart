@@ -54,7 +54,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField>
         keyboardType: widget.fieldKeyboardType ?? TextInputType.name,
         maxLines: 1,
         validator: widget.fieldValidator,
-        style: TextStyle(fontSize: 12.sp, color: AppColors.kTextInsideFormFieldColor,),
+        style: TextStyle(fontSize: 12.sp, color: AppColors.kDontHaveAccountColor,),
 
         decoration: InputDecoration(
           //isDense: true,
