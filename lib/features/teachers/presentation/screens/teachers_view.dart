@@ -37,11 +37,13 @@ class TeachersView extends ConsumerWidget
                 {
                   final teacher = teachers[index];
                   return GestureDetector(
-                    onTap: ()
+                    onTap: () async
                     {
                       print("Tapped on ${teacher.name}");
                       print("Flag URL: ${teacher.nationality?.flag}");
                       print("Accent: ${teacher.accent?.name}");
+                      final teacherDetails = await ref.read(teacherRepositoryProvider).getTeacherDetails(teacher.id ?? '');
+
                       CustomTeachersBMS.show(
                         context,
                         teacherIMGPath: teacher.photo ?? '',
@@ -50,6 +52,7 @@ class TeachersView extends ConsumerWidget
                         teacherNameSubtitle: teacher.headline,
                         countryText: teacher.nationality?.name ?? "N/A",
                         accentText: teacher.accent?.name ?? "N/A",
+                        videoUrl: teacherDetails.video != null ? "https://api.fluency.live/${teacherDetails.video}" : null,
                       );
                     },
                     child: CustomTeachersCard(

@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main()
 {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure plugins are initialized
+
   runApp(
     ProviderScope(
       child: ScreenUtilInit(
