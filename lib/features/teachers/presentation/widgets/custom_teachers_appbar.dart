@@ -21,9 +21,7 @@ class CustomTeachersAppBar extends StatelessWidget
       containerHeight: 180.h,
       containerWidth: double.infinity,
       containerDecoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            bottomLeft: AppBorders().radiusCircular20,
-            bottomRight: AppBorders().radiusCircular20),
+        borderRadius: BorderRadius.only(bottomLeft: AppBorders().radiusCircular20, bottomRight: AppBorders().radiusCircular20),
         gradient: const LinearGradient(colors: [AppColors.kTeachersSmallContainerFirstGradientColor, AppColors.kTeachersSmallContainerSecondGradientColor]),
       ),
       containerChild: Column(

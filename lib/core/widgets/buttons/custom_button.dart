@@ -16,6 +16,7 @@ class CustomPurpleButton extends StatelessWidget
     this.buttonTextStyle,
     required this.buttonIconIsEnabled,
     this.buttonIconPath,
+    this.buttonMargin,
   });
 
   final double? buttonWidth;
@@ -25,11 +26,13 @@ class CustomPurpleButton extends StatelessWidget
   final TextStyle? buttonTextStyle;
   final bool buttonIconIsEnabled;
   final String? buttonIconPath;
+  final EdgeInsets? buttonMargin;
 
   @override
   Widget build(BuildContext context)
   {
     return CustomContainer(
+      containerMargin: buttonMargin ?? EdgeInsets.zero,
       containerWidth: buttonWidth ?? 295,
       containerHeight: buttonHeight ?? 48.h,
       containerDecoration: BoxDecoration(

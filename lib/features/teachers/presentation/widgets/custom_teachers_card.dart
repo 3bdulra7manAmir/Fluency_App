@@ -57,20 +57,18 @@ class CustomTeachersCard extends StatelessWidget
               [
                 Align(
                   alignment: Alignment.topCenter,
-                  child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewUFOSVG),
+                  child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewUFOSVG,),
                 ),
 
                 //Spacer(),
 
-                //AppIMGs().kFluencyTeacherViewTeacherPNG
-                Image.asset(teacherIMGPath, fit: BoxFit.cover,),
+                Image.network(teacherIMGPath, fit: BoxFit.cover,),
 
                 //Spacer(),
 
                 Align(
                   alignment: Alignment.topRight,
-                  child: SvgPicture.asset(
-                      AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
+                  child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
                 ),
               ],
             ),
@@ -97,16 +95,15 @@ class CustomTeachersCard extends StatelessWidget
                   borderRadius: AppBorders().radiusCircular42,
                 ),
                 containerChild: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children:
                   [
-                    5.horizontalSpace,
-                    //AppIMGs().kFluencyTeachersViewEGFlagPNG
                     Image.asset(flagIMGPath),
                     4.horizontalSpace,
                     Text("Nationality", style: Styles.textStyle10),
                     4.horizontalSpace,
                     //Egypt
-                    Text(countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
+                    Text(countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis,),
                   ],
                 ),
               ),
@@ -121,9 +118,9 @@ class CustomTeachersCard extends StatelessWidget
                   borderRadius: AppBorders().radiusCircular42,
                 ),
                 containerChild: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children:
                   [
-                    5.horizontalSpace,
                     Image.asset(AppIMGs().kFluencyTeachersView3LinesAccentPNG),
                     4.horizontalSpace,
                     Text("Accent", style: Styles.textStyle10),
