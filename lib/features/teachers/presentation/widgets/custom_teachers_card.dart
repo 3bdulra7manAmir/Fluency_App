@@ -32,6 +32,7 @@ class CustomTeachersCard extends StatelessWidget
   Widget build(BuildContext context)
   {
     return CustomContainer(
+      containerMargin: AppPadding().k24Horizontal,
       containerWidth: 327.w,
       containerHeight: 258.h,
       containerDecoration: BoxDecoration(
