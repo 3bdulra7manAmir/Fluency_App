@@ -1,11 +1,13 @@
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
+import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/widgets/Containers/custom_container.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:fluency/core/widgets/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 
 class CustomTeachersBMS extends StatefulWidget
@@ -143,8 +145,17 @@ class CustomTeachersBMSState extends State<CustomTeachersBMS>
             containerAlignment: Alignment.center,
             containerHeight: 191.h,
             containerWidth: 327.w,
-            containerDecoration: BoxDecoration(borderRadius: AppBorders().radiusCircular16, color: Colors.grey),
-            //containerChild: ,
+            containerDecoration: BoxDecoration(
+              borderRadius: AppBorders().radiusCircular16,
+              color: AppColors.kTeachersVideoBGColor),
+            containerChild: Stack(
+              alignment: Alignment.center,
+              children:
+              [
+                Image.asset(AppIMGs().kFluencyTeacherViewPersonPNG, fit: BoxFit.cover, height: 222.h, width: 132.w,),
+                SvgPicture.asset(AppIMGs().kFluencyTeachersViewPlayButtonSVG),
+              ],
+            ),
           ),
 
           16.verticalSpace,
@@ -155,7 +166,7 @@ class CustomTeachersBMSState extends State<CustomTeachersBMS>
           buttonWidth: 327.w,
           buttonTextStyle: Styles.textStyle14.copyWith(color: AppColors.kLoginFormContainerBGColor),
           buttonIconIsEnabled: true,
-          buttonIconPath: "assets/images/png/Teachers_View_Calender.png",
+          buttonIconPath: AppIMGs().kFluencyTeachersViewCalenderPNG,
           ),
         ],
       ),

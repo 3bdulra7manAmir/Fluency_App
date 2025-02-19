@@ -1,4 +1,5 @@
 import 'package:fluency/Features/auth/login/presentation/screens/login_view.dart';
+import 'package:fluency/Features/home/presentation/screens/bnb_view.dart';
 import 'package:fluency/Features/notifications/presentation/screens/no_notifications/no_notifications_view.dart';
 import 'package:fluency/Features/notifications/presentation/screens/notifications/notifications_view.dart';
 import 'package:fluency/Features/splash/presentation/screens/splash_view.dart';
@@ -49,7 +50,7 @@ abstract class AppRouter
       // MOVER //
       GoRoute(
         path: '/',
-        builder: (context, state) => const TeachersView(),
+        builder: (context, state) => const HomeView(),
       ),
       // MOVER //
     ],

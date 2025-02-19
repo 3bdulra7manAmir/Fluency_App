@@ -1,15 +1,10 @@
-// ignore_for_file: unused_import
-
-import 'package:fluency/Config/router/app_router.dart';
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/utils/styles.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_bms.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_card.dart';
-import 'package:fluency/Core/widgets/ListView_Builder/custom_listbuilder.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class TeachersView extends StatelessWidget
 {
@@ -31,13 +26,15 @@ class TeachersView extends StatelessWidget
           35.verticalSpace,
 
           GestureDetector(
-            onTap: (){CustomTeachersBMS.show(context,
-            teacherIMGPath: AppIMGs().kFluencyTeacherViewTeacherPNG,
-            flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
-            teacherName: "Mohamed Halwani",
-            teacherNameSubtitle: "A passionate ESL & IELTS instructor with 8+ years of experience with the mission of opening the world through education.",
-            countryText: "Egypt",
-            accentText: "American",);
+            onTap: (){
+              CustomTeachersBMS.show(context,
+              teacherIMGPath: AppIMGs().kFluencyTeacherViewTeacherPNG,
+              flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
+              teacherName: "Mohamed Halwani",
+              teacherNameSubtitle: "A passionate ESL & IELTS instructor with 8+ years of experience with the mission of opening the world through education.",
+              countryText: "Egypt",
+              accentText: "American",
+              );
             },
       
             child: CustomTeachersCard(

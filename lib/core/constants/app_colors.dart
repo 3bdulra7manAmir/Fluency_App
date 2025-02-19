@@ -5,11 +5,11 @@ class AppColors {
   static const Color kSecondGradientColor = Color(0xff905EB6);
 
   static const Color kForgetPasswordColor = Color(0xff4F1993);
+  static const Color kTeachersVideoBGColor = Color.fromRGBO(102, 45, 145, 0.47);
 
-  static const Color kTeachersSmallContainerFirstGradientColor =
-      Color(0xff502173);
-  static const Color kTeachersSmallContainerSecondGradientColor =
-      Color(0xff7234A0);
+  static const Color kTeachersSmallContainerFirstGradientColor = Color(0xff502173);
+  static const Color kTeachersSmallContainerSecondGradientColor = Color(0xff7234A0);
+  static const Color kTeachersBNBTextColor = Color(0xff9983A7);
 
   static const Color kDontHaveAccountColor = Color(0xff777777);
   static const Color kAlmostGreyColor = Color(0xff9C9C9C);
