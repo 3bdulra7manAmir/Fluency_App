@@ -92,6 +92,7 @@ class LoginForm extends ConsumerWidget
                           24.verticalSpace,
                           Center(
                             child: CustomPurpleButton(
+                              buttonIconIsEnabled: false,
                               buttonOnPressed: () async
                               {
                                 if (loginFormKey.currentState!.validate())

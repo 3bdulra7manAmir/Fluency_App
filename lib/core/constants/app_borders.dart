@@ -8,6 +8,8 @@ class AppBorders {
   BorderRadius radiusCircular8 = BorderRadius.circular(8.r);
   BorderRadius radiusCircular16 = BorderRadius.circular(16.r);
   BorderRadius radiusCircular42 = BorderRadius.circular(42.r);
+  BorderRadius radiusCircular100 = BorderRadius.circular(100.r);
+  BorderRadius radiusCircular99 = BorderRadius.circular(99.r);
 
   BorderRadius verticalRadiusCircular25 = BorderRadius.vertical(top: Radius.circular(25.r),);
 

@@ -13,12 +13,18 @@ class CustomPurpleButton extends StatelessWidget
     this.buttonHeight,
     required this.buttonText,
     required this.buttonOnPressed,
+    this.buttonTextStyle,
+    required this.buttonIconIsEnabled,
+    this.buttonIconPath,
   });
 
   final double? buttonWidth;
   final String buttonText;
   final void Function() buttonOnPressed;
   final double? buttonHeight;
+  final TextStyle? buttonTextStyle;
+  final bool buttonIconIsEnabled;
+  final String? buttonIconPath;
 
   @override
   Widget build(BuildContext context)
@@ -36,8 +42,19 @@ class CustomPurpleButton extends StatelessWidget
           shadowColor: AppColors.kPurpleButtonColor,
         ),
         onPressed: buttonOnPressed,
-        child: Center(
-            child: Text(buttonText, style: Styles.textStyle16.copyWith(color: Colors.white,),)),
+        child: buttonIconIsEnabled && buttonIconPath != null && buttonIconPath!.isNotEmpty
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:
+                [
+                  Image.asset(buttonIconPath!),
+
+                  2.horizontalSpace,
+                  
+                  Text(buttonText, style: buttonTextStyle ?? Styles.textStyle16.copyWith(color: Colors.white),),
+                ],
+              )
+            : Center(child: Text(buttonText, style: buttonTextStyle ?? Styles.textStyle16.copyWith(color: Colors.white),),),
       ),
     );
   }

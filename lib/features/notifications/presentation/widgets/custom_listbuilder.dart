@@ -1,7 +1,8 @@
 import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:flutter/material.dart';
 
-class CustomListViewSeparatedBuilder extends StatelessWidget {
+class CustomListViewSeparatedBuilder extends StatelessWidget
+{
   const CustomListViewSeparatedBuilder({
     super.key,
     required this.listItemCount,
@@ -14,13 +15,15 @@ class CustomListViewSeparatedBuilder extends StatelessWidget {
   final Widget listSeparatorWidget;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return ListView.separated(
       padding: AppPadding().k12AndHalfVertical,
       itemBuilder: listReturnedWidget,
       itemCount: listItemCount,
       shrinkWrap: true,
-      separatorBuilder: (context, index) {
+      separatorBuilder: (context, index)
+      {
         return listSeparatorWidget;
       },
     );

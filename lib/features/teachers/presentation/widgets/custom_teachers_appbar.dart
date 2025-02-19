@@ -9,13 +9,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomTeachersAppBar extends StatelessWidget {
-  const CustomTeachersAppBar({
-    super.key,
-  });
+class CustomTeachersAppBar extends StatelessWidget
+{
+  const CustomTeachersAppBar({super.key,});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return CustomContainer(
       containerAlignment: Alignment.center,
       containerHeight: 180.h,
@@ -24,34 +24,30 @@ class CustomTeachersAppBar extends StatelessWidget {
         borderRadius: BorderRadius.only(
             bottomLeft: AppBorders().radiusCircular20,
             bottomRight: AppBorders().radiusCircular20),
-        gradient: const LinearGradient(colors: [
-          AppColors.kTeachersSmallContainerFirstGradientColor,
-          AppColors.kTeachersSmallContainerSecondGradientColor
-        ]),
+        gradient: const LinearGradient(colors: [AppColors.kTeachersSmallContainerFirstGradientColor, AppColors.kTeachersSmallContainerSecondGradientColor]),
       ),
       containerChild: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children:
+            [
               const CustomTeachersContainer(),
               7.5.horizontalSpace,
-              GestureDetector(
-                  onTap: () {}, child: const CustomFreeAccountContainer()),
+
+              GestureDetector(onTap: () {}, child: const CustomFreeAccountContainer()),
               7.5.horizontalSpace,
-              GestureDetector(
-                  onTap: () {}, child: const CustomTeachersBillContainer()),
+
+              GestureDetector(onTap: () {}, child: const CustomTeachersBillContainer()),
             ],
           ),
 
-          //BIG Column
           16.verticalSpace,
+
           GestureDetector(
               onTap: () {},
-              child: SvgPicture.asset(
-                AppIMGs().kFluencyTeacherViewDownWordArrowsSVG,
-              )), //width: 10.w, height: 14.h
+              child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewDownWordArrowsSVG,)),
         ],
       ),
     );

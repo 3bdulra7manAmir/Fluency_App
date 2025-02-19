@@ -19,39 +19,50 @@ class TeachersView extends StatelessWidget
   Widget build(BuildContext context)
   {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children:
-          [
-            const CustomTeachersAppBar(),
-            26.verticalSpace,
-            Text("Teachers", style: Styles.textStyle20, textAlign: TextAlign.center,),
-            35.verticalSpace,
-            //BMSPayMentItself.show(context);
-            GestureDetector(
-              onTap: (){CustomTeachersBMS.show(context);},
-              child: CustomTeachersCard(
-                teacherIMGPath: AppIMGs().kFluencyTeacherViewTeacherPNG,
-                teacherName: "Mohamed Halwani",
-                teacherNameSubtitle: "ESL & IELTS instructor",
-                flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
-                countryText: "Egypt",
-                accentText: "American"
-                ),
+      body: Column(
+        children:
+        [
+          const CustomTeachersAppBar(),
+
+          26.verticalSpace,
+
+          Text("Teachers", style: Styles.textStyle20, textAlign: TextAlign.center,),
+
+          35.verticalSpace,
+
+          GestureDetector(
+            onTap: (){CustomTeachersBMS.show(context,
+            teacherIMGPath: AppIMGs().kFluencyTeacherViewTeacherPNG,
+            flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
+            teacherName: "Mohamed Halwani",
+            teacherNameSubtitle: "A passionate ESL & IELTS instructor with 8+ years of experience with the mission of opening the world through education.",
+            countryText: "Egypt",
+            accentText: "American",);
+            },
+      
+            child: CustomTeachersCard(
+              teacherIMGPath: AppIMGs().kFluencyTeacherViewTeacherPNG,
+              teacherName: "Mohamed Halwani",
+              teacherNameSubtitle: "ESL & IELTS instructor",
+              flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
+              countryText: "Egypt",
+              accentText: "American",
               ),
-            // CustomListBuilder(
-            //   listItemBuilder: (context, index) => CustomTeachersCard(
-            //       teacherIMGPath: teacherIMGPath,
-            //       teacherName: teacherName,
-            //       teacherNameSubtitle: teacherNameSubtitle,
-            //       flagIMGPath: flagIMGPath,
-            //       countryText: countryText,
-            //       accentText: accentText),
-            //   listseparatorBuilder: (context, index) => 24.verticalSpace,
-            //   listItemCount: 2,
-            // ),
-          ],
-        ),
+            ),
+
+            
+          // CustomListBuilder(
+          //   listItemBuilder: (context, index) => CustomTeachersCard(
+          //       teacherIMGPath: teacherIMGPath,
+          //       teacherName: teacherName,
+          //       teacherNameSubtitle: teacherNameSubtitle,
+          //       flagIMGPath: flagIMGPath,
+          //       countryText: countryText,
+          //       accentText: accentText),
+          //   listseparatorBuilder: (context, index) => 24.verticalSpace,
+          //   listItemCount: 2,
+          // ),
+        ],
       ),
     );
   }

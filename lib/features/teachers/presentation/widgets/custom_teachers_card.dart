@@ -78,9 +78,11 @@ class CustomTeachersCard extends StatelessWidget
 
           //"Mohamed Halwani"
           Text(teacherName, style: Styles.textStyle14,),
+          
           4.verticalSpace,
           //"ESL & IELTS instructor"
           Text(teacherNameSubtitle, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
+
           16.verticalSpace,
 
           Row(
@@ -108,7 +110,9 @@ class CustomTeachersCard extends StatelessWidget
                   ],
                 ),
               ),
+
               12.horizontalSpace,
+
               CustomContainer(
                 containerWidth: 117.w,
                 containerHeight: 32.h,

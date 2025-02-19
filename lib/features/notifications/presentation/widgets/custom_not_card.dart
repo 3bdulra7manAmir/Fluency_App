@@ -60,8 +60,6 @@ class CustomNotificationsCard extends StatelessWidget {
             ),
           ),
 
-          //HERE
-
           Text(
             time,
             style: Styles.textStyle10
