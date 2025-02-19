@@ -25,11 +25,3 @@ class PurpleSector extends StatelessWidget {
     );
   }
 }
-
-// Container(
-//         height: ScreenUtil().screenHeight * 0.5,
-//         decoration: BoxDecoration(
-//           color: AppColors.kSecondGradientColor,
-//           image: DecorationImage(image: AssetImage(AppIMGs().kFluencyLoginHatPNG), fit: BoxFit.cover),
-//         ),
-//       ),

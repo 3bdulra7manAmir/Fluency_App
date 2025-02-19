@@ -44,8 +44,8 @@ class CustomTeachersBMS extends ConsumerWidget
   Widget build(BuildContext context, WidgetRef ref)
   {
     return CustomContainer(
-      containerWidth: double.infinity, //375.w
-      containerHeight: 556.h, //556
+      containerWidth: double.infinity,
+      containerHeight: 556.h,
       containerDecoration: BoxDecoration(color: AppColors.kLoginFormBoxDecorationColor, borderRadius: AppBorders().verticalRadiusCircular25,),
       containerChild: Column(
         children:
@@ -101,12 +101,10 @@ class CustomTeachersBMS extends ConsumerWidget
                   children:
                   [
                     5.horizontalSpace,
-                    //AppIMGs().kFluencyTeachersViewEGFlagPNG
                     Image.asset(flagIMGPath),
                     4.horizontalSpace,
                     Text("Nationality", style: Styles.textStyle10),
                     4.horizontalSpace,
-                    //Egypt
                     Text(countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
                   ],
                 ),
@@ -129,7 +127,6 @@ class CustomTeachersBMS extends ConsumerWidget
                     4.horizontalSpace,
                     Text("Accent", style: Styles.textStyle10),
                     4.horizontalSpace,
-                    //American
                     Text(accentText,style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
                   ],
                 ),

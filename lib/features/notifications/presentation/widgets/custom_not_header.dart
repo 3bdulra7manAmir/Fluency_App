@@ -39,14 +39,12 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
         ),
       ],
       leading: CustomContainer(
-        //containerMargin: AppPadding().kNotBackButtonMargin,
         containerChild: GestureDetector(
           onTap: ()
           {
             print('Pressed');
             GoRouter.of(context).pop();
           },
-          //child: Image.asset(AppIMGs().kFluencyBackArrowPNG, //HERE
           child: Image.asset(AppIMGs().kFluencyBackArrowPNGEdit,),  //HERE
         ),
       ),

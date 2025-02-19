@@ -11,7 +11,7 @@ class MockTeacherRepository implements TeacherRepository
   @override
   Future<List<TeacherEntity>> getTeachersList() async
   {
-    // Mock data for teachers list
+    // ShadowCompany: Mock data for teachers list
     return
     [
       TeacherEntity(
@@ -21,13 +21,14 @@ class MockTeacherRepository implements TeacherRepository
         headline: "Experienced, patient teacher",
         bio: "I am a qualified TEFL teacher with a degree in teaching English. I'm very patient and committed to helping students make progress.",
       ),
-      // Add more mock data as needed
+      // ShadowCompany: Add more data if needed
     ];
   }
 
   @override
-  Future<TeacherEntity> getTeacherDetails(String id) async {
-    // Mock data for teacher details
+  Future<TeacherEntity> getTeacherDetails(String id) async
+  {
+    // ShadowCompany: Mock data for teacher details
     return TeacherEntity(
       id: "98247969240911872",
       photo: "https://api.fluency.live/storage/teachers/98247969240911872/photo/Byk6MRaAPEevby4Q9kqRc6wUB4UBnX2nVZLav0Z6.webp",

@@ -10,8 +10,7 @@ class NotificationRepository
     await Future.delayed(const Duration(seconds: 2));
 
     try {
-      final String response =
-          await rootBundle.loadString('assets/json/notifications_mock.json');
+      final String response = await rootBundle.loadString('assets/json/notifications_mock.json');
       print("JSON Response: $response"); // Debugging
 
       final List<dynamic> data = json.decode(response);

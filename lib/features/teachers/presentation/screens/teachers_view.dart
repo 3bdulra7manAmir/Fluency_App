@@ -32,10 +32,12 @@ class TeachersView extends ConsumerWidget
             data: (teachers) => Expanded(
               child: CustomListBuilder(
                 listItemCount: teachers.length,
-                listItemBuilder: (context, index) {
+                listItemBuilder: (context, index)
+                {
                   final teacher = teachers[index];
                   return GestureDetector(
-                    onTap: () {
+                    onTap: ()
+                    {
                       CustomTeachersBMS.show(
                         context,
                         teacherIMGPath: teacher.photo,
@@ -48,6 +50,7 @@ class TeachersView extends ConsumerWidget
                     },
                     child: CustomTeachersCard(
                       teacherIMGPath: teacher.photo,
+                      //teacherIMGPath: 'assets/images/png/Teacher_View_Teacher.png',
                       teacherName: teacher.name,
                       teacherNameSubtitle: teacher.headline,
                       flagIMGPath: "assets/images/png/Teachers_View_EG_Flag.png",

@@ -63,6 +63,7 @@ class CustomTeachersCard extends StatelessWidget
                 //Spacer(),
 
                 Image.network(teacherIMGPath, fit: BoxFit.cover,),
+                //Image.asset(teacherIMGPath),
 
                 //Spacer(),
 
@@ -74,11 +75,10 @@ class CustomTeachersCard extends StatelessWidget
             ),
           ),
 
-          //"Mohamed Halwani"
           Text(teacherName, style: Styles.textStyle14,),
           
           4.verticalSpace,
-          //"ESL & IELTS instructor"
+
           Text(teacherNameSubtitle, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
 
           16.verticalSpace,
@@ -100,9 +100,10 @@ class CustomTeachersCard extends StatelessWidget
                   [
                     Image.asset(flagIMGPath),
                     4.horizontalSpace,
+                    
                     Text("Nationality", style: Styles.textStyle10),
                     4.horizontalSpace,
-                    //Egypt
+
                     Text(countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis,),
                   ],
                 ),

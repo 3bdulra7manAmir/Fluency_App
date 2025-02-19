@@ -13,7 +13,6 @@ abstract class AppRouter
   static const kNotificationsView = '/NotificationsView';
   static const kNoNotificationsView = '/NoNotificationsView';
   static const kTeachersView = '/TeachersView';
-  //static const kCustomTeachersBMS = '/CustomTeachersBMS';
 
   static final router = GoRouter(
     routes: [
@@ -41,11 +40,6 @@ abstract class AppRouter
         path: kTeachersView,
         builder: (context, state) => const TeachersView(),
       ),
-
-      // GoRoute(
-      //   path: kCustomTeachersBMS,
-      //   builder: (context, state) => const CustomTeachersBMS(),
-      // ),
 
       // MOVER //
       GoRoute(

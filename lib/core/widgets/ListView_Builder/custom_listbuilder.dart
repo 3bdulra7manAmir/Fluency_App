@@ -26,5 +26,3 @@ class CustomListBuilder extends StatelessWidget
     );
   }
 }
-
-// (context, index) =>

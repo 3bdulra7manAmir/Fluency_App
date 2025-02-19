@@ -1,5 +1,6 @@
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
+import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/widgets/Containers/custom_container.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_acc.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_bill.dart';
@@ -17,6 +18,7 @@ class CustomTeachersAppBar extends StatelessWidget
   Widget build(BuildContext context)
   {
     return CustomContainer(
+      //containerPadding: AppPadding().k24Horizontal,
       containerAlignment: Alignment.center,
       containerHeight: 180.h,
       containerWidth: double.infinity,
