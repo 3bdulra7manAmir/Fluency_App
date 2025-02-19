@@ -59,7 +59,7 @@ class TeachersView extends ConsumerWidget
                     ),
                   );
                 },
-                listseparatorBuilder: (context, index) => const SizedBox(height: 10),
+                listseparatorBuilder: (context, index) => 10.verticalSpace,
               ),
             ),
             loading: () => const Center(child: CircularProgressIndicator()),

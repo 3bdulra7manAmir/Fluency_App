@@ -22,7 +22,7 @@ class CustomListBuilder extends StatelessWidget
       separatorBuilder: listseparatorBuilder,
       itemCount: listItemCount,
       padding: EdgeInsets.zero,
-      
+      //physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
     );
   }
