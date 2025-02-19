@@ -39,24 +39,26 @@ class TeachersView extends ConsumerWidget
                   return GestureDetector(
                     onTap: ()
                     {
+                      print("Tapped on ${teacher.name}");
+                      print("Flag URL: ${teacher.nationality?.flag}");
+                      print("Accent: ${teacher.accent?.name}");
                       CustomTeachersBMS.show(
                         context,
-                        teacherIMGPath: teacher.photo,
-                        flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
-                        teacherName: teacher.name,
+                        teacherIMGPath: teacher.photo ?? '',
+                        flagIMGPath: teacher.nationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
+                        teacherName: teacher.name ?? '',
                         teacherNameSubtitle: teacher.headline,
-                        countryText: teacher.nationality ?? "N/A",
-                        accentText: teacher.accent ?? "N/A",
+                        countryText: teacher.nationality?.name ?? "N/A",
+                        accentText: teacher.accent?.name ?? "N/A",
                       );
                     },
                     child: CustomTeachersCard(
-                      teacherIMGPath: teacher.photo,
-                      //teacherIMGPath: 'assets/images/png/Teacher_View_Teacher.png',
-                      teacherName: teacher.name,
-                      teacherNameSubtitle: teacher.headline,
-                      flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
-                      countryText: teacher.nationality ?? "N/A",
-                      accentText: teacher.accent ?? "N/A",
+                      teacherIMGPath: teacher.photo ?? '',
+                      teacherName: teacher.name ?? '',
+                      teacherNameSubtitle: teacher.headline ?? '',
+                      flagIMGPath: teacher.nationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
+                      countryText: teacher.nationality?.name ?? "N/A",
+                      accentText: teacher.accent?.name ?? "N/A",
                     ),
                   );
                 },

@@ -98,9 +98,9 @@ class CustomTeachersBMS extends ConsumerWidget
                   borderRadius: AppBorders().radiusCircular42,
                 ),
                 containerChild: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children:
                   [
-                    5.horizontalSpace,
                     Image.asset(flagIMGPath),
                     4.horizontalSpace,
                     Text("Nationality", style: Styles.textStyle10),
@@ -120,9 +120,9 @@ class CustomTeachersBMS extends ConsumerWidget
                   borderRadius: AppBorders().radiusCircular42,
                 ),
                 containerChild: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children:
                   [
-                    5.horizontalSpace,
                     Image.asset(AppIMGs().kFluencyTeachersView3LinesAccentPNG),
                     4.horizontalSpace,
                     Text("Accent", style: Styles.textStyle10),
