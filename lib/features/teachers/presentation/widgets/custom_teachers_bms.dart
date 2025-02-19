@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_images.dart';
@@ -69,7 +70,7 @@ class CustomTeachersBMS extends ConsumerWidget
             containerDecoration: BoxDecoration(
               color: AppColors.kAlmostOrangeColor,
               borderRadius: AppBorders().radiusCircular99,
-              image: DecorationImage(image: NetworkImage(teacherIMGPath),),
+              image: DecorationImage(image: CachedNetworkImageProvider(teacherIMGPath), fit: BoxFit.cover),
             ),
           ),
     
@@ -136,21 +137,25 @@ class CustomTeachersBMS extends ConsumerWidget
     
           16.verticalSpace,
     
-          CustomContainer(
-            containerMargin: AppPadding().k24Horizontal,
-            containerAlignment: Alignment.center,
-            containerHeight: 191.h,
-            containerWidth: 327.w,
-            containerDecoration: BoxDecoration(
-              borderRadius: AppBorders().radiusCircular16,
-              color: AppColors.kTeachersVideoBGColor),
-            containerChild: Stack(
-              alignment: Alignment.center,
-              children:
-              [
-                Image.network(teacherIMGPath, fit: BoxFit.cover, height: 222.h, width: 132.w,),
-                SvgPicture.asset(AppIMGs().kFluencyTeachersViewPlayButtonSVG),
-              ],
+          GestureDetector(
+            onTap: (){},
+            child: CustomContainer(
+              containerMargin: AppPadding().k24Horizontal,
+              containerAlignment: Alignment.center,
+              containerHeight: 191.h,
+              containerWidth: 327.w,
+              containerDecoration: BoxDecoration(
+                borderRadius: AppBorders().radiusCircular16,
+                color: AppColors.kTeachersVideoBGColor),
+              containerChild: Stack(
+                alignment: Alignment.center,
+                children:
+                [
+                  //Image.network(teacherIMGPath, fit: BoxFit.cover, height: 222.h, width: 132.w,),
+                  CachedNetworkImage(imageUrl: teacherIMGPath, fit: BoxFit.cover, height: 222.h, width: 132.w,),
+                  SvgPicture.asset(AppIMGs().kFluencyTeachersViewPlayButtonSVG),
+                ],
+              ),
             ),
           ),
     

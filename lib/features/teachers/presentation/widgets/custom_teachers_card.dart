@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_images.dart';
@@ -56,21 +57,27 @@ class CustomTeachersCard extends StatelessWidget
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:
               [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewUFOSVG,),
+                Padding(
+                  padding: AppPadding().k8Top,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewUFOSVG, ),
+                  ),
                 ),
 
                 //Spacer(),
-
-                Image.network(teacherIMGPath, fit: BoxFit.cover,),
+                CachedNetworkImage(imageUrl: teacherIMGPath, fit: BoxFit.fill, errorWidget: (context, url, error) => const Icon(Icons.error),),
+                //Image.network(teacherIMGPath, fit: BoxFit.cover,),
                 //Image.asset(teacherIMGPath),
 
                 //Spacer(),
 
-                Align(
-                  alignment: Alignment.topRight,
-                  child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
+                Padding(
+                  padding: AppPadding().k8Top,
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
+                  ),
                 ),
               ],
             ),

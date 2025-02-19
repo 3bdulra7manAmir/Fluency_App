@@ -21,6 +21,6 @@ class AppPadding
 
 
   EdgeInsetsDirectional k9Start13Top13Bottom = EdgeInsetsDirectional.only(start: 9.w, top: 11.h, bottom: 11.h);
-  EdgeInsetsDirectional k4Start4Top8Bottom = EdgeInsetsDirectional.only(start: 8.w, end: 8.h, top: 8.h);
+  EdgeInsetsDirectional k4Start4Top8Bottom = EdgeInsetsDirectional.only(start: 8.w, end: 8.h,);
   EdgeInsetsDirectional k62Start62End = EdgeInsetsDirectional.only(start: 62.w, end: 62.h,);
 }
