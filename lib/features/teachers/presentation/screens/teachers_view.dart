@@ -1,3 +1,4 @@
+import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/utils/styles.dart';
 import 'package:fluency/Core/widgets/listview_builder/custom_listbuilder.dart';
 import 'package:fluency/Features/teachers/presentation/controllers/teacher_controller.dart';
@@ -41,7 +42,7 @@ class TeachersView extends ConsumerWidget
                       CustomTeachersBMS.show(
                         context,
                         teacherIMGPath: teacher.photo,
-                        flagIMGPath: "assets/images/png/Teachers_View_EG_Flag.png",
+                        flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
                         teacherName: teacher.name,
                         teacherNameSubtitle: teacher.headline,
                         countryText: teacher.nationality ?? "N/A",
@@ -53,7 +54,7 @@ class TeachersView extends ConsumerWidget
                       //teacherIMGPath: 'assets/images/png/Teacher_View_Teacher.png',
                       teacherName: teacher.name,
                       teacherNameSubtitle: teacher.headline,
-                      flagIMGPath: "assets/images/png/Teachers_View_EG_Flag.png",
+                      flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
                       countryText: teacher.nationality ?? "N/A",
                       accentText: teacher.accent ?? "N/A",
                     ),
