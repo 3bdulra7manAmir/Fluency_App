@@ -99,9 +99,13 @@ class CustomTeachersBNBDetails1 extends StatelessWidget
                 children:
                 [
                   Image.asset(AppIMGs().kFluencyTeachersView3LinesAccentPNG),
+                  
                   4.horizontalSpace,
+
                   Text("Accent", style: Styles.textStyle10),
+
                   4.horizontalSpace,
+
                   Text(accentText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600,),
                   ),
                 ],
