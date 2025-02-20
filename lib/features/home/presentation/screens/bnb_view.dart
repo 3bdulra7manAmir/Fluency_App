@@ -1,46 +1,34 @@
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Features/home/presentation/widgets/custom_bnb.dart';
 import 'package:fluency/Features/home/presentation/widgets/custom_widgets_list.dart';
+import 'package:fluency/Features/home/presentation/controllers/bnb_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeView extends StatefulWidget
+class HomeView extends ConsumerWidget
 {
   const HomeView({super.key});
 
   @override
-  HomeViewState createState() => HomeViewState();
-}
-
-class HomeViewState extends State<HomeView>
-{
-  int selectedWidgetIndex = 2;
-
-  void onItemTapped(int index)
+  Widget build(BuildContext context, WidgetRef ref)
   {
-    setState(() {selectedWidgetIndex = index;});
-  }
+    final selectedWidgetIndex = ref.watch(bnbProvider);
 
-  @override
-  Widget build(BuildContext context)
-  {
     return Scaffold(
       body: pages[selectedWidgetIndex],
 
-      bottomNavigationBar: CustomBottomNavBar
-      (
+      bottomNavigationBar: CustomBottomNavBar(
         selectedIndex: selectedWidgetIndex,
-        onItemTapped: onItemTapped,
+        onItemTapped: (index) => ref.read(bnbProvider.notifier).setIndex(index),
       ),
 
-      floatingActionButton: FloatingActionButton
-      (
+      floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         child: Image.asset(AppIMGs().kFluencyBNBAddIconPNG, fit: BoxFit.cover),
         onPressed: () {},
       ),
+      
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
-
-

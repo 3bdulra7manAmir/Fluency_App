@@ -17,7 +17,7 @@ class MockTeacherRepository implements TeacherRepository
   {
     final String jsonString = await rootBundle.loadString('assets/json/teachers_list_mock.json');
     final List<dynamic> jsonList = jsonDecode(jsonString);
-    print("Fetched JSON: ${jsonEncode(jsonList)}");     // Debugging: Print JSON response
+    //print("Fetched JSON: ${jsonEncode(jsonList)}");     // Debugging: Print JSON response
     return jsonList.map((json) => TeachersListModel.fromJson(json)).toList();
   }
 

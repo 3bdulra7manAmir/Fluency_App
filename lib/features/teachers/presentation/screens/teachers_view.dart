@@ -39,9 +39,9 @@ class TeachersView extends ConsumerWidget
                   return GestureDetector(
                     onTap: () async
                     {
-                      print("Tapped on ${teacher.name}");
-                      print("Flag URL: ${teacher.nationality?.flag}");
-                      print("Accent: ${teacher.accent?.name}");
+                      //print("Tapped on ${teacher.name}");
+                      //print("Flag URL: ${teacher.nationality?.flag}");
+                      //print("Accent: ${teacher.accent?.name}");
                       final teacherDetails = await ref.read(teacherRepositoryProvider).getTeacherDetails(teacher.id ?? '');
 
                       CustomTeachersBMS.show(

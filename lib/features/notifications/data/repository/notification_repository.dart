@@ -11,14 +11,14 @@ class NotificationRepository
 
     try {
       final String response = await rootBundle.loadString('assets/json/notifications_mock.json');
-      print("JSON Response: $response"); // Debugging
+      //print("JSON Response: $response"); // Debugging
 
       final List<dynamic> data = json.decode(response);
-      print("Parsed JSON: $data"); // Debugging
+      //print("Parsed JSON: $data"); // Debugging
 
       return data.map((json) => NotificationEntity.fromJson(json)).toList();
     } catch (e) {
-      print("Error loading notifications: $e");
+      //print("Error loading notifications: $e");
       return [];
     }
   }

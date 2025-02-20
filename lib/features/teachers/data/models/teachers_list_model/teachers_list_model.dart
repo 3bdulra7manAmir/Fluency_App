@@ -22,7 +22,7 @@ class TeachersListModel
 
   factory TeachersListModel.fromJson(Map<String, dynamic> json)
   {
-    print("Parsing Teacher: ${jsonEncode(json)}"); // Debug JSON per teacher
+    //print("Parsing Teacher: ${jsonEncode(json)}"); // Debug JSON per teacher
     return TeachersListModel(
       id: json['id'] as String?,
       photo: json['photo'] as String?,
@@ -59,7 +59,7 @@ class Nationality
 
   factory Nationality.fromJson(Map<String, dynamic> json)
   {
-    print("Parsing Nationality: ${jsonEncode(json)}"); // Debug nationality data
+    //print("Parsing Nationality: ${jsonEncode(json)}"); // Debug nationality data
     return Nationality(
       id: json['id'] as int?,
       code: json['code'] as String?,
@@ -86,7 +86,7 @@ class Accent
 
   factory Accent.fromJson(Map<String, dynamic> json)
   {
-    print("Parsing Accent: ${jsonEncode(json)}"); // Debug accent data
+    //print("Parsing Accent: ${jsonEncode(json)}"); // Debug accent data
     return Accent(
       id: json['id'] as int?,
       name: json['name'] as String?,

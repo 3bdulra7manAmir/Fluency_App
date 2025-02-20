@@ -11,7 +11,8 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
 
   void loadVideo(String videoUrl)
   {
-    if (state != null) {
+    if (state != null)
+    {
       state!.dispose(); // Dispose previous controller
     }
 
@@ -21,33 +22,45 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
     {
       state = newController; // Set state after initialization
       state!.play();
-    }).catchError((error) {
+    }).catchError((error)
+    {
       print("Error initializing video: $error"); // Debugging
     });
   }
 
-  void togglePlayPause() {
+  void togglePlayPause()
+  {
     if (state == null) return;
-    if (state!.value.isPlaying) {
+    if (state!.value.isPlaying)
+    {
       state!.pause();
-    } else {
+    }
+
+    else
+    {
       state!.play();
     }
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  void didChangeAppLifecycleState(AppLifecycleState state)
+  {
     if (this.state == null) return;
 
-    if (state == AppLifecycleState.paused) {
+    if (state == AppLifecycleState.paused)
+    {
       this.state!.pause();
-    } else if (state == AppLifecycleState.resumed) {
+    }
+
+    else if (state == AppLifecycleState.resumed)
+    {
       this.state!.play();
     }
   }
 
   @override
-  void dispose() {
+  void dispose()
+  {
     WidgetsBinding.instance.removeObserver(this);
     state?.dispose();
     super.dispose();
