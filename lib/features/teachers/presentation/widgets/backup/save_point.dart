@@ -11,9 +11,9 @@ import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
 
-class CustomTeachersBnbDetails2 extends ConsumerWidget
+class CustomTeachersBnbDetailsSavePoint extends ConsumerWidget
 {
-  const CustomTeachersBnbDetails2({
+  const CustomTeachersBnbDetailsSavePoint({
     super.key,
     required this.videoUrl,
     required this.teacherIMGPath,
@@ -32,10 +32,29 @@ class CustomTeachersBnbDetails2 extends ConsumerWidget
       children:
       [
         CachedNetworkImage(imageUrl: teacherIMGPath, fit: BoxFit.cover, height: 191.h, width: 132.w,),
-
         // Play Button if Video is NOT initialized
         if (videoController == null || !videoController.value.isInitialized)
           SvgPicture.asset('assets/images/svg/Teachers_View_PlayButton.svg'),
+
+        // Video Player with Controls
+        if (videoController != null && videoController.value.isInitialized)
+          ClipRRect(
+            borderRadius: AppBorders().radiusCircular16,
+            child: AspectRatio(
+              aspectRatio: videoController.value.aspectRatio,
+              child: Chewie(
+                controller: ChewieController(
+                  videoPlayerController: videoController,
+                  autoPlay: true,
+                  looping: false,
+                  allowFullScreen: false,
+                  allowPlaybackSpeedChanging: false,
+                  showControls: true,
+                  aspectRatio: videoController.value.aspectRatio,
+                ),
+              ),
+            ),
+          ),
 
         GestureDetector(
           onTap: ()
@@ -55,26 +74,6 @@ class CustomTeachersBnbDetails2 extends ConsumerWidget
             ),
           ),
         ),
-
-        // Video Player with Controls
-        if (videoController != null && videoController.value.isInitialized)
-          CustomContainer(
-            containerDecoration: BoxDecoration(borderRadius: AppBorders().radiusCircular16),
-            containerAlignment: Alignment.center,
-            containerHeight: 195.h,
-            containerWidth: 327.w,
-            containerChild: Chewie(
-                controller: ChewieController(
-                  videoPlayerController: videoController,
-                  autoPlay: true,
-                  looping: false,
-                  allowFullScreen: false,
-                  allowPlaybackSpeedChanging: false,
-                  showControls: true,
-                  aspectRatio: videoController.value.aspectRatio,
-                ),
-              ),
-          ),
       ],
     );
   }
