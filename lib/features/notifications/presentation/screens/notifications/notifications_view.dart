@@ -7,11 +7,13 @@ import 'package:fluency/Features/notifications/presentation/widgets/custom_listb
 import 'package:fluency/Features/notifications/presentation/widgets/custom_not_card.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 
-class NotificationsView extends ConsumerWidget {
+class NotificationsView extends ConsumerWidget
+{
   const NotificationsView({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref)
+  {
     final notificationController = ref.watch(notificationControllerProvider);
 
     return SafeArea(
@@ -22,9 +24,9 @@ class NotificationsView extends ConsumerWidget {
             ? const Center(child: CircularProgressIndicator())
             : CustomListViewSeparatedBuilder(
                 listItemCount: notificationController.notifications.length,
-                listReturnedWidget: (context, index) {
-                  final notification =
-                      notificationController.notifications[index];
+                listReturnedWidget: (context, index)
+                {
+                  final notification = notificationController.notifications[index];
                   return CustomNotificationsCard(
                     title: notification.title,
                     description: notification.description,

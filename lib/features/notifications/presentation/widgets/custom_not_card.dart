@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomNotificationsCard extends StatelessWidget {
+class CustomNotificationsCard extends StatelessWidget
+{
   const CustomNotificationsCard({
     super.key,
     required this.title,
@@ -20,18 +21,17 @@ class CustomNotificationsCard extends StatelessWidget {
   final String image;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return Padding(
       padding: AppPadding().k16Horizontal,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 7.h),
-            child: SvgPicture.asset(
-              image,
-            ),
+        children:
+        [
+          Padding(padding: EdgeInsets.only(top: 7.h),
+            child: SvgPicture.asset(image,),
           ),
 
           8.horizontalSpace,
@@ -39,20 +39,15 @@ class CustomNotificationsCard extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: Styles.textStyle14
-                      .copyWith(color: AppColors.kDontHaveAccountColor),
+              children:
+              [
+                Text(title, style: Styles.textStyle14.copyWith(color: AppColors.kDontHaveAccountColor),
                   overflow: TextOverflow.ellipsis,
                 ),
+
                 4.verticalSpace,
-                Text(
-                  description,
-                  style: Styles.textStyle12.copyWith(
-                    fontWeight: FontWeight.normal,
-                    color: AppColors.kDontHaveAccountColor,
-                  ),
+
+                Text(description, style: Styles.textStyle12.copyWith(fontWeight: FontWeight.normal, color: AppColors.kDontHaveAccountColor,),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -60,11 +55,7 @@ class CustomNotificationsCard extends StatelessWidget {
             ),
           ),
 
-          Text(
-            time,
-            style: Styles.textStyle10
-                .copyWith(color: AppColors.kDontHaveAccountColor),
-          ),
+          Text(time, style: Styles.textStyle10.copyWith(color: AppColors.kDontHaveAccountColor),),
         ],
       ),
     );

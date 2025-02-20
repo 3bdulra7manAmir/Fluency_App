@@ -45,6 +45,7 @@ class LoginForm extends ConsumerWidget
                   color: AppColors.kLoginFormBoxDecorationColor,
                   borderRadius: AppBorders().radiusCircular24,
                 ),
+                
                 containerChild: Form(
                   key: loginFormKey,
                   child: Column(
@@ -52,14 +53,19 @@ class LoginForm extends ConsumerWidget
                     children:
                     [
                       24.verticalSpace,
+
                       Text('Welcome back!', style: Styles.textStyle24, textAlign: TextAlign.center,),
+
                       24.verticalSpace,
+
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children:
                         [
                           Text('Mobile or Email', style: Styles.textStyle14),
+
                           8.verticalSpace,
+
                           CustomTextFormField(
                             fieldController: emailController,
                             fieldValidator: LoginValidator().validateEmail,
@@ -67,9 +73,13 @@ class LoginForm extends ConsumerWidget
                             fieldObscureText: false,
                             fieldHintText: "Enter your mobile or email",
                           ),
+
                           16.verticalSpace,
+
                           Text('Password', style: Styles.textStyle14),
+
                           8.verticalSpace,
+
                           CustomTextFormField(
                             fieldContentPadding: AppPadding().k16Start,
                             fieldObscureText: authController.isLoading,
@@ -78,6 +88,7 @@ class LoginForm extends ConsumerWidget
                             fieldKeyboardType: TextInputType.text,
                             fieldHintText: "************",
                           ),
+
                           Padding(
                             padding: AppPadding().k16Start8Top,
                             child: Align(
@@ -89,7 +100,9 @@ class LoginForm extends ConsumerWidget
                               ),
                             ),
                           ),
+
                           24.verticalSpace,
+
                           Center(
                             child: CustomPurpleButton(
                               buttonIconIsEnabled: false,
@@ -114,6 +127,7 @@ class LoginForm extends ConsumerWidget
                 ),
               ),
               24.verticalSpace,
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:

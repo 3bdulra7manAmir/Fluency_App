@@ -6,9 +6,11 @@ import 'package:fluency/Features/auth/login/domain/entites/auth_entity.dart';
 final authControllerProvider = ChangeNotifierProvider(
   (ref) => AuthController(ref.read(authRepositoryProvider)),
 );
+
 final authRepositoryProvider = Provider((ref) => AuthRepository());
 
-class AuthController extends ChangeNotifier {
+class AuthController extends ChangeNotifier
+{
   final AuthRepository authRepository;
 
   AuthController(this.authRepository);
@@ -16,13 +18,18 @@ class AuthController extends ChangeNotifier {
   AuthEntity? authEntity;
   bool isLoading = false;
 
-  Future<void> login(String email, String password) async {
+  Future<void> login(String email, String password) async
+  {
     isLoading = true;
     notifyListeners();
 
-    try {
+    try
+    {
       authEntity = await authRepository.login(email, password);
-    } catch (e) {
+    }
+    
+    catch (e)
+    {
       debugPrint("Login failed: $e");
     }
 

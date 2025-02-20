@@ -9,8 +9,7 @@ class AuthRepository
   {
     await Future.delayed(const Duration(seconds: 2));
 
-    final String response =
-        await rootBundle.loadString('assets/json/auth_mock.json');
+    final String response = await rootBundle.loadString('assets/json/auth_mock.json');
     final data = await json.decode(response);
 
     return AuthEntity.fromJson(data);

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class BottomCircularClipper extends CustomClipper<Path> {
+class BottomCircularClipper extends CustomClipper<Path>
+{
   @override
-  Path getClip(Size size) {
+  Path getClip(Size size)
+  {
     Path path = Path();
     path.lineTo(0, size.height - 50);
 

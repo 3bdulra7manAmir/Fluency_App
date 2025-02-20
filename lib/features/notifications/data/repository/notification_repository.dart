@@ -9,7 +9,8 @@ class NotificationRepository
   {
     await Future.delayed(const Duration(seconds: 2));
 
-    try {
+    try
+    {
       final String response = await rootBundle.loadString('assets/json/notifications_mock.json');
       //print("JSON Response: $response"); // Debugging
 
@@ -17,7 +18,10 @@ class NotificationRepository
       //print("Parsed JSON: $data"); // Debugging
 
       return data.map((json) => NotificationEntity.fromJson(json)).toList();
-    } catch (e) {
+    }
+    
+    catch (e)
+    {
       //print("Error loading notifications: $e");
       return [];
     }
