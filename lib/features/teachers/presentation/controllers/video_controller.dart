@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBindingObserver
-{
+class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBindingObserver {
   VideoNotifier() : super(null)
   {
     WidgetsBinding.instance.addObserver(this);
@@ -11,9 +10,10 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
 
   void loadVideo(String videoUrl)
   {
+    // Dispose previous controller if exists
     if (state != null)
     {
-      state!.dispose(); // Dispose previous controller
+      state!.dispose();
     }
 
     final newController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
@@ -22,6 +22,16 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
     {
       state = newController; // Set state after initialization
       state!.play();
+
+      // Listen for video completion
+      state!.addListener(()
+      {
+        if (state!.value.position >= state!.value.duration)
+        {
+          disposeVideo(); // Auto close when video ends
+        }
+      });
+
     }).catchError((error)
     {
       print("Error initializing video: $error"); // Debugging
@@ -42,19 +52,28 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
     }
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state)
+  void disposeVideo()
   {
-    if (this.state == null) return;
-
-    if (state == AppLifecycleState.paused)
+    if (state != null)
     {
-      this.state!.pause();
+      state!.dispose();
+      state = null; // Reset state to trigger UI update
+    }
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState appState)
+  {
+    if (state == null) return;
+
+    if (appState == AppLifecycleState.paused)
+    {
+      state!.pause();
     }
 
-    else if (state == AppLifecycleState.resumed)
+    else if (appState == AppLifecycleState.resumed)
     {
-      this.state!.play();
+      state!.play();
     }
   }
 
@@ -62,7 +81,7 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
   void dispose()
   {
     WidgetsBinding.instance.removeObserver(this);
-    state?.dispose();
+    disposeVideo(); // Ensure proper cleanup
     super.dispose();
   }
 }

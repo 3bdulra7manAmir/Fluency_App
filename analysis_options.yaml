@@ -11,5 +11,6 @@ analyzer:
     avoid_print: ignore
     deprecated_member_use: ignore
     unused_import: ignore
+    avoid_renaming_method_parameters: ignore
   plugins:
     - custom_lint

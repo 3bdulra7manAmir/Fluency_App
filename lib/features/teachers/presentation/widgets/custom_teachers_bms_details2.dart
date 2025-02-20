@@ -11,7 +11,8 @@ import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
 
-class CustomTeachersBnbDetails2 extends ConsumerWidget {
+class CustomTeachersBnbDetails2 extends ConsumerWidget
+{
   const CustomTeachersBnbDetails2({
     super.key,
     required this.videoUrl,
@@ -22,13 +23,15 @@ class CustomTeachersBnbDetails2 extends ConsumerWidget {
   final String teacherIMGPath;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref)
+  {
     final videoController = ref.watch(videoProvider);
 
     return Column(
       children: [
         GestureDetector(
-          onTap: () {
+          onTap: ()
+          {
             ref.read(videoProvider.notifier).loadVideo(videoUrl);
           },
           child: CustomContainer(
@@ -42,8 +45,8 @@ class CustomTeachersBnbDetails2 extends ConsumerWidget {
             ),
             containerChild: Stack(
               alignment: Alignment.center,
-              children: [
-                // Background Image
+              children:
+              [
                 CachedNetworkImage(imageUrl: teacherIMGPath, fit: BoxFit.cover, height: 222.h, width: 132.w,),
 
                 // Play Button if Video is NOT initialized
@@ -53,7 +56,7 @@ class CustomTeachersBnbDetails2 extends ConsumerWidget {
                 // Video Player with Controls
                 if (videoController != null && videoController.value.isInitialized)
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: AppBorders().radiusCircular16,
                     child: AspectRatio(
                       aspectRatio: videoController.value.aspectRatio,
                       child: Chewie(
@@ -63,7 +66,7 @@ class CustomTeachersBnbDetails2 extends ConsumerWidget {
                           looping: false,
                           allowFullScreen: false,
                           allowPlaybackSpeedChanging: false,
-                          showControls: true, // Enables play/pause and seek bar
+                          showControls: true,
                           aspectRatio: videoController.value.aspectRatio,
                         ),
                       ),
