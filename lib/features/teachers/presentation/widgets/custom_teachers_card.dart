@@ -1,146 +1,76 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
-import 'package:fluency/Core/constants/app_images.dart';
-import 'package:fluency/Core/constants/app_padding.dart';
+import 'package:fluency/Features/teachers/data/models/teachers_data_linker.dart';
+import 'package:flutter/material.dart';
 import 'package:fluency/Core/widgets/Containers/custom_container.dart';
 import 'package:fluency/core/utils/styles.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CustomTeachersCard extends StatelessWidget
 {
-  const CustomTeachersCard(
-    {super.key,
-      required this.teacherIMGPath,
-      required this.teacherName,
-      required this.teacherNameSubtitle,
-      required this.flagIMGPath,
-      required this.countryText,
-      required this.accentText});
+  const CustomTeachersCard({super.key, required this.teacherInfo});
 
-  final String teacherIMGPath;
-  final String teacherName;
-  final String teacherNameSubtitle;
-
-  final String flagIMGPath;
-  final String countryText;
-
-  final String accentText;
+  final TeacherInfo teacherInfo;
 
   @override
   Widget build(BuildContext context)
   {
     return CustomContainer(
-      containerMargin: AppPadding().k24Horizontal,
+      containerMargin: EdgeInsets.symmetric(horizontal: 24.w),
       containerWidth: 327.w,
       containerHeight: 258.h,
-      containerDecoration: BoxDecoration(
-        color: AppColors.kLoginFormBoxDecorationColor,
+      containerDecoration: BoxDecoration(color: AppColors.kLoginFormBoxDecorationColor,
         borderRadius: AppBorders().radiusCircular16,
       ),
       containerChild: Column(
         children:
         [
-          CustomContainer(
-            containerWidth: 311.w,
-            containerHeight: 149.h,
-            containerMargin: AppPadding().k8Horizonta8Vertical,
-            containerPadding: AppPadding().k4Start4Top8Bottom,
-            containerDecoration: BoxDecoration(
-              color: AppColors.kTeachersSmallContainerBGColorWithOpacity,
-              borderRadius: AppBorders().radiusCircular8,
-            ),
-            containerChild: Row(
-              //OR IT COULD BE A STACK BUT STACK IS MORE LESS STABLE
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children:
-              [
-                Padding(
-                  padding: AppPadding().k8Top,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewUFOSVG, ),
-                  ),
-                ),
+          CachedNetworkImage(imageUrl: teacherInfo.teacherIMGPath, fit: BoxFit.cover),
 
-                //Spacer(),
-                CachedNetworkImage(imageUrl: teacherIMGPath, fit: BoxFit.fill, errorWidget: (context, url, error) => const Icon(Icons.error),),
-                //Image.network(teacherIMGPath, fit: BoxFit.cover,),
-                //Image.asset(teacherIMGPath),
+          8.verticalSpace,
 
-                //Spacer(),
+          Text(teacherInfo.teacherName, style: Styles.textStyle14),
 
-                Padding(
-                  padding: AppPadding().k8Top,
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          Text(teacherName, style: Styles.textStyle14,),
-          
           4.verticalSpace,
 
-          Text(teacherNameSubtitle, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
-
+          Text(teacherInfo.teacherNameSubtitle,style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kAlmostGreyColor,),),
           16.verticalSpace,
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:
-            [
-              CustomContainer(
-                containerWidth: 120.w,
-                containerHeight: 32.h,
-                containerDecoration: BoxDecoration(
-                  color: AppColors.kAlmostWhite2Color,
-                  borderRadius: AppBorders().radiusCircular42,
-                ),
-                containerChild: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:
-                  [
-                    Image.asset(flagIMGPath),
-                    4.horizontalSpace,
-                    
-                    Text("Nationality", style: Styles.textStyle10),
-                    4.horizontalSpace,
-
-                    Text(countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis,),
-                  ],
-                ),
-              ),
-
+            children: [
+              _buildInfoBox("Nationality", teacherInfo.flagIMGPath, teacherInfo.countryText),
               12.horizontalSpace,
-
-              CustomContainer(
-                containerWidth: 117.w,
-                containerHeight: 32.h,
-                containerDecoration: BoxDecoration(
-                  color: AppColors.kAlmostWhite2Color,
-                  borderRadius: AppBorders().radiusCircular42,
-                ),
-                containerChild: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:
-                  [
-                    Image.asset(AppIMGs().kFluencyTeachersView3LinesAccentPNG),
-                    4.horizontalSpace,
-                    Text("Accent", style: Styles.textStyle10),
-                    4.horizontalSpace,
-                    //American
-                    Text(accentText,style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              ),
+              _buildInfoBox("Accent", "assets/accent_icon.png", teacherInfo.accentText),
             ],
-          )
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoBox(String label, String imagePath, String value) {
+    return CustomContainer(
+      containerWidth: 120.w,
+      containerHeight: 32.h,
+      containerDecoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(42),
+      ),
+      containerChild: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(imagePath),
+          4.horizontalSpace,
+          Text(label, style: Styles.textStyle10),
+          4.horizontalSpace,
+          Text(
+            value,
+            style: Styles.textStyle10.copyWith(
+              color: Colors.grey,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
       ),
     );

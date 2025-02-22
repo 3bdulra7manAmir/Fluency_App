@@ -16,7 +16,8 @@ class CustomBottomNavBar extends StatelessWidget
     return BottomAppBar(
       color: AppColors.kLoginFormContainerBGColor,
       shape: const CircularNotchedRectangle(),
-      notchMargin: 8.0,
+      notchMargin: 10.0,
+      
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children:

@@ -1,6 +1,7 @@
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/utils/styles.dart';
 import 'package:fluency/Core/widgets/listview_builder/custom_listbuilder.dart';
+import 'package:fluency/Features/teachers/data/models/teachers_data_linker.dart';
 import 'package:fluency/Features/teachers/presentation/controllers/teacher_controller.dart';
 import 'package:fluency/Features/teachers/presentation/screens/teachers_bms.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_card.dart';
@@ -17,6 +18,7 @@ class TeachersView extends ConsumerWidget
   Widget build(BuildContext context, WidgetRef ref)
   {
     final teachersListAsync = ref.watch(teachersListProvider);
+
     return Scaffold(
       body: Column(
         children:
@@ -25,7 +27,7 @@ class TeachersView extends ConsumerWidget
 
           26.verticalSpace,
 
-          Text("Teachers", style: Styles.textStyle20, textAlign: TextAlign.center,),
+          Text("Teachers", style: Styles.textStyle20, textAlign: TextAlign.center),
 
           35.verticalSpace,
 
@@ -36,33 +38,24 @@ class TeachersView extends ConsumerWidget
                 listItemBuilder: (context, index)
                 {
                   final teacher = teachers[index];
+                  final teacherInfo = TeacherInfo(
+                    teacherIMGPath: teacher.photo ?? '',
+                    flagIMGPath: teacher.nationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
+                    teacherName: teacher.name ?? '',
+                    teacherNameSubtitle: teacher.headline ?? '',
+                    countryText: teacher.nationality?.name ?? "N/A",
+                    accentText: teacher.accent?.name ?? "N/A",
+                    videoUrl: null, // Initially null, updated on tap
+                  );
+
                   return GestureDetector(
                     onTap: () async
                     {
-                      //print("Tapped on ${teacher.name}");
-                      //print("Flag URL: ${teacher.nationality?.flag}");
-                      //print("Accent: ${teacher.accent?.name}");
                       final teacherDetails = await ref.read(teacherRepositoryProvider).getTeacherDetails(teacher.id ?? '');
-
-                      CustomTeachersBMS.show(
-                        context,
-                        teacherIMGPath: teacher.photo ?? '',
-                        flagIMGPath: teacher.nationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
-                        teacherName: teacher.name ?? '',
-                        teacherNameSubtitle: teacher.headline,
-                        countryText: teacher.nationality?.name ?? "N/A",
-                        accentText: teacher.accent?.name ?? "N/A",
-                        videoUrl: teacherDetails.video != null ? "https://api.fluency.live/${teacherDetails.video}" : null,
+                      CustomTeachersBMS.show(context, teacherInfo.copyWith(videoUrl: teacherDetails.video != null ? "https://api.fluency.live/${teacherDetails.video}" : null,),
                       );
                     },
-                    child: CustomTeachersCard(
-                      teacherIMGPath: teacher.photo ?? '',
-                      teacherName: teacher.name ?? '',
-                      teacherNameSubtitle: teacher.headline ?? '',
-                      flagIMGPath: teacher.nationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
-                      countryText: teacher.nationality?.name ?? "N/A",
-                      accentText: teacher.accent?.name ?? "N/A",
-                    ),
+                    child: CustomTeachersCard(teacherInfo: teacherInfo),
                   );
                 },
                 listseparatorBuilder: (context, index) => 10.verticalSpace,

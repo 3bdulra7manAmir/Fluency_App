@@ -1,4 +1,5 @@
 
+import 'package:fluency/Core/services/validation/validators.dart';
 import 'package:fluency/Features/auth/login/presentation/controller/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +9,6 @@ import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/widgets/containers/custom_container.dart';
 import 'package:fluency/config/router/app_router.dart';
 import 'package:fluency/core/utils/styles.dart';
-import 'package:fluency/core/utils/validators.dart';
 import 'package:fluency/core/widgets/buttons/custom_button.dart';
 import 'package:fluency/core/widgets/text_fields/custom_text_form_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,7 +40,7 @@ class LoginForm extends ConsumerWidget
                 containerMargin: AppPadding().k24Horizontal,
                 containerPadding: AppPadding().k16Horizontal,
                 containerWidth: 327.w,
-                containerHeight: 367.h,
+                //containerHeight: 367.h,
                 containerDecoration: BoxDecoration(
                   color: AppColors.kLoginFormBoxDecorationColor,
                   borderRadius: AppBorders().radiusCircular24,

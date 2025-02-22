@@ -33,6 +33,7 @@ abstract class AppRouter
 
       GoRoute(
         path: kNoNotificationsView,
+        name: kNotificationsView,
         builder: (context, state) => const NoNotificationsView(),
       ),
 
