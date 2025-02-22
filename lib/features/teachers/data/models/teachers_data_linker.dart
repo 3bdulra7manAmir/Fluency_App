@@ -1,11 +1,29 @@
+import 'package:hive/hive.dart';
+
+part 'teachers_data_linker.g.dart'; // This will be auto-generated
+
+@HiveType(typeId: 1)
 class TeacherInfo {
-  final String teacherIMGPath;
-  final String flagIMGPath;
+  @HiveField(0)
   final String teacherName;
+
+  @HiveField(1)
   final String teacherNameSubtitle;
+
+  @HiveField(2)
+  final String teacherIMGPath;
+
+  @HiveField(3)
+  final String flagIMGPath;
+
+  @HiveField(4)
   final String countryText;
+
+  @HiveField(5)
   final String accentText;
-  final String? videoUrl;
+
+  @HiveField(6)
+  final String? videoUrl; // Nullable video URL
 
   TeacherInfo({
     required this.teacherIMGPath,
@@ -36,5 +54,11 @@ class TeacherInfo {
       accentText: accentText ?? this.accentText,
       videoUrl: videoUrl ?? this.videoUrl,
     );
+  }
+
+  @override
+  String toString()
+  {
+    return 'TeacherInfo(name: $teacherName, bio: $teacherNameSubtitle, country: $countryText, accent: $accentText, image: $teacherIMGPath, video: ${videoUrl ?? "None"})';
   }
 }

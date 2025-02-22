@@ -18,7 +18,6 @@ class TeachersView extends ConsumerWidget
   Widget build(BuildContext context, WidgetRef ref)
   {
     final teachersListAsync = ref.watch(teachersListProvider);
-
     return Scaffold(
       body: Column(
         children:
@@ -27,7 +26,7 @@ class TeachersView extends ConsumerWidget
 
           26.verticalSpace,
 
-          Text("Teachers", style: Styles.textStyle20, textAlign: TextAlign.center),
+          Text("Teachers", style: Styles.textStyle20, textAlign: TextAlign.center,),
 
           35.verticalSpace,
 
@@ -38,6 +37,7 @@ class TeachersView extends ConsumerWidget
                 listItemBuilder: (context, index)
                 {
                   final teacher = teachers[index];
+
                   final teacherInfo = TeacherInfo(
                     teacherIMGPath: teacher.photo ?? '',
                     flagIMGPath: teacher.nationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
@@ -48,15 +48,7 @@ class TeachersView extends ConsumerWidget
                     videoUrl: null, // Initially null, updated on tap
                   );
 
-                  return GestureDetector(
-                    onTap: () async
-                    {
-                      final teacherDetails = await ref.read(teacherRepositoryProvider).getTeacherDetails(teacher.id ?? '');
-                      CustomTeachersBMS.show(context, teacherInfo.copyWith(videoUrl: teacherDetails.video != null ? "https://api.fluency.live/${teacherDetails.video}" : null,),
-                      );
-                    },
-                    child: CustomTeachersCard(teacherInfo: teacherInfo),
-                  );
+                  return CustomTeachersCard(teacherInfo: teacherInfo);
                 },
                 listseparatorBuilder: (context, index) => 10.verticalSpace,
               ),
