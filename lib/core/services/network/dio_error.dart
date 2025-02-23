@@ -1,25 +1,25 @@
 import 'package:dio/dio.dart';
 
-
-class DioErrorHandler
+class DioExceptions implements Exception
 {
-  static String handleError(DioException error)
+  final String message;
+
+  DioExceptions(this.message);
+
+  factory DioExceptions.fromDioError(DioException error)
   {
-    if (error.response != null)
+    switch (error.type)
     {
-      return 'Error: ${error.response?.statusCode} - ${error.response?.statusMessage}';
-    }
-    else if (error.type == DioExceptionType.connectionTimeout)
-    {
-      return 'Connection timeout, please try again.';
-    }
-    else if (error.type == DioExceptionType.receiveTimeout)
-    {
-      return 'Receive timeout, please try again.';
-    }
-    else
-    {
-      return 'Unexpected error occurred, please try again.';
+      case DioExceptionType.connectionTimeout:
+        return DioExceptions("Connection timed out. Please try again.");
+      case DioExceptionType.receiveTimeout:
+        return DioExceptions("Receive timeout in connection.");
+      case DioExceptionType.badResponse:
+        return DioExceptions("Server error: ${error.response?.statusCode}");
+      case DioExceptionType.cancel:
+        return DioExceptions("Request to server was cancelled.");
+      default:
+        return DioExceptions("Something went wrong.");
     }
   }
 }

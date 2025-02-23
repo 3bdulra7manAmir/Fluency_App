@@ -24,7 +24,7 @@ class ApiService
     
     catch (e)
     {
-      print(DioErrorHandler.handleError(e as DioException));
+      print(DioExceptions.fromDioError(e as DioException));
       return null;
     }
   }
