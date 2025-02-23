@@ -47,17 +47,16 @@ abstract class AppRouter
         name: kTeachersView,
         builder: (context, state) => const TeachersView(),
       ),
-
       GoRoute(
         path: kTeachersAPIView,
         name: kTeachersAPIView,
-        builder: (context, state) => const CustomTeachersAPIView(),
+        builder: (context, state) => const TeachersAPIView(),
       ),
 
       // MOVER //
       GoRoute(
         path: '/',
-        builder: (context, state) => const CustomTeachersAPIView(),
+        builder: (context, state) => const TeachersAPIView(),
       ),
       // MOVER //
     ],
