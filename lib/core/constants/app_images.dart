@@ -18,6 +18,7 @@ class AppIMGs
   String kFluencyNoNotificationsSVG = 'assets/images/svg/Not_View_no_Notifications.svg';
   String kFluencyTeacherViewUFOSVG = 'assets/images/svg/Teacher_View_UFO.svg';
   String kFluencyTeacherViewTeacherSaveSVG = 'assets/images/svg/Teacher_View_Save.svg';
+  String kFluencyTeacherViewTeacherSaveFilledSVG = 'assets/images/svg/Teacher_View_Save_Fill.svg';
   String kFluencyTeachersViewPlayButtonSVG = 'assets/images/svg/Teachers_View_PlayButton.svg';
   String kFluencyTeacherViewDownWordArrowsSVG = 'assets/images/svg/Teacher_View_DownWordArrows.svg';
   String kFluencyTeacherViewBillSVG = 'assets/images/svg/Teacher_View_Bill.svg';

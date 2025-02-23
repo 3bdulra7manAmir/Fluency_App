@@ -9,14 +9,14 @@ class CustomTeachersAPIView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sessionState = ref.watch(sessionProvider);
+    final teachersState = ref.watch(teachersProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text("Session History")),
-      body: sessionState.when(
-        data: (sessions) => ListView.builder(
-          itemCount: sessions.length,
-          itemBuilder: (context, index) => CustomTeachersAPICard(session: sessions[index]),
+      body: teachersState.when(
+        data: (teachersData) => ListView.builder(
+          itemCount: teachersData.length,
+          itemBuilder: (context, index) => CustomTeachersAPICard(teachersData: teachersData[index]),
         ),
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, _) => Center(child: Text("❌ Error: ${err.toString()}")),

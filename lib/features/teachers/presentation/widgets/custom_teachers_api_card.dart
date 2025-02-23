@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class CustomTeachersAPICard extends StatelessWidget
 {
-  final TeachersAPIModel session;
+  final TeachersAPIModel teachersData;
 
-  const CustomTeachersAPICard({super.key, required this.session});
+  const CustomTeachersAPICard({super.key, required this.teachersData});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +13,11 @@ class CustomTeachersAPICard extends StatelessWidget
       margin: const EdgeInsets.all(8),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundImage: NetworkImage(session.teacherImage),
+          backgroundImage: NetworkImage(teachersData.teacherImage),
         ),
-        title: Text(session.teacherName, style: const TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Text("${session.status} | ${session.type}"),
-        trailing: Text("${session.startTime.day}-${session.startTime.month}-${session.startTime.year}"),
+        title: Text(teachersData.teacherName, style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text("${teachersData.status} | ${teachersData.type}"),
+        trailing: Text("${teachersData.startTime.day}-${teachersData.startTime.month}-${teachersData.startTime.year}"),
       ),
     );
   }

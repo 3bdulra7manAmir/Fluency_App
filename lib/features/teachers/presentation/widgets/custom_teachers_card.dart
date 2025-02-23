@@ -23,6 +23,7 @@ class CustomTeachersCard extends ConsumerWidget
   @override
   Widget build(BuildContext context, WidgetRef ref)
   {
+    final isSaved = ref.watch(teacherSaveProvider(teacherInfo));
     return CustomContainer(
       containerMargin: AppPadding().k24Horizontal,
       containerWidth: 327.w,
@@ -70,16 +71,18 @@ class CustomTeachersCard extends ConsumerWidget
                 ),
 
                 GestureDetector(
-                  onTap: () async
-                  {
-                      await HiveDB.saveTeacher(teacherInfo);
-                      await HiveDB.printTeachersDB();
+                  onTap: () {
+                    ref.read(teacherSaveProvider(teacherInfo).notifier).toggleSaveState();
                   },
                   child: Padding(
                     padding: AppPadding().k8Top,
                     child: Align(
                       alignment: Alignment.topRight,
-                      child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewTeacherSaveSVG),
+                      child: SvgPicture.asset(
+                        isSaved
+                            ? AppIMGs().kFluencyTeacherViewTeacherSaveFilledSVG
+                            : AppIMGs().kFluencyTeacherViewTeacherSaveSVG,
+                      ),
                     ),
                   ),
                 ),

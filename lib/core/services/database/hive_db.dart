@@ -1,4 +1,6 @@
 import 'package:fluency/Features/teachers/data/models/teachers_data_linker.dart';
+import 'package:fluency/Features/teachers/data/models/teachers_details_model/teachers_details_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 
 class HiveDB
@@ -48,4 +50,42 @@ class HiveDB
     await box.clear();
     print("🔥 Database cleared!");
   }
+
+  static Future<bool> isTeacherSaved(TeacherInfo teacherInfo) async
+  {
+    try
+    {
+      var box = await Hive.openBox<TeacherInfo>(boxName);
+      return box.containsKey(teacherInfo.teacherName); // Check by teacher name
+    }
+    catch (e)
+    {
+      print("❌ Error checking teacher: $e");
+      return false;
+    }
+  }
+
+  static Future<void> removeTeacher(TeacherInfo teacherInfo) async
+  {
+    try
+    {
+      var box = await Hive.openBox<TeacherInfo>(boxName);
+      if (box.containsKey(teacherInfo.teacherName))
+      {
+        await box.delete(teacherInfo.teacherName);
+        print("🗑️ Teacher '${teacherInfo.teacherName}' removed successfully!");
+      }
+
+      else
+      {
+        print("⚠️ Teacher '${teacherInfo.teacherName}' not found in DB.");
+      }
+    }
+
+    catch (e)
+    {
+      print("❌ Error removing teacher: $e");
+    }
+  }
+
 }

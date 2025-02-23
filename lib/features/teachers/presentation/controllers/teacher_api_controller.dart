@@ -9,7 +9,7 @@ final teachersRepositoryProvider = Provider<TeachersAPIRepository>((ref)
   return TeachersAPIRepository(ref.read(dioProvider));
 });
 
-final sessionProvider = FutureProvider<List<TeachersAPIModel>>((ref) async
+final teachersProvider = FutureProvider<List<TeachersAPIModel>>((ref) async
 {
   return ref.read(teachersRepositoryProvider).fetchSessions();
 });
