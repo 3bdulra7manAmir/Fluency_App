@@ -16,7 +16,7 @@ class CustomTeachersBillContainer extends StatelessWidget
   Widget build(BuildContext context)
   {
     return GestureDetector(
-      onTap: (){GoRouter.of(context).push(AppRouter.kNoNotificationsView);},
+      onTap: (){AppRouter.router.goNamed(AppRouter.kNotificationsView);},
       child: CustomContainer(
         containerAlignment: Alignment.center,
         containerChild: SvgPicture.asset(AppIMGs().kFluencyTeacherViewBillSVG),

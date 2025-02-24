@@ -113,7 +113,7 @@ class LoginForm extends ConsumerWidget
                                   await ref.read(authControllerProvider.notifier).login(emailController.text, passwordController.text,);
                                   if (authController.authEntity != null)
                                   {
-                                    GoRouter.of(context).push(AppRouter.kNotificationsView);
+                                    AppRouter.router.goNamed(AppRouter.kNotificationsView);
                                   }
                                 }
                               },
@@ -137,7 +137,7 @@ class LoginForm extends ConsumerWidget
                   GestureDetector(
                     onTap: ()
                     {
-                      GoRouter.of(context).push(AppRouter.kNotificationsView);
+                      AppRouter.router.goNamed(AppRouter.kNotificationsView);
                     },
                     child: Text('Sign up', style: TextStyle(color: AppColors.kFirstGradientColor, fontWeight: FontWeight.bold, fontSize: 14.sp,),),
                   ),

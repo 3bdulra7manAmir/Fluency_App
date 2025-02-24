@@ -29,7 +29,7 @@ class _SplashViewState extends State<SplashView>
       isNavigating = true;
       Future.delayed(const Duration(seconds: 3), () 
       {
-        GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
+        AppRouter.router.pushReplacementNamed(AppRouter.kLoginView);
       });
     }
   }

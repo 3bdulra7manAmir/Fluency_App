@@ -15,17 +15,17 @@ class DioClient
   )..interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler)
       {
-        print("📡 [Request] ${options.method} ${options.uri}");
+        print("[Request] ${options.method} ${options.uri}");
         return handler.next(options);
       },
       onResponse: (response, handler)
       {
-        print("✅ [Response] ${response.statusCode}: ${response.data}");
+        print("[Response] ${response.statusCode}: ${response.data}");
         return handler.next(response);
       },
       onError: (DioException error, handler)
       {
-        print("❌ [Error] ${error.message}");
+        print("[Error] ${error.message}");
         return handler.next(error);
       },
     ));

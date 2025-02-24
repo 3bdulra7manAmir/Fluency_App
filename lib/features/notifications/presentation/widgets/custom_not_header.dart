@@ -26,7 +26,7 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
         GestureDetector(
           onTap: ()
           {
-            GoRouter.of(context).push(AppRouter.kNoNotificationsView);
+            AppRouter.router.goNamed(AppRouter.kNoNotificationsView);
           },
           child: CustomContainer(
             containerMargin: AppPadding().k24End,
@@ -43,7 +43,7 @@ class CustomNotificationsAppBar extends StatelessWidget implements PreferredSize
           onTap: ()
           {
             print('Pressed');
-            GoRouter.of(context).pop();
+            AppRouter.router.pop();
           },
           child: Image.asset(AppIMGs().kFluencyBackArrowPNGEdit,),  //HERE
         ),

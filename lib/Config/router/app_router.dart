@@ -56,7 +56,7 @@ abstract class AppRouter
       // MOVER //
       GoRoute(
         path: '/',
-        builder: (context, state) => const TeachersAPIView(),
+        builder: (context, state) => const TeachersView(),
       ),
       // MOVER //
     ],
