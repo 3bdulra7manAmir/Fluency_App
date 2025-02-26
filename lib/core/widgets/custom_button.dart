@@ -1,5 +1,5 @@
 import 'package:fluency/Core/constants/app_borders.dart';
-import 'package:fluency/Core/widgets/containers/custom_container.dart';
+import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:flutter/material.dart';
