@@ -1,8 +1,9 @@
 import 'package:fluency/Config/router/app_router.dart';
+import 'package:fluency/Config/router/app_routes.dart';
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_images.dart';
-import 'package:fluency/Core/widgets/Containers/custom_container.dart';
+import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,7 +17,7 @@ class CustomTeachersBillContainer extends StatelessWidget
   Widget build(BuildContext context)
   {
     return GestureDetector(
-      onTap: (){AppRouter.router.goNamed(AppRouter.kNotificationsView);},
+      onTap: (){AppRouter.router.goNamed(AppRoutes.kNotificationsView);},
       child: CustomContainer(
         containerAlignment: Alignment.center,
         containerChild: SvgPicture.asset(AppIMGs().kFluencyTeacherViewBillSVG),

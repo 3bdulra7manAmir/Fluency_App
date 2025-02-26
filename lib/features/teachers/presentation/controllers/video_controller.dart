@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBindingObserver {
-  VideoNotifier() : super(null) {
+class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBindingObserver
+{
+  VideoNotifier() : super(null)
+  {
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -11,62 +13,70 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
   bool isBuffering = false;
   double bufferProgress = 0.0;
 
-  void loadVideo(String videoUrl) {
-    disposeVideo(); // Dispose previous video first
+  void loadVideo(String videoUrl)
+  {
+    disposeVideo();
 
     final newController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
 
-    newController.initialize().then((_) {
+    newController.initialize().then((_)
+    {
       state = newController;
       state!.play();
       isPlaying = true;
 
-      // Listen for buffering state
-      state!.addListener(() {
+      state!.addListener(()
+      {
         isBuffering = state!.value.isBuffering;
 
-        // Track buffered progress
         final buffered = state!.value.buffered;
-        if (buffered.isNotEmpty) {
-          bufferProgress = buffered.last.end.inMilliseconds.toDouble() /
-              state!.value.duration.inMilliseconds.toDouble();
+        if (buffered.isNotEmpty)
+        {
+          bufferProgress = buffered.last.end.inMilliseconds.toDouble() / state!.value.duration.inMilliseconds.toDouble();
         }
 
-        // Auto dispose when video ends
-        if (state!.value.position >= state!.value.duration) {
+        if (state!.value.position >= state!.value.duration)
+        {
           isPlaying = false;
           disposeVideo();
         }
       });
-    }).catchError((error) {
+    }).catchError((error)
+    {
       debugPrint("Error initializing video: $error");
     });
   }
 
-  void togglePlayPause() {
+  void togglePlayPause()
+  {
     if (state == null) return;
-    if (state!.value.isPlaying) {
+    if (state!.value.isPlaying)
+    {
       state!.pause();
       isPlaying = false;
-    } else {
+    }
+    else
+    {
       state!.play();
       isPlaying = true;
     }
   }
 
-  /// **🔹 Fixed Seek Issue**
-  void seekTo(Duration position) async {
+  void seekTo(Duration position) async
+  {
     if (state == null) return;
 
     await state!.seekTo(position);
-    await Future.delayed(const Duration(milliseconds: 300)); // Give some time to sync
+    await Future.delayed(const Duration(milliseconds: 300));
     state!.pause();
-    await Future.delayed(const Duration(milliseconds: 300)); // Pause briefly
-    state!.play(); // Resume to restore audio
+    await Future.delayed(const Duration(milliseconds: 300));
+    state!.play();
   }
 
-  void disposeVideo() {
-    if (state != null) {
+  void disposeVideo()
+  {
+    if (state != null)
+    {
       state!.dispose();
       state = null;
       isPlaying = false;
@@ -76,25 +86,27 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState appState) {
+  void didChangeAppLifecycleState(AppLifecycleState appState)
+  {
     if (state == null) return;
 
-    if (appState == AppLifecycleState.paused) {
+    if (appState == AppLifecycleState.paused)
+    {
       state!.pause();
-    } else if (appState == AppLifecycleState.resumed) {
+    }
+    else if (appState == AppLifecycleState.resumed)
+    {
       state!.play();
     }
   }
 
   @override
-  void dispose() {
+  void dispose()
+  {
     WidgetsBinding.instance.removeObserver(this);
     disposeVideo();
     super.dispose();
   }
 }
 
-// Riverpod Provider
-final videoProvider = StateNotifierProvider<VideoNotifier, VideoPlayerController?>(
-  (ref) => VideoNotifier(),
-);
+final videoProvider = StateNotifierProvider<VideoNotifier, VideoPlayerController?>((ref) => VideoNotifier(),);

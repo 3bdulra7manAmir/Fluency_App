@@ -3,12 +3,11 @@ import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
-import 'package:fluency/Core/services/database/hive_db.dart';
-import 'package:fluency/Core/widgets/Containers/custom_container.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_api_model.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_data_linker.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_list_model/teachers_list_model.dart';
-import 'package:fluency/Features/teachers/presentation/controllers/teacher_controller.dart';
+import 'package:fluency/Core/services/database/hive_database.dart';
+import 'package:fluency/Core/widgets/custom_container.dart';
+import 'package:fluency/Features/teachers/data/models/teachers_session_model/teachers_session_model.dart';
+import 'package:fluency/Features/teachers/data/models/teachers_database.dart';
+import 'package:fluency/Features/teachers/presentation/controllers/teachers_controller.dart';
 import 'package:fluency/Features/teachers/presentation/screens/teachers_bms.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -16,25 +15,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomTeachersAPICard extends ConsumerWidget
-{
+class CustomTeachersAPICard extends ConsumerWidget {
   const CustomTeachersAPICard({super.key, required this.teachersData});
 
   final TeachersAPIModel teachersData;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref)
-  {
-  final teacherInfo = TeacherInfo(
-    teacherIMGPath: teachersData.teacherImage,
-    flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
-    teacherName: teachersData.teacherName,
-    teacherNameSubtitle: teachersData.teacherHeadline,
-    countryText: "N/A",
-    accentText: "N/A",
-    videoUrl: null,
-  );
-
+  Widget build(BuildContext context, WidgetRef ref) {
+    final teacherInfo = TeachersInfoDB(
+      teacherIMGPath: teachersData.teacherImage,
+      flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
+      teacherName: teachersData.teacherName,
+      teacherNameSubtitle: teachersData.teacherHeadline,
+      countryText: "N/A",
+      accentText: "N/A",
+      videoUrl: null,
+    );
 
     return CustomContainer(
       containerMargin: AppPadding().k24Horizontal,
@@ -62,34 +58,41 @@ class CustomTeachersAPICard extends ConsumerWidget
                   padding: AppPadding().k8Top,
                   child: Align(
                     alignment: Alignment.topCenter,
-                    child: SvgPicture.asset(AppIMGs().kFluencyTeacherViewUFOSVG),
+                    child:
+                        SvgPicture.asset(AppIMGs().kFluencyTeacherViewUFOSVG),
                   ),
                 ),
                 GestureDetector(
-                  onTap: () async
-                  {
+                  onTap: () async {
                     CustomTeachersBMS.show(context, teacherInfo);
                   },
                   child: CachedNetworkImage(
                     imageUrl: teacherInfo.teacherIMGPath,
                     fit: BoxFit.fill,
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 GestureDetector(
-                  onTap: ()
-                  {
-                    ref.read(teacherSaveProvider(teacherInfo).notifier).toggleSaveState();
+                  onTap: () {
+                    ref
+                        .read(teachersInfoDBSaverProvider(teacherInfo).notifier)
+                        .toggleSaveState();
                   },
                   child: Consumer(
-                    builder: (context, ref, child)
-                    {
-                      final isSaved = ref.watch(teacherSaveProvider(teacherInfo));
+                    builder: (context, ref, child) {
+                      final isSaved =
+                          ref.watch(teachersInfoDBSaverProvider(teacherInfo));
                       return Padding(
                         padding: AppPadding().k8Top,
                         child: Align(
                           alignment: Alignment.topRight,
-                          child: SvgPicture.asset(isSaved ? AppIMGs().kFluencyTeacherViewTeacherSaveFilledSVG : AppIMGs().kFluencyTeacherViewTeacherSaveSVG,),
+                          child: SvgPicture.asset(
+                            isSaved
+                                ? AppIMGs()
+                                    .kFluencyTeacherViewTeacherSaveFilledSVG
+                                : AppIMGs().kFluencyTeacherViewTeacherSaveSVG,
+                          ),
                         ),
                       );
                     },
@@ -100,19 +103,34 @@ class CustomTeachersAPICard extends ConsumerWidget
           ),
           Text(teacherInfo.teacherName, style: Styles.textStyle14),
           4.verticalSpace,
-          Text(teacherInfo.teacherNameSubtitle, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor)),
+          Text(teacherInfo.teacherNameSubtitle,
+              style: Styles.textStyle10.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.kDontHaveAccountColor)),
 
           16.verticalSpace,
 
-           // Session Info
-          Text("Next Session: ${teachersData.startTime.day}-${teachersData.startTime.month}-${teachersData.startTime.year} "
+          // Session Info
+          Text(
+            "Next Session: ${teachersData.startTime.day}-${teachersData.startTime.month}-${teachersData.startTime.year} "
             "at ${teachersData.startTime.hour}:${teachersData.startTime.minute.toString().padLeft(2, '0')}",
-            style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),
+            style: Styles.textStyle10.copyWith(
+                fontWeight: FontWeight.w500,
+                color: AppColors.kDontHaveAccountColor),
           ),
 
-          Text("Duration: ${teachersData.duration} minutes", style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),),
+          Text(
+            "Duration: ${teachersData.duration} minutes",
+            style: Styles.textStyle10.copyWith(
+                fontWeight: FontWeight.w500,
+                color: AppColors.kDontHaveAccountColor),
+          ),
 
-          Text("Session Type: ${teachersData.type}", style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),
+          Text(
+            "Session Type: ${teachersData.type}",
+            style: Styles.textStyle10.copyWith(
+                fontWeight: FontWeight.w500,
+                color: AppColors.kDontHaveAccountColor),
           ),
         ],
       ),

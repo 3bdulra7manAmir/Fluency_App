@@ -1,6 +1,6 @@
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
-import 'package:fluency/Core/widgets/Containers/custom_container.dart';
+import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_acc.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_bill.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_container.dart';

@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluency/Features/teachers/presentation/controllers/video_controller.dart';
-import 'package:fluency/Core/widgets/Containers/custom_container.dart';
+import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:fluency/Core/constants/app_borders.dart';
 import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
