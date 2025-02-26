@@ -17,6 +17,12 @@ abstract class Styles
     fontFamily: 'Nunito',
   );
 
+  static TextStyle textStyle18 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    fontFamily: 'Nunito',
+  );
   static TextStyle textStyle16 = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,
