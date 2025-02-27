@@ -1,7 +1,7 @@
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/utils/styles.dart';
-import 'package:fluency/Features/notifications/presentation/widgets/custom_not_header.dart';
+import 'package:fluency/Features/notifications/presentation/widgets/custom_notif_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

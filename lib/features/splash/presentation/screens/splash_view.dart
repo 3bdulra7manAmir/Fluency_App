@@ -1,4 +1,5 @@
-import 'package:fluency/Core/widgets/containers/custom_container.dart';
+import 'package:fluency/Config/router/app_routes.dart';
+import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:fluency/config/router/app_router.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_images.dart';
@@ -29,7 +30,7 @@ class _SplashViewState extends State<SplashView>
       isNavigating = true;
       Future.delayed(const Duration(seconds: 3), () 
       {
-        AppRouter.router.pushReplacementNamed(AppRouter.kLoginView);
+        AppRouter.router.pushReplacementNamed(AppRoutes.kLoginView);
       });
     }
   }
