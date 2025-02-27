@@ -2,9 +2,9 @@ import 'package:dio/dio.dart';
 
 class DioExceptions implements Exception
 {
-  final String message;
-
   DioExceptions(this.message);
+
+  final String message;
 
   factory DioExceptions.fromDioError(DioException error)
   {
