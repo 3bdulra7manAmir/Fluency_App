@@ -3,16 +3,9 @@ import 'package:fluency/Features/teachers/data/models/teachers_details_model/tea
 import 'package:flutter/services.dart';
 
 
-abstract class TeacherRepository
+class TeachersRepositoryMock
 {
-  Future<List<TeachersDetailsModel>> getTeachersList();
-  Future<TeachersDetailsModel> getTeacherDetails(String id);
-}
-
-
-class TeachersRepositoryMock implements TeacherRepository
-{
-  @override
+  
   Future<List<TeachersDetailsModel>> getTeachersList() async
   {
     final String jsonString = await rootBundle.loadString('assets/json/teachers_list_mock.json');
@@ -21,7 +14,7 @@ class TeachersRepositoryMock implements TeacherRepository
     return jsonList.map((json) => TeachersDetailsModel.fromJson(json)).toList();
   }
 
-  @override
+  
   Future<TeachersDetailsModel> getTeacherDetails(String id) async
   {
     final String jsonString = await rootBundle.loadString('assets/json/teachers_details_mock.json');

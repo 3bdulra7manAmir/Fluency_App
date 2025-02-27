@@ -12,20 +12,20 @@ class CustomTeachersBNBDetails1 extends StatelessWidget
 {
   const CustomTeachersBNBDetails1({
     super.key,
-    required this.teacherIMGPath,
-    required this.flagIMGPath,
-    required this.teacherName,
-    required this.teacherNameSubtitle,
-    required this.countryText,
-    required this.accentText,
+    this.teacherIMGPath,
+    this.flagIMGPath,
+    this.teacherName,
+    this.teacherNameSubtitle,
+    this.countryText,
+    this.accentText,
   });
 
-  final String teacherIMGPath;
-  final String flagIMGPath;
-  final String teacherName;
-  final String teacherNameSubtitle;
-  final String countryText;
-  final String accentText;
+  final String? teacherIMGPath;
+  final String? flagIMGPath;
+  final String? teacherName;
+  final String? teacherNameSubtitle;
+  final String? countryText;
+  final String? accentText;
 
   @override
   Widget build(BuildContext context)
@@ -40,19 +40,19 @@ class CustomTeachersBNBDetails1 extends StatelessWidget
           containerDecoration: BoxDecoration(
             color: AppColors.kAlmostOrangeColor,
             borderRadius: AppBorders().radiusCircular99,
-            image: DecorationImage(image: CachedNetworkImageProvider(teacherIMGPath), fit: BoxFit.cover,),
+            image: DecorationImage(image: CachedNetworkImageProvider(teacherIMGPath!), fit: BoxFit.cover,),
           ),
         ),
 
         8.verticalSpace,
 
-        Text(teacherName, style: Styles.textStyle16),
+        Text(teacherName!, style: Styles.textStyle16),
 
         4.verticalSpace,
 
         Padding(
           padding: AppPadding().k49Horizontal,
-          child: Text(teacherNameSubtitle, style: Styles.textStyle12.copyWith(color: AppColors.kDontHaveAccountColor,), textAlign: TextAlign.center,),
+          child: Text(teacherNameSubtitle!, style: Styles.textStyle12.copyWith(color: AppColors.kDontHaveAccountColor,), textAlign: TextAlign.center,),
         ),
 
         16.verticalSpace,
@@ -72,7 +72,7 @@ class CustomTeachersBNBDetails1 extends StatelessWidget
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:
                 [
-                  Image.asset(flagIMGPath),
+                  Image.asset(flagIMGPath!),
 
                   4.horizontalSpace,
 
@@ -80,7 +80,7 @@ class CustomTeachersBNBDetails1 extends StatelessWidget
 
                   4.horizontalSpace,
 
-                  Text(countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600,),),
+                  Text(countryText!, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600,),),
                 ],
               ),
             ),
@@ -106,7 +106,7 @@ class CustomTeachersBNBDetails1 extends StatelessWidget
 
                   4.horizontalSpace,
 
-                  Text(accentText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600,),
+                  Text(accentText!, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600,),
                   ),
                 ],
               ),

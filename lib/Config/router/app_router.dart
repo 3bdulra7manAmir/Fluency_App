@@ -11,7 +11,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
-abstract class AppRouter {
+abstract class AppRouter
+{
   const AppRouter._();
 
   static final navigatorState = GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -21,7 +22,16 @@ abstract class AppRouter {
     debugLogDiagnostics: kDebugMode,
     //initialLocation: AppRoutes.kSplashView,
     errorBuilder: (context, state) => const RouterErrorWidget(),
-    routes: [
+    routes:
+    [
+
+      // MOVER //
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const TeachersView(),
+      ),
+      // MOVER //
+
       GoRoute(
         path: AppRoutes.kSplashView,
         name: AppRoutes.kSplashView,
@@ -57,13 +67,6 @@ abstract class AppRouter {
         name: AppRoutes.kTeachersAPIView,
         builder: (context, state) => const TeachersSessionView(),
       ),
-
-      // MOVER //
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const TeachersView(),
-      ),
-      // MOVER //
     ],
   );
 }

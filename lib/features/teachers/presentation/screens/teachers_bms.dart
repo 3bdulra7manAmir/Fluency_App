@@ -43,7 +43,6 @@ class CustomTeachersBMS extends StatelessWidget
       containerChild: Column(
         children: [
           CustomContainer(
-            //DIVIDER INSTEAD OR EQUAL TO IT
             containerMargin: AppPadding().k8Top,
             containerWidth: 38.w,
             containerHeight: 5.h,
@@ -52,19 +51,23 @@ class CustomTeachersBMS extends StatelessWidget
               borderRadius: AppBorders().radiusCircular100,
             ),
           ),
+
           16.verticalSpace,
+
           CustomTeachersBNBDetails1(
             teacherIMGPath: teacherInfo.teacherIMGPath,
             accentText: teacherInfo.accentText,
             countryText: teacherInfo.countryText,
             flagIMGPath: teacherInfo.flagIMGPath,
             teacherName: teacherInfo.teacherName,
-            teacherNameSubtitle: teacherInfo.teacherNameSubtitle,
+            teacherNameSubtitle: teacherInfo.teacherBio,
           ),
+
           16.verticalSpace,
+
           CustomTeachersBnbDetails2(
             videoUrl: teacherInfo.videoUrl ?? '',
-            teacherIMGPath: teacherInfo.teacherIMGPath,
+            teacherIMGPath: teacherInfo.teacherIMGPath!,
           ),
         ],
       ),

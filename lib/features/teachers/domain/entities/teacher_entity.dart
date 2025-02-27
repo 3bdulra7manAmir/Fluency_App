@@ -1,4 +1,5 @@
-class TeacherEntity {
+class TeacherEntity
+{
   final String id;
   final String photo;
   final String name;

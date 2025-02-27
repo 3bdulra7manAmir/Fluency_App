@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fluency/Core/services/services/api_strings.dart';
 
 class DioClient
 {
@@ -10,12 +11,12 @@ class DioClient
 
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'https://api.fluency.live/api/v1/',
+      baseUrl: ApiStrings.baseURL,
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
       headers:
       {
-        'Authorization': 'Bearer 97|gAYT90VDWZQgKUOWQ2MLMkj5Yrf87IE3RGNLmrnC9bf874bd',
+        'Authorization': ApiStrings.authKey,
         'Content-Type': 'application/json',
       },
     ),

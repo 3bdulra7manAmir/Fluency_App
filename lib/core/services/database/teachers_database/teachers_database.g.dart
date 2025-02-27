@@ -21,7 +21,7 @@ class TeachersInfoDBAdapter extends TypeAdapter<TeachersInfoDB>
       teacherIMGPath: fields[2] as String,
       flagIMGPath: fields[3] as String,
       teacherName: fields[0] as String,
-      teacherNameSubtitle: fields[1] as String,
+      teacherBio: fields[1] as String,
       countryText: fields[4] as String,
       accentText: fields[5] as String,
       videoUrl: fields[6] as String?,
@@ -35,7 +35,7 @@ class TeachersInfoDBAdapter extends TypeAdapter<TeachersInfoDB>
       ..writeByte(0)
       ..write(obj.teacherName)
       ..writeByte(1)
-      ..write(obj.teacherNameSubtitle)
+      ..write(obj.teacherBio)
       ..writeByte(2)
       ..write(obj.teacherIMGPath)
       ..writeByte(3)

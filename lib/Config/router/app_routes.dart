@@ -8,5 +8,4 @@ abstract class AppRoutes
   static const kNoNotificationsView = '/NoNotificationsView';
   static const kTeachersView = '/TeachersView';
   static const kTeachersAPIView = '/TeachersAPIView';
-  
 }

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBindingObserver
+class VideoController extends StateNotifier<VideoPlayerController?> with WidgetsBindingObserver
 {
-  VideoNotifier() : super(null)
+  VideoController() : super(null)
   {
     WidgetsBinding.instance.addObserver(this);
   }
@@ -109,4 +109,4 @@ class VideoNotifier extends StateNotifier<VideoPlayerController?> with WidgetsBi
   }
 }
 
-final videoProvider = StateNotifierProvider<VideoNotifier, VideoPlayerController?>((ref) => VideoNotifier(),);
+final videoProvider = StateNotifierProvider<VideoController, VideoPlayerController?>((ref) => VideoController(),);

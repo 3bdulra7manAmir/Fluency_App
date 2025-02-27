@@ -7,31 +7,30 @@ class ApiService
   ApiService._internal();
   static final ApiService _instance = ApiService._internal();
   factory ApiService() => _instance;
-  
-  
-  static final Dio _dio = DioClient.dio;
-  Future<Response?> fetchSessions() async
+
+  Future<dynamic> fetchSessions({required String endpoint, required response2List}) async
   {
     try
     {
-      final response = await _dio.get('sessions?filter=history');
+      final response = await DioClient.dio.get(endpoint);
 
       if (response.statusCode == 200)
       {
-        return response;
+        return (response.data as List).map((json) => response2List.fromJson(json)).toList();
+        //return response;
       }
 
       else
       {
-        //print('Failed to fetch sessions: ${response.statusCode} - ${response.statusMessage}');
+        // print('Failed to fetch sessions: ${response.statusCode} - ${response.statusMessage}');
         return null;
       }
     }
 
-    catch (e)
+    catch (error)
     {
-      //print('Dio Error: ${DioExceptions.fromDioError(e as DioException)}');
-      return null;
+      // print('Dio Error: ${DioExceptions.fromDioError(e as DioException)}');
+      return DioExceptions.fromDioError(error as DioException);
     }
   }
 }

@@ -4,46 +4,46 @@ import 'package:hive/hive.dart';
 
 part 'teachers_database.g.dart'; // This will be auto-generated
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 1, adapterName: "TeachersInfoDBAdapter")
 class TeachersInfoDB extends Equatable
 {
   @HiveField(0)
-  final String teacherName;
+  final String? teacherName;
 
   @HiveField(1)
-  final String teacherNameSubtitle;
+  final String? teacherBio;
 
   @HiveField(2)
-  final String teacherIMGPath;
+  final String? teacherIMGPath;
 
   @HiveField(3)
-  final String flagIMGPath;
+  final String? flagIMGPath;
 
   @HiveField(4)
-  final String countryText;
+  final String? countryText;
 
   @HiveField(5)
-  final String accentText;
+  final String? accentText;
 
   @HiveField(6)
   final String? videoUrl; // Nullable video URL
 
   const TeachersInfoDB({
-    required this.teacherIMGPath,
-    required this.flagIMGPath,
-    required this.teacherName,
-    required this.teacherNameSubtitle,
-    required this.countryText,
-    required this.accentText,
+    this.teacherIMGPath,
+    this.teacherName,
+    this.teacherBio,
+    this.flagIMGPath,
+    this.countryText,
+    this.accentText,
     this.videoUrl,
   });
 
   @override
   List<Object?> get props =>
   [
-    teacherName,
-    teacherNameSubtitle,
     teacherIMGPath,
+    teacherName,
+    teacherBio,
     flagIMGPath,
     countryText,
     accentText,
@@ -53,7 +53,7 @@ class TeachersInfoDB extends Equatable
   @override
   String toString()
   {
-    return 'TeacherInfo(name: $teacherName, bio: $teacherNameSubtitle, country: $countryText, accent: $accentText, image: $teacherIMGPath, video: ${videoUrl ?? "None"})';
+    return 'TeacherInfo(image: $teacherIMGPath, name: $teacherName, bio: $teacherBio, flag: $flagIMGPath, country: $countryText, accent: $accentText, video: ${videoUrl ?? "None"})';
   }
   
 }

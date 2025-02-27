@@ -2,9 +2,8 @@ import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/utils/styles.dart';
 import 'package:fluency/Core/widgets/custom_listbuilder.dart';
 import 'package:fluency/Features/teachers/presentation/controllers/teachers_session_controller.dart';
-import 'package:fluency/Features/teachers/presentation/controllers/teachers_controller.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_session_card.dart';
-import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_card.dart';
+import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_mock_card.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +16,7 @@ class TeachersSessionView extends ConsumerWidget
   @override
   Widget build(BuildContext context, WidgetRef ref)
   {
-    final teachersAPIListAsync = ref.watch(teachersProvider);
+    final teachersAPIListAsync = ref.watch(teachersSessionProvider);
 
     return Scaffold(
       body: Column(

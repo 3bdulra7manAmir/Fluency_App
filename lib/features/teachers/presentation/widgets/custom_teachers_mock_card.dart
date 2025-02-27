@@ -6,7 +6,7 @@ import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/services/database/hive_database.dart';
 import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:fluency/Core/services/database/teachers_database/teachers_database.dart';
-import 'package:fluency/Features/teachers/presentation/controllers/teachers_controller.dart';
+import 'package:fluency/Features/teachers/presentation/controllers/teachers_mock_controller.dart';
 import 'package:fluency/Features/teachers/presentation/screens/teachers_bms.dart';
 import 'package:fluency/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +14,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomTeachersCard extends ConsumerWidget
+class CustomTeachersMockCard extends ConsumerWidget
 {
-  const CustomTeachersCard({super.key, required this.teachersInfo});
+  const CustomTeachersMockCard({super.key, required this.teachersInfo});
 
   final TeachersInfoDB teachersInfo;
 
@@ -55,8 +55,24 @@ class CustomTeachersCard extends ConsumerWidget
                 ),
 
                 GestureDetector(
-                  onTap: () {CustomTeachersBMS.show(context, teachersInfo,);},
-                  child: CachedNetworkImage(imageUrl: teachersInfo.teacherIMGPath, fit: BoxFit.fill,
+                  onTap: ()
+                  {
+
+    // Ensure `videoUrl` is properly formatted and included
+    final updatedTeacherInfo = TeachersInfoDB(
+      teacherName: teachersInfo.teacherName,
+      teacherIMGPath: teachersInfo.teacherIMGPath,
+      flagIMGPath: teachersInfo.flagIMGPath,
+      teacherBio: teachersInfo.teacherBio,
+      countryText: teachersInfo.countryText,
+      accentText: teachersInfo.accentText,
+      videoUrl: teachersInfo.videoUrl != null
+          ? "https://api.fluency.live/${teachersInfo.videoUrl}"
+          : null, // Ensure null safety
+    );
+                    CustomTeachersBMS.show(context, updatedTeacherInfo);
+                  },
+                  child: CachedNetworkImage(imageUrl: teachersInfo.teacherIMGPath!, fit: BoxFit.fill,
                     errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
                 ),
@@ -75,11 +91,11 @@ class CustomTeachersCard extends ConsumerWidget
             ),
           ),
 
-          Text(teachersInfo.teacherName, style: Styles.textStyle14,),
+          Text(teachersInfo.teacherName!, style: Styles.textStyle14,),
 
           4.verticalSpace,
 
-          Text(teachersInfo.teacherNameSubtitle, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
+          Text(teachersInfo.teacherBio!, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
 
           16.verticalSpace,
 
@@ -95,7 +111,7 @@ class CustomTeachersCard extends ConsumerWidget
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:
                   [
-                    Image.asset(teachersInfo.flagIMGPath),
+                    Image.asset(teachersInfo.flagIMGPath!),
 
                     4.horizontalSpace,
 
@@ -103,7 +119,7 @@ class CustomTeachersCard extends ConsumerWidget
 
                     4.horizontalSpace,
 
-                    Text(teachersInfo.countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600),
+                    Text(teachersInfo.countryText!, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
@@ -132,7 +148,7 @@ class CustomTeachersCard extends ConsumerWidget
                     4.horizontalSpace,
                     //American
 
-                    Text(teachersInfo.accentText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
+                    Text(teachersInfo.accentText!, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
                   ],
                 ),
               ),
