@@ -15,18 +15,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomTeachersAPICard extends ConsumerWidget {
+class CustomTeachersAPICard extends ConsumerWidget
+{
   const CustomTeachersAPICard({super.key, required this.teachersData});
 
   final TeachersAPIModel teachersData;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref)
+  {
     final teacherInfo = TeachersInfoDB(
-      teacherIMGPath: teachersData.teacherImage,
+      teacherIMGPath: teachersData.teacherIMGPath,
       flagIMGPath: AppIMGs().kFluencyTeachersViewEGFlagPNG,
       teacherName: teachersData.teacherName,
-      teacherBio: teachersData.teacherHeadline,
+      teacherBio: teachersData.teacherBio,
       countryText: "N/A",
       accentText: "N/A",
       videoUrl: null,
@@ -70,7 +72,7 @@ class CustomTeachersAPICard extends ConsumerWidget {
                     CustomTeachersBMS.show(context, teacherInfo);
                   },
                   child: CachedNetworkImage(
-                    imageUrl: teacherInfo.teacherIMGPath!,
+                    imageUrl: teacherInfo.teacherIMGPath,
                     fit: BoxFit.fill,
                     errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
@@ -98,22 +100,22 @@ class CustomTeachersAPICard extends ConsumerWidget {
               ],
             ),
           ),
-          Text(teacherInfo.teacherName!, style: Styles.textStyle14),
+          Text(teacherInfo.teacherName, style: Styles.textStyle14),
 
           4.verticalSpace,
 
-          Text(teacherInfo.teacherBio!, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor)),
+          Text(teacherInfo.teacherBio, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor)),
 
           16.verticalSpace,
 
           // Session Info
-          Text("Next Session: ${teachersData.startTime.day}-${teachersData.startTime.month}-${teachersData.startTime.year}"
-            "at ${teachersData.startTime.hour}:${teachersData.startTime.minute.toString().padLeft(2, '0')}",
+          Text("Next Session: ${teachersData.sessionStartTime.day}-${teachersData.sessionStartTime.month}-${teachersData.sessionStartTime.year}"
+            "at ${teachersData.sessionStartTime.hour}:${teachersData.sessionStartTime.minute.toString().padLeft(2, '0')}",
             style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),),
 
-          Text("Duration: ${teachersData.duration} minutes", style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),),
+          Text("Duration: ${teachersData.sessionDuration} minutes", style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),),
 
-          Text("Session Type: ${teachersData.type}",style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),),
+          Text("Session Type: ${teachersData.sessionType}",style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w500, color: AppColors.kDontHaveAccountColor),),
         ],
       ),
     );

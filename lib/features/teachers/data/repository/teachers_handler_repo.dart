@@ -13,7 +13,7 @@ class TeachersHandler extends StateNotifier<bool>
 
   Future<void> loadSavedState() async
   {
-    state = await HiveDB().isTeacherSaved(teacherInfo.teacherName!);
+    state = await HiveDB().isTeacherSaved(teacherInfo.teacherName);
   }
 
   Future<void> toggleSaveState() async

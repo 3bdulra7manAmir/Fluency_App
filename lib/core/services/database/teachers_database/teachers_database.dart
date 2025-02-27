@@ -8,34 +8,34 @@ part 'teachers_database.g.dart'; // This will be auto-generated
 class TeachersInfoDB extends Equatable
 {
   @HiveField(0)
-  final String? teacherName;
+  final String teacherName;
 
   @HiveField(1)
-  final String? teacherBio;
+  final String teacherBio;
 
   @HiveField(2)
-  final String? teacherIMGPath;
+  final String teacherIMGPath;
 
   @HiveField(3)
-  final String? flagIMGPath;
+  final String flagIMGPath;
 
   @HiveField(4)
-  final String? countryText;
+  final String countryText;
 
   @HiveField(5)
-  final String? accentText;
+  final String accentText;
 
   @HiveField(6)
   final String? videoUrl; // Nullable video URL
 
   const TeachersInfoDB({
-    this.teacherIMGPath,
-    this.teacherName,
-    this.teacherBio,
-    this.flagIMGPath,
-    this.countryText,
-    this.accentText,
-    this.videoUrl,
+   required this.teacherIMGPath,
+   required this.teacherName,
+   required this.teacherBio,
+   required this.flagIMGPath,
+   required this.countryText,
+   required this.accentText,
+   required this.videoUrl,
   });
 
   @override

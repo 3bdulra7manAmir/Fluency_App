@@ -1,22 +1,35 @@
-class TeacherEntity
+import 'package:equatable/equatable.dart';
+
+class TeacherEntity extends Equatable
 {
   final String id;
-  final String photo;
-  final String name;
-  final String headline;
-  final String bio;
-  final String? accent;
-  final String? nationality;
-  final String? video;
+  final String teacherIMGPath;
+  final String teacherName;
+  final String teacherBio;
+  final String? teacherAccent;
+  final String? teacherNationality;
+  final String? teacherVideo;
 
-  TeacherEntity({
+  const TeacherEntity({
     required this.id,
-    required this.photo,
-    required this.name,
-    required this.headline,
-    required this.bio,
-    this.accent,
-    this.nationality,
-    this.video,
+    required this.teacherIMGPath,
+    required this.teacherName,
+    required this.teacherBio,
+    this.teacherAccent,
+    this.teacherNationality,
+    this.teacherVideo,
   });
+  
+  @override
+  List<Object?> get props =>
+  [
+    id,
+    teacherIMGPath,
+    teacherName,
+    teacherBio,
+    teacherAccent,
+    teacherNationality,
+    teacherVideo,
+
+  ];
 }

@@ -72,7 +72,7 @@ class CustomTeachersMockCard extends ConsumerWidget
     );
                     CustomTeachersBMS.show(context, updatedTeacherInfo);
                   },
-                  child: CachedNetworkImage(imageUrl: teachersInfo.teacherIMGPath!, fit: BoxFit.fill,
+                  child: CachedNetworkImage(imageUrl: teachersInfo.teacherIMGPath, fit: BoxFit.fill,
                     errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
                 ),
@@ -91,11 +91,11 @@ class CustomTeachersMockCard extends ConsumerWidget
             ),
           ),
 
-          Text(teachersInfo.teacherName!, style: Styles.textStyle14,),
+          Text(teachersInfo.teacherName, style: Styles.textStyle14,),
 
           4.verticalSpace,
 
-          Text(teachersInfo.teacherBio!, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
+          Text(teachersInfo.teacherBio, style: Styles.textStyle10.copyWith(fontWeight: FontWeight.w600, color: AppColors.kDontHaveAccountColor),),
 
           16.verticalSpace,
 
@@ -111,7 +111,7 @@ class CustomTeachersMockCard extends ConsumerWidget
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:
                   [
-                    Image.asset(teachersInfo.flagIMGPath!),
+                    Image.asset(teachersInfo.flagIMGPath),
 
                     4.horizontalSpace,
 
@@ -119,7 +119,7 @@ class CustomTeachersMockCard extends ConsumerWidget
 
                     4.horizontalSpace,
 
-                    Text(teachersInfo.countryText!, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600),
+                    Text(teachersInfo.countryText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
@@ -148,7 +148,7 @@ class CustomTeachersMockCard extends ConsumerWidget
                     4.horizontalSpace,
                     //American
 
-                    Text(teachersInfo.accentText!, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
+                    Text(teachersInfo.accentText, style: Styles.textStyle10.copyWith(color: AppColors.kAlmostGreyColor, fontWeight: FontWeight.w600)),
                   ],
                 ),
               ),

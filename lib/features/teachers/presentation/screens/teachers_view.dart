@@ -40,12 +40,12 @@ class TeachersView extends ConsumerWidget
                   final teacher = teachers[index];
 
                   final teacherInfo = TeachersInfoDB(
-                    teacherIMGPath: teacher.photo ?? '',
-                    flagIMGPath: teacher.nationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
-                    teacherName: teacher.name ?? '',
-                    teacherBio: teacher.headline ?? '',
-                    countryText: teacher.nationality?.name ?? "N/A",
-                    accentText: teacher.accent?.name ?? "N/A",
+                    teacherIMGPath: teacher.teacherIMGPath ?? '',
+                    flagIMGPath: teacher.teacherNationality?.flag ?? AppIMGs().kFluencyTeachersViewEGFlagPNG,
+                    teacherName: teacher.teacherName ?? '',
+                    teacherBio: teacher.teacherBio ?? '',
+                    countryText: teacher.teacherNationality?.name ?? "N/A",
+                    accentText: teacher.teacherAccent?.name ?? "N/A",
                     videoUrl: null,
                   );
 

@@ -67,7 +67,7 @@ class CustomTeachersBMS extends StatelessWidget
 
           CustomTeachersBnbDetails2(
             videoUrl: teacherInfo.videoUrl ?? '',
-            teacherIMGPath: teacherInfo.teacherIMGPath!,
+            teacherIMGPath: teacherInfo.teacherIMGPath,
           ),
         ],
       ),

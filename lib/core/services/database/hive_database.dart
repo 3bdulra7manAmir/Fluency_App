@@ -1,5 +1,5 @@
 import 'package:fluency/Core/services/database/teachers_database/teachers_database.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_details_model/teachers_details.dart';
+import 'package:fluency/Features/teachers/data/models/teachers_info_model/teachers_info.dart';
 import 'package:fluency/Features/teachers/domain/entities/teacher_entity.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
