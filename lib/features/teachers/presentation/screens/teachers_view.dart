@@ -2,7 +2,7 @@ import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/utils/styles.dart';
 import 'package:fluency/Core/widgets/custom_error_widget.dart';
 import 'package:fluency/Core/widgets/custom_listbuilder.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_database.dart';
+import 'package:fluency/Core/services/database/teachers_database/teachers_database.dart';
 import 'package:fluency/Features/teachers/presentation/controllers/teachers_controller.dart';
 import 'package:fluency/Features/teachers/presentation/screens/teachers_bms.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_card.dart';

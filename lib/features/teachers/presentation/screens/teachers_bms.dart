@@ -4,7 +4,7 @@ import 'package:fluency/Core/constants/app_colors.dart';
 import 'package:fluency/Core/constants/app_images.dart';
 import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/widgets/custom_container.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_database.dart';
+import 'package:fluency/Core/services/database/teachers_database/teachers_database.dart';
 import 'package:fluency/Features/teachers/presentation/controllers/video_controller.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_bms_details.dart';
 import 'package:fluency/Features/teachers/presentation/widgets/custom_teachers_bms_details2.dart';
@@ -15,22 +15,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:video_player/video_player.dart';
 
-class CustomTeachersBMS extends StatelessWidget {
+class CustomTeachersBMS extends StatelessWidget
+{
   const CustomTeachersBMS({super.key, required this.teacherInfo});
 
   final TeachersInfoDB teacherInfo;
 
-  static void show(BuildContext context, TeachersInfoDB teacherInfo) {
+  static void show(BuildContext context, TeachersInfoDB teacherInfo)
+  {
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
-      builder: (BuildContext context) =>
-          CustomTeachersBMS(teacherInfo: teacherInfo),
+      builder: (BuildContext context) => CustomTeachersBMS(teacherInfo: teacherInfo),
     );
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return CustomContainer(
       containerWidth: double.infinity,
       containerHeight: 556.h,

@@ -1,4 +1,4 @@
-import 'package:fluency/Core/widgets/containers/custom_container.dart';
+import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:fluency/core/constants/app_colors.dart';
 import 'package:fluency/core/constants/app_images.dart';
 import 'package:fluency/Features/auth/login/presentation/widgets/custom_clipper.dart';

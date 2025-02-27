@@ -10,11 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TeachersSessionView extends ConsumerWidget {
+class TeachersSessionView extends ConsumerWidget
+{
   const TeachersSessionView({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref)
+  {
     final teachersAPIListAsync = ref.watch(teachersProvider);
 
     return Scaffold(

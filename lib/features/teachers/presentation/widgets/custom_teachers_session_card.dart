@@ -6,7 +6,7 @@ import 'package:fluency/Core/constants/app_padding.dart';
 import 'package:fluency/Core/services/database/hive_database.dart';
 import 'package:fluency/Core/widgets/custom_container.dart';
 import 'package:fluency/Features/teachers/data/models/teachers_session_model/teachers_session_model.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_database.dart';
+import 'package:fluency/Core/services/database/teachers_database/teachers_database.dart';
 import 'package:fluency/Features/teachers/presentation/controllers/teachers_controller.dart';
 import 'package:fluency/Features/teachers/presentation/screens/teachers_bms.dart';
 import 'package:fluency/core/utils/styles.dart';

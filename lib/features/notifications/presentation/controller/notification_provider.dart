@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fluency/Features/notifications/data/repository/notification_repository.dart';
+import 'package:fluency/Features/notifications/data/repository/notification_repo.dart';
 import 'package:fluency/Features/notifications/domain/entites/notification_entity.dart';
 
 final notificationControllerProvider = ChangeNotifierProvider(

@@ -1,5 +1,5 @@
 import 'package:fluency/Core/services/database/hive_database.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_database.dart';
+import 'package:fluency/Core/services/database/teachers_database/teachers_database.dart';
 import 'package:fluency/Features/teachers/data/models/teachers_details_model/teachers_details.dart';
 import 'package:fluency/Features/teachers/data/datasources/teachers_repo_mock.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,7 +33,7 @@ class TeachersController extends StateNotifier<bool> {
 
   Future<void> toggleSaveState() async {
     if (state) {
-      await HiveDB().removeTeacher(teacherInfo);
+      await HiveDB().rmTeacher(teacherInfo);
     } else {
       await HiveDB().saveTeacher(teacherInfo);
     }

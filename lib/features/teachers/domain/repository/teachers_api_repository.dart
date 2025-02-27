@@ -1,19 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:fluency/Core/services/network/dio_error.dart';
-import 'package:fluency/Features/teachers/data/models/teachers_api_model.dart';
-
+import 'package:fluency/Core/services/network/dio_init.dart';
+import 'package:fluency/Features/teachers/data/models/teachers_session_model/teachers_session_model.dart';
 
 class TeachersAPIRepository
 {
-  final Dio dio;
 
-  TeachersAPIRepository(this.dio);
+  TeachersAPIRepository();
 
-  Future<List<TeachersAPIModel>> fetchSessions() async
+  Future<List<TeachersAPIModel>> fetchSession() async
   {
     try
     {
-      final response = await dio.get('sessions?filter=history');
+      final response = await DioClient.dio.get('sessions?filter=history');
       return (response.data as List).map((json) => TeachersAPIModel.fromJson(json)).toList();
     }
     
