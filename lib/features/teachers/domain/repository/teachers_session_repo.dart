@@ -11,7 +11,7 @@ class TeachersAPIRepository
   {
     try
     {
-      return await ApiService().fetchSessions(endpoint: ApiStrings.history, response2List: TeachersAPIModel);
+      return await ApiService().fetchSessions(endpoint: ApiStrings.historyEP, response2List: TeachersAPIModel);
     }
     
     catch (error)

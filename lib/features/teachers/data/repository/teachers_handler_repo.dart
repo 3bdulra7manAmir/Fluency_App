@@ -2,10 +2,9 @@ import 'package:fluency/Core/services/database/hive_database.dart';
 import 'package:fluency/Core/services/database/teachers_database/teachers_database.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class TeachersCRUD extends StateNotifier<bool>
+class TeachersHandler extends StateNotifier<bool>
 {
-
-  TeachersCRUD(this.teacherInfo) : super(false)
+  TeachersHandler(this.teacherInfo) : super(false)
   {
     loadSavedState();
   }
@@ -14,7 +13,7 @@ class TeachersCRUD extends StateNotifier<bool>
 
   Future<void> loadSavedState() async
   {
-    state = await HiveDB().isTeacherSaved(teacherInfo);
+    state = await HiveDB().isTeacherSaved(teacherInfo.teacherName!);
   }
 
   Future<void> toggleSaveState() async
@@ -23,11 +22,11 @@ class TeachersCRUD extends StateNotifier<bool>
     {
       await HiveDB().rmTeacher(teacherInfo);
     }
+
     else
     {
       await HiveDB().saveTeacher(teacherInfo);
     }
     state = !state;
   }
-
 }
