@@ -4,44 +4,43 @@ import 'package:fluency/Features/teachers/data/models/teachers_details_model/tea
 import 'package:fluency/Features/teachers/data/datasources/teachers_repo_mock.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final teachersRepoMockProvider = Provider<TeacherRepository>((ref) {
-  return TeachersRepositoryMock();
+final teachersListProvider = FutureProvider<List<TeachersDetailsModel>>((ref) async
+{
+  final teachersRepo = TeachersRepositoryMock();
+  return teachersRepo.getTeachersList();
 });
 
-final teachersListProvider =
-    FutureProvider<List<TeachersDetailsModel>>((ref) async {
-  final repository = ref.read(teachersRepoMockProvider);
-  return repository.getTeachersList();
-});
 
-final teacherDetailsProvider =
-    FutureProvider.family<TeachersDetailsModel, String>((ref, id) async {
-  final repository = ref.read(teachersRepoMockProvider);
-  return repository.getTeacherDetails(id);
-});
+class TeachersController extends StateNotifier<bool>
+{
 
-class TeachersController extends StateNotifier<bool> {
-  TeachersController(this.teacherInfo) : super(false) {
+  TeachersController(this.teacherInfo) : super(false)
+  {
     loadSavedState();
   }
 
   final TeachersInfoDB teacherInfo;
 
-  Future<void> loadSavedState() async {
+  Future<void> loadSavedState() async
+  {
     state = await HiveDB().isTeacherSaved(teacherInfo);
   }
 
-  Future<void> toggleSaveState() async {
-    if (state) {
+  Future<void> toggleSaveState() async
+  {
+    if (state)
+    {
       await HiveDB().rmTeacher(teacherInfo);
-    } else {
+    }
+    else
+    {
       await HiveDB().saveTeacher(teacherInfo);
     }
     state = !state;
   }
+
 }
 
-final teachersInfoDBSaverProvider =
-    StateNotifierProvider.family<TeachersController, bool, TeachersInfoDB>(
+final teachersInfoDBSaverProvider = StateNotifierProvider.family<TeachersController, bool, TeachersInfoDB>(
   (ref, teacherInfo) => TeachersController(teacherInfo),
 );
